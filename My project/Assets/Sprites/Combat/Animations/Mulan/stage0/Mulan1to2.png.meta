@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 6fabfd0416e50ee41921c9952c7f24c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4956594890184203992
+    second: Mulan1to2_0
+  - first:
+      213: -8047506900831921421
+    second: Mulan1to2_1
+  - first:
+      213: -1824807374240190239
+    second: Mulan1to2_2
+  - first:
+      213: 9185641179010127675
+    second: Mulan1to2_3
+  - first:
+      213: -4928800582148801828
+    second: Mulan1to2_4
+  - first:
+      213: 2369387427480480963
+    second: Mulan1to2_5
+  - first:
+      213: 6424585586300623646
+    second: Mulan1to2_6
+  - first:
+      213: -4772810462059616204
+    second: Mulan1to2_7
+  - first:
+      213: -7954708463333404571
+    second: Mulan1to2_8
+  - first:
+      213: -2393830706947224970
+    second: Mulan1to2_9
+  - first:
+      213: -8598720527653137272
+    second: Mulan1to2_10
+  - first:
+      213: -788343510550127386
+    second: Mulan1to2_11
+  - first:
+      213: 6208855319071138817
+    second: Mulan1to2_12
+  - first:
+      213: 3729473924792584676
+    second: Mulan1to2_13
+  - first:
+      213: 3619273966751789721
+    second: Mulan1to2_14
+  - first:
+      213: 245106154304580190
+    second: Mulan1to2_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mulan1to2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 348
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de12fc9acc59c440800000000000000
+      internalID: 4956594890184203992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 348
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa98687c13815090800000000000000
+      internalID: -8047506900831921421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 348
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e076e28c5bfca6e0800000000000000
+      internalID: -1824807374240190239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 348
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3759151cf3f97f70800000000000000
+      internalID: 9185641179010127675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda38440cf1699bb0800000000000000
+      internalID: -4928800582148801828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 232
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc204ecf41c1e020800000000000000
+      internalID: 2369387427480480963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 232
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b1b844d86b82950800000000000000
+      internalID: 6424585586300623646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 232
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4382ba41c2293cdb0800000000000000
+      internalID: -4772810462059616204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56018376cc23b9190800000000000000
+      internalID: -7954708463333404571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 116
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a0df3b7a767ced0800000000000000
+      internalID: -2393830706947224970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 116
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8841062fc353ba880800000000000000
+      internalID: -8598720527653137272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 116
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ecdca401cd3f05f0800000000000000
+      internalID: -788343510550127386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104a70b44094a2650800000000000000
+      internalID: 6208855319071138817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9085666c0c1c330800000000000000
+      internalID: 3729473924792584676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9923f0d3f7e3a3230800000000000000
+      internalID: 3619273966751789721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan1to2_15
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 116
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a269bafbac66300800000000000000
+      internalID: 245106154304580190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

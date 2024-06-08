@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb71cd9c32ca5b54d99072cf5b7ac6a2, type: 3}
+  m_Name: screechingBatVarient
+  m_EditorClassIdentifier: 
+  enemyName: Screeching Bat Varient
+  enemyPrefab: {fileID: 677568104197035292, guid: e9138ec2786c1434e80a36b8c33830be, type: 3}
+  potentialItems:
+  - {fileID: 11400000, guid: 3b8c6db16d29e0e47ade27446aac3abb, type: 2}
+  - {fileID: 11400000, guid: 39b44fc2032dc5046a5da3f1e21cd649, type: 2}
+  itemDropChance: 0f00000064000000

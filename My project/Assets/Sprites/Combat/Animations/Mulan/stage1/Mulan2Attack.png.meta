@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 6b10c0f3fc7421b40b9806c41d4f821e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4862488878505929673
+    second: Mulan2Attack_0
+  - first:
+      213: 4150620843912386457
+    second: Mulan2Attack_1
+  - first:
+      213: -7606189296511698643
+    second: Mulan2Attack_2
+  - first:
+      213: 3005228345754025357
+    second: Mulan2Attack_3
+  - first:
+      213: 7992863196391782962
+    second: Mulan2Attack_4
+  - first:
+      213: -2544623567462280225
+    second: Mulan2Attack_5
+  - first:
+      213: 4137691624693608927
+    second: Mulan2Attack_6
+  - first:
+      213: 262153562150418692
+    second: Mulan2Attack_7
+  - first:
+      213: 9057789150874916657
+    second: Mulan2Attack_8
+  - first:
+      213: -4218711747957130397
+    second: Mulan2Attack_9
+  - first:
+      213: -7463210847119101444
+    second: Mulan2Attack_10
+  - first:
+      213: -7498514708655662353
+    second: Mulan2Attack_11
+  - first:
+      213: 4856821510911747177
+    second: Mulan2Attack_12
+  - first:
+      213: -2663015900998503610
+    second: Mulan2Attack_13
+  - first:
+      213: 2025035154465584440
+    second: Mulan2Attack_14
+  - first:
+      213: -3731351075766281087
+    second: Mulan2Attack_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mulan2Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb22a75fd70b7340800000000000000
+      internalID: 4862488878505929673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 288
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997dab6aaa7f99930800000000000000
+      internalID: 4150620843912386457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 288
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29ba075223617690800000000000000
+      internalID: -7606189296511698643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 288
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d7a911247b4b920800000000000000
+      internalID: 3005228345754025357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ab937aaba5cee60800000000000000
+      internalID: 7992863196391782962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 192
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3d25ee85eafacd0800000000000000
+      internalID: -2544623567462280225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 192
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1b8f73c980c6930800000000000000
+      internalID: 4137691624693608927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_7
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 192
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409349c964b53a300800000000000000
+      internalID: 262153562150418692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13759441e3bb3bd70800000000000000
+      internalID: 9057789150874916657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_9
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 96
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b7f3554002475c0800000000000000
+      internalID: -4218711747957130397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_10
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 96
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1bf9db6495d6890800000000000000
+      internalID: -7463210847119101444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_11
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 96
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea998fe99cefe790800000000000000
+      internalID: -7498514708655662353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964ee5f7e65e66340800000000000000
+      internalID: 4856821510911747177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_13
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64374c5b5211b0bd0800000000000000
+      internalID: -2663015900998503610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_14
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835799f6ebe5a1c10800000000000000
+      internalID: 2025035154465584440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mulan2Attack_15
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 202
+        height: 96
+      alignment: 9
+      pivot: {x: 0.1666667, y: 0.1770833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cdda457f3973cc0800000000000000
+      internalID: -3731351075766281087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

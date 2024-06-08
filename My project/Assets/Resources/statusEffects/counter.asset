@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d84321dc8b9c0b4486e4457862dcbb3, type: 3}
+  m_Name: counter
+  m_EditorClassIdentifier: 
+  effectName: counter
+  description: return damage to attacker
+  icon: {fileID: 8777135948898310440, guid: 387b94b459d61ff4ca2ca625c8532d0e, type: 3}
+  damage: 0
+  duration: 1
+  type: 4
+  time: 3
+  animation: {fileID: 0}
+  iconGO: {fileID: 0}
+  topRow: 0
+  sprites: []

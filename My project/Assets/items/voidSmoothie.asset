@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb8497445defe745bdfdd6e5b7a61c3, type: 3}
+  m_Name: voidSmoothie
+  m_EditorClassIdentifier: 
+  index: 2
+  itemName: Void Smoothie
+  flavor: Taste of nothingness, yet not empty
+  effectDescription: Remove all status effects
+  art: {fileID: 21300000, guid: 0a190e17f619bde41b38a67da53d03a8, type: 3}
+  art16Bit: {fileID: 21300000, guid: eab049a8b0b802b42abcfb23c5dbea8f, type: 3}
+  useOnPlayer: 1
+  useOnEnemy: 1
+  consume: 0
+  hpRestore: 0
+  bpRestore: 0
+  effect: {fileID: 11400000, guid: c4a675bb299c72545bb46382d4f778ac, type: 2}

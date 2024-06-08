@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 7df5d9f8375219f48ae0c52c0ba35403
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4835336696756928978
+    second: PrinceRapidSlash_0
+  - first:
+      213: 1200369290178268435
+    second: PrinceRapidSlash_1
+  - first:
+      213: 1961053268691641681
+    second: PrinceRapidSlash_2
+  - first:
+      213: -6650576966327245057
+    second: PrinceRapidSlash_3
+  - first:
+      213: 5138355343679219296
+    second: PrinceRapidSlash_4
+  - first:
+      213: -5892440070379695381
+    second: PrinceRapidSlash_5
+  - first:
+      213: -6976379346132955749
+    second: PrinceRapidSlash_6
+  - first:
+      213: -8745955795099823942
+    second: PrinceRapidSlash_7
+  - first:
+      213: 1460954752723450439
+    second: PrinceRapidSlash_8
+  - first:
+      213: -685935933875327051
+    second: PrinceRapidSlash_9
+  - first:
+      213: 8528957992356827245
+    second: PrinceRapidSlash_10
+  - first:
+      213: 9105126192925625513
+    second: PrinceRapidSlash_11
+  - first:
+      213: 2859993939723314986
+    second: PrinceRapidSlash_12
+  - first:
+      213: 4268064448817900854
+    second: PrinceRapidSlash_13
+  - first:
+      213: -890242614584051511
+    second: PrinceRapidSlash_14
+  - first:
+      213: -5355002343034835514
+    second: PrinceRapidSlash_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PrinceRapidSlash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d18b936b119a1340800000000000000
+      internalID: 4835336696756928978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 640
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d0d54728198a010800000000000000
+      internalID: 1200369290178268435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 640
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155ebf9ce8f073b10800000000000000
+      internalID: 1961053268691641681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff66ba24c7764b3a0800000000000000
+      internalID: -6650576966327245057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066eabdf5fa1f4740800000000000000
+      internalID: 5138355343679219296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_5
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 512
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be29db8b9f8d93ea0800000000000000
+      internalID: -5892440070379695381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_6
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d8f5772fbee2f90800000000000000
+      internalID: -6976379346132955749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 384
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab05ecbda8f10a680800000000000000
+      internalID: -8745955795099823942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_8
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74afffc6b9a564410800000000000000
+      internalID: 1460954752723450439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_9
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf6fa207e01b76f0800000000000000
+      internalID: -685935933875327051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_10
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6058ae0b12fc5670800000000000000
+      internalID: 8528957992356827245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_11
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9accf6c0808eb5e70800000000000000
+      internalID: 9105126192925625513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_12
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 128
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a276af4d55db0b720800000000000000
+      internalID: 2859993939723314986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63da346c0063b3b30800000000000000
+      internalID: 4268064448817900854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c87dc90f0935a3f0800000000000000
+      internalID: -890242614584051511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrinceRapidSlash_15
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 224
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2578125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd2604bdb53fa5b0800000000000000
+      internalID: -5355002343034835514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

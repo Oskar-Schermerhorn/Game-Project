@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb71cd9c32ca5b54d99072cf5b7ac6a2, type: 3}
+  m_Name: fruitBat
+  m_EditorClassIdentifier: 
+  enemyName: Fruit Bat
+  enemyPrefab: {fileID: 4337935550754157415, guid: 3669c8178ff8644448291e3c0e86a383, type: 3}
+  potentialItems:
+  - {fileID: 11400000, guid: 39b44fc2032dc5046a5da3f1e21cd649, type: 2}
+  - {fileID: 11400000, guid: 687bb8ada57993c4daa40389370af0cd, type: 2}
+  - {fileID: 11400000, guid: bb123f754df630f4ba922e083ea40938, type: 2}
+  itemDropChance: 0f0000002800000064000000

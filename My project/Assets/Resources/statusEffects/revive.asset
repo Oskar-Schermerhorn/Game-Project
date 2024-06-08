@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d84321dc8b9c0b4486e4457862dcbb3, type: 3}
+  m_Name: revive
+  m_EditorClassIdentifier: 
+  effectName: revive
+  description: The user revives
+  icon: {fileID: 0}
+  amount: 8
+  duration: 1
+  type: 5
+  time: 0
+  animation: {fileID: 7536524018554096417, guid: f89373fc0f8752e48a76173df2fc2446, type: 3}
+  iconGO: {fileID: 0}
+  topRow: 0
+  sprites: []

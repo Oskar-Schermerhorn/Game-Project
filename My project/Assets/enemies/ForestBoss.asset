@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb71cd9c32ca5b54d99072cf5b7ac6a2, type: 3}
+  m_Name: ForestBoss
+  m_EditorClassIdentifier: 
+  enemyName: ForestBoss
+  enemyPrefab: {fileID: 6115371198394284154, guid: 5123bd0d50fdd434fb510a6061c63125, type: 3}
+  potentialItems:
+  - {fileID: 11400000, guid: bb123f754df630f4ba922e083ea40938, type: 2}
+  itemDropChance: 64000000
