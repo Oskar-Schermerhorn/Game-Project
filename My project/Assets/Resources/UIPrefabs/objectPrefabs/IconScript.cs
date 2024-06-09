@@ -41,18 +41,19 @@ public class IconScript : MonoBehaviour
     }
     private void setPlayer(int p)
     {
-        if(p > spawn.unitList.Count)
+        if(p < spawn.unitList.Count)
         {
-            player = spawn.unitList[p];
-            if (player.GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+            if (spawn.unitList[p].GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
             {
+                player = spawn.unitList[p];
                 displayIcon.Clear();
                 displayIcon.AddRange(player.GetComponent<BattleUnitIcons>().GetSprites());
                 GetComponent<SpriteRenderer>().enabled = true;
                 GetComponentInChildren<TextMeshProUGUI>().enabled = true;
                 //player.GetComponent<BattleUnitHealth>().hit.AddListener(updateHP);
+                updateHP();
             }
-            updateHP();
+            
         }
         
     }

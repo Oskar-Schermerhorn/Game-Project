@@ -14,10 +14,11 @@ public class SpawnScript : MonoBehaviour
     [SerializeField] GameObject[] playerPrefabs;
 
     List<GameObject> enemyList = new List<GameObject>();
-    Vector2[] positions = new Vector2[8];
+    List<Vector2> positions = new List<Vector2>();
     public float speed;
     private bool undo = false;
     public bool allowInput = false;
+    public Vector3 enemyOffset = new Vector2(0.5f, 0f);
 
     
 
@@ -88,18 +89,19 @@ public class SpawnScript : MonoBehaviour
     public void startUp()
     {
         print("start battle");
-        
 
-
-        for (int i = 0; i < 8; i++)
+        int j = 0;
+        positions.Clear();
+        for (int i = 0; i < unitList.Count; i++)
         {
-            if(i < 4)
+            if(unitList[i].GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
             {
-                positions[i] = GameObject.Find(battleHandler.name + "/Positions/PlayerPositions/position" + i).transform.position;
+                positions.Add(GameObject.Find(battleHandler.name + "/Positions/PlayerPositions/position" + i).transform.position);
             }
             else
             {
-                positions[i] = GameObject.Find(battleHandler.name + "/Positions/EnemyPositions/position" + i).transform.position;
+                positions.Add(GameObject.Find(battleHandler.name + "/Positions/EnemyPositions/position").transform.position + (enemyOffset * j));
+                j++;
             }
             
         }

@@ -15,11 +15,9 @@ public class MoveCoroutine : MonoBehaviour
         locator = gameObject.GetComponent<ObjectLocator>();
         spin = gameObject.GetComponent<SpinHandler>();
     }
-    public void Move(List<GameObject> objects, Vector2[] destinations)
+    public void Move(List<GameObject> objects, List<Vector2> destinations)
     {
-        List<Vector2> destinationList = new List<Vector2>();
-        destinationList.AddRange(destinations);
-        coroutine = StartCoroutine(MoveToTarget(objects, destinationList, true));
+        coroutine = StartCoroutine(MoveToTarget(objects, destinations, true));
 
     }
     public void Move(List<GameObject> objects, List<Vector2> destinations, bool left)
