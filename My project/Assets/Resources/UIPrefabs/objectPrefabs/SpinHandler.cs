@@ -92,10 +92,7 @@ public class SpinHandler : MonoBehaviour
         {
             return true;
         }
-        if(locator.locateObject(4).GetComponent<BattleUnitHealth>() == null || locator.locateObject(4).GetComponent<BattleUnitHealth>().health <= 0)
-        {
-            return true;
-        }
+        
         return false;
     }
 }

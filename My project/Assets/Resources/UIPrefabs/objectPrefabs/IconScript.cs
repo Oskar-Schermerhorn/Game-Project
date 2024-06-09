@@ -35,24 +35,26 @@ public class IconScript : MonoBehaviour
             case "Icon3":
                 setPlayer(2);
                 break;
-            case "Icon4":
-                setPlayer(3);
-                break;
+
 
         }
     }
     private void setPlayer(int p)
     {
-        player = spawn.unitList[p];
-        if(player.tag != "dontUse")
+        if(p > spawn.unitList.Count)
         {
-            displayIcon.Clear();
-            displayIcon.AddRange(player.GetComponent<BattleUnitIcons>().GetSprites());
-            GetComponent<SpriteRenderer>().enabled = true;
-            GetComponentInChildren<TextMeshProUGUI>().enabled = true;
-            //player.GetComponent<BattleUnitHealth>().hit.AddListener(updateHP);
+            player = spawn.unitList[p];
+            if (player.GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+            {
+                displayIcon.Clear();
+                displayIcon.AddRange(player.GetComponent<BattleUnitIcons>().GetSprites());
+                GetComponent<SpriteRenderer>().enabled = true;
+                GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+                //player.GetComponent<BattleUnitHealth>().hit.AddListener(updateHP);
+            }
+            updateHP();
         }
-        updateHP();
+        
     }
     private void updateHP()
     {

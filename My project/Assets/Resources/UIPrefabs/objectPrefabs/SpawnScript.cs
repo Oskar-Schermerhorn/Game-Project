@@ -5,21 +5,15 @@ using System;
 public class SpawnScript : MonoBehaviour
 {
     GameObject battleHandler;
-    public GameObject[] unitList = new GameObject[8];
+    public List<GameObject> unitList = new List<GameObject>();
 
     public DataRecorderParty dataParty;
     public DataRecorderCombat dataCombat;
     MoveCoroutine movement;
     StartBattleCoroutine setup;
     [SerializeField] GameObject[] playerPrefabs;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject player2;
-    [SerializeField] GameObject player3;
-    [SerializeField] GameObject player4;
-    [SerializeField] GameObject enemy1;
-    [SerializeField] GameObject enemy2;
-    [SerializeField] GameObject enemy3;
-    [SerializeField] GameObject enemy4;
+
+    List<GameObject> enemyList = new List<GameObject>();
     Vector2[] positions = new Vector2[8];
     public float speed;
     private bool undo = false;
@@ -43,85 +37,36 @@ public class SpawnScript : MonoBehaviour
         if (dataParty != null)
         {
             //GameObject junk = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1]);
-            if (dataParty.getPartyIndex(0) != -1)
+            unitList.Clear();
+            for(int i = 0; i<3; i++)
             {
-                player = Instantiate<GameObject>(playerPrefabs[dataParty.getPartyIndex(0)], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-                print("loading player 1 hp: " + dataParty.getPartyMember(dataParty.getPartyIndex(0)).hp);
-                player.GetComponent<BattleUnitHealth>().health = dataParty.getPartyMember(dataParty.getPartyIndex(0)).hp;
-                player.GetComponent<BattleUnitHealth>().maxhealth = dataParty.getPartyMember(dataParty.getPartyIndex(0)).maxHp;
-                player.name = player.name.Remove(player.name.Length - "(Clone)".Length);
+                if (dataParty.getPartyIndex(i) != -1)
+                {
+                    GameObject player = Instantiate<GameObject>(playerPrefabs[dataParty.getPartyIndex(i)], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
+                    print("loading player " + i + " hp: " + dataParty.getPartyMember(dataParty.getPartyIndex(i)).hp);
+                    player.GetComponent<BattleUnitHealth>().health = dataParty.getPartyMember(dataParty.getPartyIndex(i)).hp;
+                    player.GetComponent<BattleUnitHealth>().maxhealth = dataParty.getPartyMember(dataParty.getPartyIndex(i)).maxHp;
+                    player.name = player.name.Remove(player.name.Length - "(Clone)".Length);
+                    player.GetComponent<BattleUnitID>().UnitSide = side.PLAYER;
+                    unitList.Add(player);
+                }
             }
-            else
-                player = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-            if (dataParty.getPartyIndex(1) != -1)
-            {
-                player2 = Instantiate<GameObject>(playerPrefabs[dataParty.getPartyIndex(1)], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-                player2.GetComponent<BattleUnitHealth>().health = dataParty.getPartyMember(dataParty.getPartyIndex(1)).hp;
-                player2.GetComponent<BattleUnitHealth>().maxhealth = dataParty.getPartyMember(dataParty.getPartyIndex(1)).maxHp;
-                player2.name = player2.name.Remove(player2.name.Length - "(Clone)".Length);
-            }
-            else
-                player2 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-            if (dataParty.getPartyIndex(2) != -1)
-            {
-                player3 = Instantiate<GameObject>(playerPrefabs[dataParty.getPartyIndex(2)], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-                player3.GetComponent<BattleUnitHealth>().health = dataParty.getPartyMember(dataParty.getPartyIndex(2)).hp;
-                player3.GetComponent<BattleUnitHealth>().maxhealth = dataParty.getPartyMember(dataParty.getPartyIndex(2)).maxHp;
-                player3.name = player3.name.Remove(player3.name.Length - "(Clone)".Length);
-            }
-            else
-                player3 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-            if (dataParty.getPartyIndex(3) != -1)
-            {
-                player4 = Instantiate<GameObject>(playerPrefabs[dataParty.getPartyIndex(3)], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
-                player4.GetComponent<BattleUnitHealth>().health = dataParty.getPartyMember(dataParty.getPartyIndex(3)).hp;
-                player4.GetComponent<BattleUnitHealth>().maxhealth = dataParty.getPartyMember(dataParty.getPartyIndex(3)).maxHp;
-                player4.name = player4.name.Remove(player4.name.Length - "(Clone)".Length);
-            }
-            else
-                player4 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Players").transform);
             
             for (int i = 0; i< dataCombat.getEnemies().Count; i++)
             {
-                switch (i)
-                {
-                    case 0:
-                        enemy1 = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 1:
-                        enemy2 = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 2:
-                        enemy3 = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 3:
-                        enemy4 = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                }
+                GameObject enemy = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
+                enemy.GetComponent<BattleUnitID>().UnitSide = side.ENEMY;
+                enemyList.Add(enemy);
             }
-            for (int i = 3; i > dataCombat.getEnemies().Count-1; i--)
-            {
-                switch (i)
-                {
-                    case 0:
-                        enemy1 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 1:
-                        enemy2 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 2:
-                        enemy3 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                    case 3:
-                        enemy4 = Instantiate<GameObject>(playerPrefabs[playerPrefabs.Length - 1], playerSpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
-                        break;
-                }
-            }
+            unitList.AddRange(enemyList);
         }
     }
     public void updateLayer()
     {
-        for(int i = 0; i<8; i++)
+        /*
+         fix this with different unit numbers
+
+         for(int i = 0; i<8; i++)
         {
             if(i == 0 || i == 3 || i == 4 || i == 7)
             {
@@ -138,20 +83,13 @@ public class SpawnScript : MonoBehaviour
                 if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
                     unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 4;
             }
-        }
+        }*/
     }
     public void startUp()
     {
         print("start battle");
         
-        unitList[0] = player;
-        unitList[1] = player2;
-        unitList[2] = player3;
-        unitList[3] = player4;
-        unitList[4] = enemy1;
-        unitList[5] = enemy2;
-        unitList[6] = enemy3;
-        unitList[7] = enemy4;
+
 
         for (int i = 0; i < 8; i++)
         {
@@ -165,6 +103,7 @@ public class SpawnScript : MonoBehaviour
             }
             
         }
+        GameObject[] units = new GameObject[unitList.Count];
         setup.StartBattle(unitList, positions);
         print("after coroutine call");
         updateLayer();

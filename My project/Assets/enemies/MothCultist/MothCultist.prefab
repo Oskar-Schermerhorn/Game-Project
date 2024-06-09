@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: -7956686417785841285}
   - component: {fileID: 8714298158803007043}
   - component: {fileID: 4866073192862488840}
+  - component: {fileID: -9162493391911897926}
   m_Layer: 0
   m_Name: MothCultist
   m_TagString: moth
@@ -347,6 +348,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxhealth: 10
+--- !u!114 &-9162493391911897926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447211348862395547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2873ac180dee6b4fa275711390d029b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  UnitSide: 1
 --- !u!1001 &8300505622553173839
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,13 +5,13 @@ using UnityEngine;
 public class StartBattleCoroutine : MonoBehaviour
 {
     MoveCoroutine movement;
-    public void StartBattle(GameObject[] objects, Vector2[] destinations)
+    public void StartBattle(List<GameObject> objects, Vector2[] destinations)
     {
         movement = GameObject.Find("BattleHandler").GetComponent<MoveCoroutine>();
         StartCoroutine(Setup(objects, destinations));
     }
 
-    IEnumerator Setup(GameObject[] objects, Vector2[] destinations)
+    IEnumerator Setup(List<GameObject> objects, Vector2[] destinations)
     {
         print("Setup Coroutine started");
         bool movementComplete = false;

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1452207839914429659}
   - component: {fileID: 1470831884220053101}
   - component: {fileID: 3869403479899043827}
+  - component: {fileID: -3777164188222809767}
   m_Layer: 0
   m_Name: ScreechingBatVarient
   m_TagString: Untagged
@@ -267,6 +268,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6585b1c6cee2324e9dc92e2db6efe37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3777164188222809767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677568104197035292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2873ac180dee6b4fa275711390d029b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  UnitSide: 1
 --- !u!1 &4964679366920344616
 GameObject:
   m_ObjectHideFlags: 0

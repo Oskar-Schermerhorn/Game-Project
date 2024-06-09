@@ -15,13 +15,11 @@ public class MoveCoroutine : MonoBehaviour
         locator = gameObject.GetComponent<ObjectLocator>();
         spin = gameObject.GetComponent<SpinHandler>();
     }
-    public void Move(GameObject[] objects, Vector2[] destinations)
+    public void Move(List<GameObject> objects, Vector2[] destinations)
     {
-        List<GameObject> objectList = new List<GameObject>();
-        objectList.AddRange(objects);
         List<Vector2> destinationList = new List<Vector2>();
         destinationList.AddRange(destinations);
-        coroutine = StartCoroutine(MoveToTarget(objectList, destinationList, true));
+        coroutine = StartCoroutine(MoveToTarget(objects, destinationList, true));
 
     }
     public void Move(List<GameObject> objects, List<Vector2> destinations, bool left)
@@ -34,9 +32,9 @@ public class MoveCoroutine : MonoBehaviour
         StartedSpin();
         float elapsedTime = 0;
         List<Vector2> startingPositions = new List<Vector2>();
-        foreach(GameObject GO in objects)
+        for(int i = 0; i< objects.Count; i++)
         {
-            startingPositions.Add(GO.transform.position);
+            startingPositions.Add(objects[i].transform.position);
         }
         while (elapsedTime < 1)
         {
