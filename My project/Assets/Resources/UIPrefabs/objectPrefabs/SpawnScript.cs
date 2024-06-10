@@ -18,7 +18,7 @@ public class SpawnScript : MonoBehaviour
     public float speed;
     private bool undo = false;
     public bool allowInput = false;
-    public Vector3 enemyOffset = new Vector2(0.5f, 0f);
+    public Vector3 enemyOffset = new Vector2(0.55f, 0f);
 
     
 

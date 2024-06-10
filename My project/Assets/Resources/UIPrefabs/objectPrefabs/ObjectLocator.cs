@@ -12,7 +12,7 @@ public class ObjectLocator : MonoBehaviour
 
     public int locateObject(GameObject me)
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < spawn.unitList.Count; i++)
         {
             if (me.Equals(spawn.unitList[i]))
             {

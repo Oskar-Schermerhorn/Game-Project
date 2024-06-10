@@ -27,10 +27,10 @@ public class IconScript : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Icon1":
-                setPlayer(0);
+                setPlayer(1);
                 break;
             case "Icon2":
-                setPlayer(1);
+                setPlayer(0);
                 break;
             case "Icon3":
                 setPlayer(2);
@@ -52,6 +52,13 @@ public class IconScript : MonoBehaviour
                 GetComponentInChildren<TextMeshProUGUI>().enabled = true;
                 //player.GetComponent<BattleUnitHealth>().hit.AddListener(updateHP);
                 updateHP();
+            }
+            else
+            {
+                player = null;
+                displayIcon.Clear();
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponentInChildren<TextMeshProUGUI>().enabled = false;
             }
             
         }
