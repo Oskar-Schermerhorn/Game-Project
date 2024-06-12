@@ -26,4 +26,6 @@ public class move
         targetType = TargetType;
         action = Action;
     }
+
+    
 }

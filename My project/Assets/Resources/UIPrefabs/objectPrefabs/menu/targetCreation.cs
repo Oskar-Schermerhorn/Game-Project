@@ -44,7 +44,7 @@ public class targetCreation : MonoBehaviour
             switch (currentMove.targetType)
             {
                 case targetType.SINGLE:
-                    createTargets(0, currentMove.targetPos[0], getRange());
+                    createTargets(0, currentMove.targetPos[0], getRange(currentMove));
                     break;
                 case targetType.UNMOVABLE:
                     for (int i = 0; i < currentMove.targetPos.Length; i++)
@@ -189,29 +189,10 @@ public class targetCreation : MonoBehaviour
         target.transform.position = locator.locateObject(targetPositions[0]).transform.position;
         Targeting();
     }
-    private List<int> getRange()
+    private List<int> getRange(move SelectedMove)
     {
         List<int> range = new List<int> ();
-        range.Add(4);
-        switch (turn.turnNum)
-        {
-            case 0:
-                if (locator.locateObject(5).GetComponent<BattleUnitHealth>() != null && locator.locateObject(5).GetComponent<BattleUnitHealth>().health >0)
-                    range.Add(5);
-                if (locator.locateObject(6).GetComponent<BattleUnitHealth>() != null && locator.locateObject(6).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(6);
-                break;
-            case 1:
-                if (locator.locateObject(5).GetComponent<BattleUnitHealth>() != null && locator.locateObject(5).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(5);
-                break;
-            case 2:
-                if (locator.locateObject(6).GetComponent<BattleUnitHealth>() != null && locator.locateObject(6).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(6);
-                break;
-
-                
-        }
+        //SelectedMove.
         return range;
     }
     private List<int> getAllies()
