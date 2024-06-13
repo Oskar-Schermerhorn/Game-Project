@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: -860185066875190178}
   - component: {fileID: 7175545239937166203}
   m_Layer: 0
-  m_Name: Prince
+  m_Name: Aneas
   m_TagString: playerTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

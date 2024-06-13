@@ -22,7 +22,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
         if(locator.locateObject(this.gameObject) == position)
         {
             moveset.Clear();
-            moveset.AddRange(moveData.moveset);
+            moveset.AddRange(moveData.getMoveset());
             validMoves.Clear();
             for (int i = 0; i < moveset.Count; i++)
             {
@@ -43,7 +43,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
     {
         List<int> validTargets = new List<int>();
 
-        if(selectedMove.targetType == targetType.UNMOVABLE)
+        /*if(selectedMove.targetType == targetType.UNMOVABLE)
         {
             validTargets.AddRange(selectedMove.targetPos);
             return validTargets;
@@ -68,9 +68,9 @@ public class EnemyUnitMoveSelect : MonoBehaviour
             }
         }
         System.Random random = new System.Random();
-        int pickedTarget = -1;
+        int pickedTarget = -1;*/
         List<int> SelectedTargets = new List<int>();
-        for(int i =0; i<checkNumTargets(selectedMove); i++)
+        /*for(int i =0; i<checkNumTargets(selectedMove); i++)
         {
             pickedTarget = random.Next(0, validTargets.Count);
             SelectedTargets.Add(validTargets[pickedTarget]);
@@ -79,7 +79,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
         for( int i = 0; i< SelectedTargets.Count; i++)
         {
             print("picked target: " + SelectedTargets[0]);
-        }
+        }*/
         
         return SelectedTargets;
     }
@@ -104,7 +104,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
     }
     protected void checkValid(move checkingMove, int position)
     {
-        if(checkingMove.moveTargetType == moveTargets.ENEMY)
+        /*if(checkingMove.moveTargetType == moveTargets.ENEMY)
         {
             if (checkEnemy(checkingMove, position))
                 validMoves.Add(checkingMove);
@@ -123,7 +123,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
         else if(checkingMove.moveTargetType == moveTargets.SELF)
         {
             validMoves.Add(checkingMove);
-        }
+        }*/
     }
     private bool checkAlly(int position)
     {
@@ -167,7 +167,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
     }
     protected int checkNumTargets(move selectedMove)
     {
-        if (selectedMove.targetType == targetType.SINGLE)
+       /* if (selectedMove.targetType == targetType.SINGLE)
         {
             return 1;
         }
@@ -182,7 +182,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
         else if (selectedMove.targetType == targetType.FOURS)
         {
             return 4;
-        }
+        }*/
         return 8;
     }
     protected void useTargetSelected(int pickedMove, List<int> targets)

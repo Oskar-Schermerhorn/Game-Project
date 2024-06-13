@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum actionCommandType { NONE, TIMED, HOLD, FIGHT, AIM, BALANCE, MASH, COMBO, DEFENSE };
 public enum commandButton { NONE, A, B, L, R, A1, A2, A3, A4, A5, A6, A7, A8, A9 }
+[Serializable]
 public class actionCommand
 { 
     public actionCommandType type;
@@ -38,5 +40,14 @@ public class actionCommand
         minimum = Minimum;
         additional = Additional;
         maximum = Maximum;
+    }
+    public actionCommand(actionCommand action)
+    {
+        type = action.type;
+        buttons = action.buttons;
+        time = action.time;
+        minimum = action.minimum;
+        additional = action.additional;
+        maximum = action.maximum;
     }
 }

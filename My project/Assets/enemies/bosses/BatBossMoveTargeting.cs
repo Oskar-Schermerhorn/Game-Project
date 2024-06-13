@@ -7,7 +7,7 @@ public class BatBossMoveTargeting : BossMoveSelection
     protected override List<int> RandomTargets(move selectedMove, int position)
     {
         List<int> validTargets = new List<int>();
-        if (selectedMove.targetType == targetType.UNMOVABLE)
+        /*if (selectedMove.targetType == targetType.UNMOVABLE)
         {
             validTargets.AddRange(selectedMove.targetPos);
             return validTargets;
@@ -30,7 +30,7 @@ public class BatBossMoveTargeting : BossMoveSelection
                     validTargets.Add(i);
                 }
             }
-        }
+        }*/
         System.Random random = new System.Random();
         int pickedTarget = -1;
         int lowestHP = 999;

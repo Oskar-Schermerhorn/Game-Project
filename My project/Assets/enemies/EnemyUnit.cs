@@ -65,12 +65,12 @@ public abstract class EnemyUnit : BattleUnit
         {
             for (int i = 0; i < 5; i++)
             {
-                if (!onlyOne || (moveset[moveset.Count - 1].moveTargetType != moveTargets.ALLY && !adjusted))
+               /* if (!onlyOne || (moveset[moveset.Count - 1].moveTargetType != moveTargets.ALLY && !adjusted))
                 {
                     print("adding a move");
                     moveset.Add(moveset[moveset.Count - 1]);
                     adjusted = true;
-                }
+                }*/
             }
         }
         else if ((condition == changeCondition.HALFHEALTH && adjusted) && !onlyOne)
@@ -90,48 +90,31 @@ public abstract class EnemyUnit : BattleUnit
             print("number of moves: " + moveset.Count);
             for (int i = 0; i < moveset.Count; i++)
             {
-                if (moveset[i].moveTargetType == moveTargets.ALLY)
+                /*if (moveset[i].moveTargetType == moveTargets.ALLY)
                 {
                     print("removing a type of moves");
                     moveset.RemoveAt(i);
                     i--;
-                }
+                }*/
             }
             for (int j = 0; j < moveset.Count; j++)
             {
-                print(moveset[j].animationNames[0]);
+                /*print(moveset[j].animationNames[0]);
                 if (moveset[j].animationNames[0] == "Absorb")
                 {
                     print(moveset[j].moveTargetType);
-                }
+                }*/
             }
         }
         bool possibleTarget = false;
         validMoves.Clear();
         for (int i = 0; i < moveset.Count; i++)
         {
-            switch (moveset[i].moveTargetType)
+            /*switch (moveset[i].moveTargetType)
             {
-                case moveTargets.ALLY:/*
-                    for (int j = 4; j < 8; j++)
-                    {
-                        if (spawn.unitList[pick].getAlive()
-                        && (spawn.findMe(this.gameObject) != pick))
-                        {
-                            possibleTarget = true;
-                        }
-                    }
+                case moveTargets.ALLY:
                     break;
-                case moveTargets.ENEMY:
-                    for (int j = 0; j < 4; j++)
-                    {
-                        if (spawn.unitList[pick].getAlive())
-                        {
-                            possibleTarget = true;
-                        }
-                    }*/
-                    break;
-            }
+            }*/
             if (possibleTarget)
             {
                 validMoves.Add(moveset[i]);

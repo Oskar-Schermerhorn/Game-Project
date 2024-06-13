@@ -173,14 +173,14 @@ public abstract class BattleUnit:MonoBehaviour
 
     public void Use(move selectedMove, GameObject target, int animationIndex)
     {
-        print("Use " + selectedMove.animationNames[0]);
+        print("Use " + selectedMove.Name);
         //set offset, sorting order, animation
         //offset changed; just use pivot point in sprite
         handleOffset(selectedMove, target);
         currentTarget = target;
-        print(selectedMove.animationNames.Length + " " + animationIndex);
-        if (selectedMove.animationNames.Length > animationIndex)
-            changeAnimation(selectedMove.animationNames[animationIndex]);
+        //print(selectedMove.animationNames.Length + " " + animationIndex);
+        changeAnimation(selectedMove.animation);
+
 
         currentMove = selectedMove;
 
@@ -195,8 +195,8 @@ public abstract class BattleUnit:MonoBehaviour
     private void handleOffset(move selectedMove, GameObject target)
     {
         float offset = -1.36f;
-        if (selectedMove.moveTargetType == moveTargets.ALLY || selectedMove.moveTargetType == moveTargets.SELF)
-            offset = 0f;
+        /*if (selectedMove.moveTargetType == moveTargets.ALLY || selectedMove.moveTargetType == moveTargets.SELF)
+            offset = 0f;*/
         pos = transform.position;
         print("position saved: " + pos);
         //if (spawn.findMe(this.gameObject) >= 4)
@@ -227,7 +227,7 @@ public abstract class BattleUnit:MonoBehaviour
 
         if (moveset[menu.pick].action.type == actionCommandType.NONE || actionComplete)
         {
-            currentTarget.GetComponent<BattleUnit>().takeDamage(currentMove.damageValues[HitNumber] +damageModifier, false, false);
+            /*currentTarget.GetComponent<BattleUnit>().takeDamage(currentMove.damageValues[HitNumber] +damageModifier, false, false);
             if (currentMove.moveEffect.inflictStatus.effectName != "none")
             {
                 currentTarget.GetComponent<BattleUnit>().AddStatus(applyStatus);
@@ -235,19 +235,19 @@ public abstract class BattleUnit:MonoBehaviour
             if (currentMove.moveEffect.inflictStatus.effectName != "none")
             {
                 AddStatus(applyStatus);
-            }
+            }*/
         }
         else
         {
-            currentTarget.GetComponent<BattleUnit>().takeDamage(currentMove.damageValues[HitNumber] + damageModifier / 2, false, false);
+            /*currentTarget.GetComponent<BattleUnit>().takeDamage(currentMove.damageValues[HitNumber] + damageModifier / 2, false, false);*/
         }
-        if (HitNumber >= currentMove.damageValues.Length)
-            actionComplete = false;
+        /*if (HitNumber >= currentMove.damageValues.Length)
+            actionComplete = false;*/
 
-        if (applySelfStatus!= null && currentMove.moveEffect.selfStatus.effectName == "recoil")
+        /*if (applySelfStatus!= null && currentMove.moveEffect.selfStatus.effectName == "recoil")
         {
             takeDamage(currentMove.damageValues[HitNumber] + damageModifier / 2, false, false);
-        }
+        }*/
         for (int i = 0; i < currentTarget.GetComponent<BattleUnit>().myStatus.Count; i++)
         {
             if (currentTarget.GetComponent<BattleUnit>().myStatus[i].effectName == "thorns")
@@ -311,15 +311,15 @@ public abstract class BattleUnit:MonoBehaviour
     {
         if (moveset[menu.pick].action.type == actionCommandType.NONE || actionComplete)
         {
-            currentTarget.GetComponent<BattleUnit>().Heal(-currentMove.damageValues[0]);
+            /*currentTarget.GetComponent<BattleUnit>().Heal(-currentMove.damageValues[0]);
             if (currentMove.moveEffect.inflictStatus.effectName != "none")
             {
                 currentTarget.GetComponent<BattleUnit>().AddStatus(applyStatus);
-            }
+            }*/
         }
         else
         {
-            currentTarget.GetComponent<BattleUnit>().Heal(-currentMove.damageValues[0]);
+            /*currentTarget.GetComponent<BattleUnit>().Heal(-currentMove.damageValues[0]);*/
         }
 
         actionComplete = false;
@@ -662,10 +662,10 @@ public abstract class BattleUnit:MonoBehaviour
        //turnManager.endTurn();
         //Invoke("delayDisplay", 0.2f);
         //delayDisplay();
-        if (currentMove.moveEffect.selfStatus.effectName != "none")
+        /*if (currentMove.moveEffect.selfStatus.effectName != "none")
         {
             AddStatus(currentMove.moveEffect.selfStatus);
-        }
+        }*/
         if (hold != 1 && formSprites.Length > 1)
         {
             if (form == 1)
@@ -683,7 +683,7 @@ public abstract class BattleUnit:MonoBehaviour
         transform.position = pos;
         GetComponent<SpriteRenderer>().sortingOrder = tempLayer;
         //delayDisplay();
-        if (currentMove.moveEffect.selfStatus.effectName != "none")
+        /*if (currentMove.moveEffect.selfStatus.effectName != "none")
         {
             AddStatus(currentMove.moveEffect.selfStatus);
         }
@@ -695,7 +695,7 @@ public abstract class BattleUnit:MonoBehaviour
                 changeAnimation("form2");
             else if (form == 3)
                 changeAnimation("form3");
-        }
+        }*/
       //  turnManager.checkBattleOver();
     }
 
@@ -708,6 +708,12 @@ public abstract class BattleUnit:MonoBehaviour
             anim.Play(newState);
             currentState = newState;
         }
+    }
+    protected void changeAnimation(AnimationClip animation)
+    {
+        this.gameObject.GetComponent<Animation>().clip = animation;
+        this.gameObject.GetComponent<Animation>().Play();
+        //anim.Play("Attack");
     }
     public void resetAnimation(string newState)
     {

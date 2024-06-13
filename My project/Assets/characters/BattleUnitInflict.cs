@@ -71,12 +71,12 @@ public class BattleUnitInflict : MonoBehaviour
     }
     void inflictType(move currentMove, GameObject target, int damageModifier, int HitNumber, int targetIndex, bool successful)
     {
-        if (target.GetComponent<BattleUnitStatus>() != null && currentMove.damageValues.Length > 0 && currentMove.damageValues[HitNumber] >=0)
+        if (target.GetComponent<BattleUnitStatus>() != null && !currentMove.HasProperty(moveProperties.NULL)  && currentMove.Damage >=0)
             damageModifier -= target.GetComponent<BattleUnitStatus>().calcDefenseMod();
         if (targetIndex == 0)
         {
             inflictPrimary(currentMove, target, damageModifier, HitNumber, successful);
-            if (currentMove.damageValues.Length > 0)
+            if (!currentMove.HasProperty(moveProperties.NULL))
             {
                 if(HitNumber ==0 || currentMove.action.type == actionCommandType.TIMED)
                     Inflict(currentMove, target, successful, parry, damageModifier, HitNumber);
@@ -89,7 +89,7 @@ public class BattleUnitInflict : MonoBehaviour
         else if (targetIndex < targets.Count)
         {
             inflictSecondary(currentMove, locator.locateObject(targets[targetIndex]), damageModifier, HitNumber, targetIndex, successful);
-            if (currentMove.damageValues.Length > 0)
+            if (!currentMove.HasProperty(moveProperties.NULL))
             {
                 InflictSecondary(currentMove, target, successful, parry, damageModifier, HitNumber);
             }
@@ -97,11 +97,11 @@ public class BattleUnitInflict : MonoBehaviour
     }
     void inflictPrimary(move currentMove, GameObject target, int damageModifier, int HitNumber, bool successful)
     {
-        if (currentMove.damageValues.Length > 0)
+        if (!currentMove.HasProperty(moveProperties.NULL))
         {
-            if (currentMove.damageValues[HitNumber] >= 0)
+            if (currentMove.Damage >= 0)
             {
-                int damage = currentMove.damageValues[HitNumber] + damageModifier;
+                int damage = currentMove.Damage + damageModifier;
                 if (!successful)
                 {
                     damage /= 2;
@@ -116,7 +116,7 @@ public class BattleUnitInflict : MonoBehaviour
             else
             {
                 //heal
-                int heal = currentMove.damageValues[HitNumber] *-1;
+                int heal = currentMove.Damage *-1;
                 print("base heal: " + heal);
                 print("damage modifier: " + damageModifier);
                 if (damageModifier < 0)
@@ -129,7 +129,7 @@ public class BattleUnitInflict : MonoBehaviour
         }
         if (successful)
         {
-            if (currentMove.moveEffect.inflictStatus.effectName != "none")
+            /*if (currentMove.moveEffect.inflictStatus.effectName != "none")
             {
                 if(currentMove.moveEffect.inflictStatus.effectName != "spin" && currentMove.moveEffect.inflictStatus.effectName != "reverseSpin")
                 {
@@ -169,7 +169,7 @@ public class BattleUnitInflict : MonoBehaviour
             {
                 //inflict self field
                 inflictSelfField(currentMove.moveEffect.selfField);
-            }
+            }*/
         }
         if(target.GetComponent<BattleUnitStatus>() != null)
             target.GetComponent<BattleUnitStatus>().checkOnhit();
@@ -183,7 +183,7 @@ public class BattleUnitInflict : MonoBehaviour
     }
     void inflictSecondary(move currentMove, GameObject target, int damageModifier, int HitNumber, int targetIndex, bool successful)
     {
-        if (currentMove.damageValues.Length > 0)
+        /*if (currentMove.damageValues.Length > 0)
         {
             if (currentMove.damageValues[HitNumber] >= 0)
             {
@@ -227,7 +227,7 @@ public class BattleUnitInflict : MonoBehaviour
                 // inflict hazard
                 inflictHazard(currentMove.moveEffect.hazard, target);
             }
-        }
+        }*/
     }
     protected void inflictStatus(statusEffect status, GameObject target)
     {
@@ -247,7 +247,7 @@ public class BattleUnitInflict : MonoBehaviour
     }
     public void inflictSpin()
     {
-        inflictStatus(currentMove.moveEffect.inflictStatus, locator.locateObject(targets[0]));
+        /*inflictStatus(currentMove.moveEffect.inflictStatus, locator.locateObject(targets[0]));*/
     }
     public void inflictSwap()
     {

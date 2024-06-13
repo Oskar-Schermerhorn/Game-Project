@@ -21,7 +21,84 @@ public class targetCreation : MonoBehaviour
     }
     public void placeTargets(int moveIndex)
     {
-        move currentMove = locator.locateObject(turn.turnNum).GetComponent<BattleUnitData>().moveset[moveIndex];
+        GameObject currentPlayer = locator.locateObject(turn.turnNum);
+        move currentMove = currentPlayer.GetComponent<BattleUnitData>().getMoveset()[moveIndex];
+        
+        List<int> possibleIndex = new List<int>();
+        if (currentMove.HasProperty(targetProperties.SINGLETARGET))
+        {
+            if (currentMove.HasProperty(targetProperties.FRONT))
+            {
+                if (currentMove.HasProperty(targetProperties.PLAYERS))
+                {
+                    GameObject front = locator.getFront(true);
+                    possibleIndex.Add(locator.locateObject(front));
+                }
+                else if (currentMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    GameObject front = locator.getFront(false);
+                    possibleIndex.Add(locator.locateObject(front));
+                }
+            }
+            else if (currentMove.HasProperty(targetProperties.FREETARGET))
+            {
+                List<GameObject> possibleTargets = new List<GameObject>();
+                if (currentMove.HasProperty(targetProperties.PLAYERS))
+                {
+                    possibleTargets = locator.getAll(true);
+                    //add all players not including self
+                    if (!currentMove.HasProperty(targetProperties.SELF) && possibleTargets.Contains(currentPlayer))
+                    {
+                        possibleTargets.Remove(currentPlayer);
+                    }
+                }
+                if (currentMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    possibleTargets = locator.getAll(false);
+                    //add all players not including self
+
+                    if (!currentMove.HasProperty(targetProperties.SELF) && possibleTargets.Contains(currentPlayer))
+                    {
+                        possibleTargets.Remove(currentPlayer);
+                    }
+                }
+                for(int i = 0; i< possibleTargets.Count; i++)
+                {
+                    possibleIndex.Add(locator.locateObject(possibleTargets[i]));
+                }
+                
+            }
+            createSingleTarget(0, possibleIndex[0], possibleIndex);
+        }
+        else if (currentMove.HasProperty(targetProperties.MULTITARGET))
+        {
+            List<GameObject> possibleTargets = new List<GameObject>();
+            if (currentMove.HasProperty(targetProperties.PLAYERS))
+            {
+                possibleTargets = locator.getAll(true);
+                //add all players not including self
+
+                if (!currentMove.HasProperty(targetProperties.SELF) && possibleTargets.Contains(currentPlayer))
+                {
+                    possibleTargets.Remove(currentPlayer);
+                }
+            }
+            if (currentMove.HasProperty(targetProperties.ENEMIES))
+            {
+                possibleTargets = locator.getAll(false);
+                //add all players not including self
+                if (!currentMove.HasProperty(targetProperties.SELF) && possibleTargets.Contains(currentPlayer))
+                {
+                    possibleTargets.Remove(currentPlayer);
+                }
+            }
+            for (int i = 0; i < possibleTargets.Count; i++)
+            {
+                possibleIndex.Add(locator.locateObject(possibleTargets[i]));
+            }
+            createMultiTarget(possibleIndex);
+        }
+        /*
         if(currentMove.moveTargetType == moveTargets.SELF)
         {
             
@@ -140,10 +217,10 @@ public class targetCreation : MonoBehaviour
                     }
                     break;
                 case targetType.FOURS:
-                    /*createTargets(0, currentMove.targetPos[0], new List<int>() { 0, 1, 2, 3 });
+                    *//*createTargets(0, currentMove.targetPos[0], new List<int>() { 0, 1, 2, 3 });
                     createTargets(1, currentMove.targetPos[1], new List<int>() { 0, 1, 2, 3 });
                     createTargets(2, currentMove.targetPos[2], new List<int>() { 0, 1, 2, 3 });
-                    createTargets(3, currentMove.targetPos[3], new List<int>() { 0, 1, 2, 3 });*/
+                    createTargets(3, currentMove.targetPos[3], new List<int>() { 0, 1, 2, 3 });*//*
                     break;
             }
             for (int i = 0; i < currentMove.targetPos.Length; i++)
@@ -156,10 +233,23 @@ public class targetCreation : MonoBehaviour
                 }
 
             }
-        }
+        }*/
         
         Targeting();
     }
+
+    void findRange(move currentMove)
+    {
+        for (int i = 0; i < locator.numObjects(); i++)
+        {
+            if (currentMove.HasProperty(targetProperties.PLAYERS) && locator.locateObject(i) && (locator.locateObject(i) != this.gameObject))
+            {
+
+            }
+        }
+    }
+
+
     public void placeItemTargets(int itemIndex)
     {
         item currentItem = dataItem.getItem(dataItem.items[itemIndex]);
@@ -184,29 +274,14 @@ public class targetCreation : MonoBehaviour
                 }
             }
         }
-        createTargets(0, targetPositions[0], targetPositions);
+        //createTargets(0, targetPositions[0], targetPositions);
         GameObject target = GameObject.Find("Targets/Target0");
         target.transform.position = locator.locateObject(targetPositions[0]).transform.position;
         Targeting();
     }
-    private List<int> getRange(move SelectedMove)
-    {
-        List<int> range = new List<int> ();
-        //SelectedMove.
-        return range;
-    }
-    private List<int> getAllies()
-    {
-        List<int> range = new List<int>();
-        for(int i = 0; i< 4; i++)
-        {
-            if (locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
-                range.Add(i);
-        }
-        return range;
-    }
+    
 
-    void createTargets(int id, int pos, List<int>possible)
+    void createSingleTarget(int id, int pos, List<int>possible)
     {
         print("creating targets");
         GameObject targetRef;
@@ -216,16 +291,22 @@ public class targetCreation : MonoBehaviour
         targetRef.GetComponent<movableTarget>().possiblePositions = possible;
         targetRef.transform.position= locator.locateObject(pos).transform.position;
     }
-    void createTargets(int id, int pos)
+    void createMultiTarget(List<int> possible)
     {
         print("creating targets");
         GameObject targetRef;
-        targetRef = Instantiate<GameObject>(unmovableTargetPrefab, GameObject.Find("Targets").transform);
-        targetRef.name = "Target" + id;
-        targetRef.GetComponent<Target>().position = pos;
-        print(targetRef.GetComponent<Target>().position);
-        targetRef.transform.position = locator.locateObject(targetRef.GetComponent<Target>().position).transform.position;
+        int id = 0;
+        for(int i = 0; i<possible.Count; i++)
+        {
+            targetRef = Instantiate<GameObject>(movableTargetPrefab, GameObject.Find("Targets").transform);
+            targetRef.GetComponent<movableTarget>().position = possible[i];
+            targetRef.GetComponent<movableTarget>().possiblePositions = new List<int> { possible[i] };
+            targetRef.name = "Target" + id;
+            targetRef.transform.position = locator.locateObject(possible[i]).transform.position;
+        }
+        
     }
+
     private void OnDisable()
     {
         menuState.SelectMove -= placeTargets;

@@ -37,18 +37,18 @@ public class BossUnitData : BattleUnitData
                 moveset.AddRange(RegularMoves);
                 break;
         }
-        moveNames.Clear();
+        //moveNames.Clear();
         for (int i = 0; i < RegularMoves.Count; i++)
         {
-            moveNames.Add(RegularMoves[i].animationNames[0]);
+            //moveNames.Add(RegularMoves[i].animationNames[0]);
         }
         for (int i = 0; i < DesperationMoveset.Count; i++)
         {
-            moveNames.Add(DesperationMoveset[i].animationNames[0]);
+            //moveNames.Add(DesperationMoveset[i].animationNames[0]);
         }
         for (int i = 0; i < LimitedMoveset.Count; i++)
         {
-            moveNames.Add(LimitedMoveset[i].animationNames[0]);
+            //moveNames.Add(LimitedMoveset[i].animationNames[0]);
         }
     }
 }

@@ -66,9 +66,10 @@ public class BattleUnitAttackOffset : MonoBehaviour
 
     IEnumerator ChangeToAttackMode(move selectedMove, List<int> targets)
     {
+        print("test");
         //this.gameObject.GetComponent<Animator>().Play(selectedMove.animationNames[0]);
         this.gameObject.GetComponent<Animator>().speed = 0;
-        for(int i = 0; i< 8; i++)
+        for(int i = 0; i< locator.numObjects(); i++)
         {
             pos[i] = locator.locateObject(i).transform.position;
             
@@ -78,7 +79,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
                 locator.locateObject(i).GetComponent<Animator>().enabled = false;
             }
         }
-        if(selectedMove.moveTargetType != moveTargets.SELF)
+        if(!selectedMove.HasProperty(targetProperties.SELF))
         {
             transform.position = new Vector2(0, -0.58f);
             int set = 0;
@@ -91,14 +92,14 @@ public class BattleUnitAttackOffset : MonoBehaviour
                 //place the enemies correctly
 
                 locator.locateObject(targets[i]).transform.position = pos[set + i];
-                if(selectedMove.targetType == targetType.PAIRS)
+                /*if(selectedMove.targetType == targetType.PAIRS)
                 {
                     if(i == 1 && targets[1] != targets[0] + 1)
                     {
                         int difference = targets[1] -targets[0]-1;
                         locator.locateObject(targets[i]).transform.position = pos[set + i + difference];
                     }
-                }
+                }*/
                 //locator.locateObject(targets[i]).GetComponent<SpriteRenderer>().enabled = f;
             }
         }
@@ -108,7 +109,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
         //print(this.name);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<Animator>().enabled = true;
-        if (selectedMove.moveTargetType != moveTargets.SELF)
+        if (!selectedMove.HasProperty(targetProperties.SELF))
         {
             for (int i = 0; i < targets.Count; i++)
             {
@@ -125,7 +126,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
             }
         }
         //this.gameObject.GetComponent<Animator>().Play(selectedMove.animationNames[0]);
-
+        
         this.gameObject.GetComponent<Animator>().speed = 1;
     }
 

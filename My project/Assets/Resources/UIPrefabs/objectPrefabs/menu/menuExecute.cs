@@ -46,12 +46,12 @@ public class menuExecute : MonoBehaviour
     {
         isItem = false;
         //check battery
-        for(int i=1; i< locator.locateObject(turn.turnNum).GetComponent<BattleUnitData>().moveset.Count; i++)
+        for(int i=1; i< locator.locateObject(turn.turnNum).GetComponent<BattleUnitData>().getMoveset().Count; i++)
         {
-            move moveAtI = locator.locateObject(turn.turnNum).GetComponent<BattleUnitData>().moveset[i];
+            move moveAtI = locator.locateObject(turn.turnNum).GetComponent<BattleUnitData>().getMoveset()[i];
             GameObject option = Instantiate<GameObject>(MenuBoxPrefab, GameObject.Find("Canvas/Options").transform);
             option.name = "Move" + i;
-            GameObject.Find("Canvas/Options/Move" + i + "/MoveName").GetComponent<TextMeshProUGUI>().text = moveAtI.animationNames[0];
+            GameObject.Find("Canvas/Options/Move" + i + "/MoveName").GetComponent<TextMeshProUGUI>().text = moveAtI.Name;
             GameObject.Find("Canvas/Options/Move" + i + "/Cost").GetComponent<TextMeshProUGUI>().text = moveAtI.cost.ToString();
             if(battery.getBP() < moveAtI.cost)
             {

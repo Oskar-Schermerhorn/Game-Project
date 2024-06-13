@@ -18,3 +18,10 @@ MonoBehaviour:
   MoveProperties: 0000000003000000
   MoveTargets: 010000000300000005000000
   EnemyMoveAI: 
+  Action:
+    type: 2
+    buttons: 08000000
+    time: 1.5
+    minimum: 0
+    additional: 0
+    maximum: 0

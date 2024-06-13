@@ -11,7 +11,7 @@ public class BatUnitTargeting : EnemyUnitMoveSelect
             return base.RandomTargets(selectedMove, position);
         }
         List<int> validTargets = new List<int>();
-        if ((selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH) && selectedMove.targetType == targetType.SINGLE)
+       /* if ((selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH) && selectedMove.targetType == targetType.SINGLE)
         {
             validTargets.AddRange(base.getRange(position));
         }
@@ -28,7 +28,7 @@ public class BatUnitTargeting : EnemyUnitMoveSelect
                     validTargets.Add(i);
                 }
             }
-        }
+        }*/
         System.Random random = new System.Random();
         int pickedTarget = -1;
         int lowestHP = 999;

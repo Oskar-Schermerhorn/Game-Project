@@ -33,16 +33,16 @@ public class statusAnimation : MonoBehaviour
         {
             print("revive going through");
             move reviveMove = target.GetComponent<PhoenixRevive>().revive();
-            for(int i = 0; i<reviveMove.targetPos.Length; i++)
+            /*for(int i = 0; i<reviveMove.targetPos.Length; i++)
             {
                 ObjectLocator locator = GameObject.Find("BattleHandler").GetComponent<ObjectLocator>();
                 if (locator.locateObject(reviveMove.targetPos[i]).GetComponent<BattleUnitHealth>() != null && locator.locateObject(reviveMove.targetPos[i]).GetComponent<BattleUnitHealth>().health >0)
                 {
-                    locator.locateObject(reviveMove.targetPos[i]).GetComponent<BattleUnitHealth>().takeDamage(reviveMove.damageValues[0], true, false);
+                    locator.locateObject(reviveMove.targetPos[i]).GetComponent<BattleUnitHealth>().takeDamage(reviveMove.Damage, true, false);
                     locator.locateObject(reviveMove.targetPos[i]).GetComponent<BattleUnitStatus>().AddStatus(reviveMove.moveEffect.inflictStatus);
                     Inflict(reviveMove, locator.locateObject(reviveMove.targetPos[i]), true, false, 0, 0);
                 }
-            }
+            }*/
         }
         else
         {

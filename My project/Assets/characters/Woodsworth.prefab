@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 388572908337276755}
   - component: {fileID: 2947602419942644912}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Woodsworth
   m_TagString: playerTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

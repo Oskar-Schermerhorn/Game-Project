@@ -37,7 +37,7 @@ public class BattleTextHandler : MonoBehaviour
     }
     private void handleDamageText(move currentMove, GameObject target, bool successful, bool parried, int damageMod, int hitNum)
     {
-        int damage = currentMove.damageValues[hitNum];
+        int damage = currentMove.Damage;
         if (damage >= 0)
             damage += damageMod;
         else

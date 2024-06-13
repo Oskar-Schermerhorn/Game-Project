@@ -66,7 +66,7 @@ public class BossMoveSelection : EnemyUnitMoveSelect
             print("picking a move from this selection:");
             for(int i = 0; i< validMoves.Count; i++)
             {
-                print(validMoves[i].animationNames[0]);
+                print(validMoves[i].Name);
             }
             if (validMoves.Count > 0)
             {

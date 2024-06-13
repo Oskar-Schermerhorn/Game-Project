@@ -51,11 +51,11 @@ public class ModMoveEditing : MonoBehaviour
         int battleIndex = locator.locateObject(updatedCharacter);
         if (battleIndex == partyIndex)
         {
-            move editableMove = FindMove(updatedCharacter.GetComponent<BattleUnitData>().moveset, editMod.animationName);
+            move editableMove = FindMove(updatedCharacter.GetComponent<BattleUnitData>().getMoveset(), editMod.animationName);
             if (editableMove != null)
             {
                 print("edited move");
-                updatedCharacter.GetComponent<BattleUnitData>().moveset[updatedCharacter.GetComponent<BattleUnitData>().moveset.IndexOf(editableMove)] =
+                updatedCharacter.GetComponent<BattleUnitData>().getMoveset()[updatedCharacter.GetComponent<BattleUnitData>().getMoveset().IndexOf(editableMove)] =
                     editMod.Modify(editableMove);
             }
         }
@@ -69,17 +69,17 @@ public class ModMoveEditing : MonoBehaviour
         int battleIndex = locator.locateObject(updatedCharacter);
         if (battleIndex == partyIndex)
         {
-            move editableMove = FindMove(updatedCharacter.GetComponent<BattleUnitData>().moveset, addMod.newMoveName);
+            move editableMove = FindMove(updatedCharacter.GetComponent<BattleUnitData>().getMoveset(), addMod.newMoveName);
             if (editableMove != null)
             {
                 print("upgraded move");
-                updatedCharacter.GetComponent<BattleUnitData>().moveset[updatedCharacter.GetComponent<BattleUnitData>().moveset.IndexOf(editableMove)] =
+                updatedCharacter.GetComponent<BattleUnitData>().getMoveset()[updatedCharacter.GetComponent<BattleUnitData>().getMoveset().IndexOf(editableMove)] =
                     addMod.UpgradeAddedMove(editableMove);
             }
             else
             {
                 print("added move");
-                updatedCharacter.GetComponent<BattleUnitData>().moveset.Add(addMod.AddNewMove());
+                updatedCharacter.GetComponent<BattleUnitData>().getMoveset().Add(addMod.AddNewMove());
             }
         }
     }
@@ -87,7 +87,7 @@ public class ModMoveEditing : MonoBehaviour
     {
         foreach(move m in moves)
         {
-            if(m.animationNames[0] == firstAnimName)
+            if(m.Name == firstAnimName)
             {
                 return m;
             }

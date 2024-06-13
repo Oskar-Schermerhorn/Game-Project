@@ -57,10 +57,10 @@ public class EnemyUnitData : BattleUnitData
                 moveset.AddRange(screechingBatMoveset);
                 break;
         }
-        moveNames.Clear();
-        for (int i = 0; i < moveset.Count; i++)
+        //moveNames.Clear();
+        for (int i = 0; i < getMoveset().Count; i++)
         {
-            moveNames.Add(moveset[i].animationNames[0]);
+            //moveNames.Add(moveset[i].animationNames[0]);
         }
     }
 

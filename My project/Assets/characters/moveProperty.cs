@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public enum moveProperties { SINGLEHIT, MULTIHITPLUS, MULTIHITMINUS, USEBASEATTACK, HEAL, PIERCEDEF, FIXEDDAMAGE, STATECHANGE, NULL }
-public enum targetProperties { PLAYERS, ENEMIES, SELF, SINGLETARGET, MULTITARGET, FRONT, FREETARGET, TARGETALL}
+public enum targetProperties { PLAYERS, ENEMIES, SELF, SINGLETARGET, MULTITARGET, FRONT, FREETARGET}
 public enum enemyAIProperties { PREFERFRONT, RANDOM, PREFERLOW, PREFERUNEFFECTED}
 [CreateAssetMenu(menuName = "Players/AttackMoves")]
 public class moveProperty: ScriptableObject
@@ -16,5 +16,5 @@ public class moveProperty: ScriptableObject
     public List<targetProperties> MoveTargets;
     public List<enemyAIProperties> EnemyMoveAI;
     public List<effect> MoveEffects;
-    public actionCommand Action;
+    [SerializeField]public actionCommand Action;
 }
