@@ -11,7 +11,7 @@ public class enemyTurnScript : EnemyUnit
     
     override public void data()
     {
-        move[] mothMoveset = new move[] {
+        /*move[] mothMoveset = new move[] {
             new move(new string[] { "Attack" }, 0, new int[] {2}, moveTargets.ENEMY, new effect(none,none), new int[] {}, targetType.SINGLE, new actionCommand()),
             new move(new string[] { "Status" }, 0, new int[] {}, moveTargets.ENEMY, new effect(poison,none), new int[] {}, targetType.SINGLE, new actionCommand()),
             new move(new string[] { "Absorb" }, 0, new int[] {99}, moveTargets.ALLY, new effect(none,fullHeal), new int[] {}, targetType.SINGLE, new actionCommand())};
@@ -27,7 +27,7 @@ public class enemyTurnScript : EnemyUnit
                 break;
             case ("mothSorcerer"):
                 break;
-        }
+        }*/
 
     }
 }

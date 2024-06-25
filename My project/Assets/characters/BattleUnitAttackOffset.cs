@@ -138,7 +138,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
 
         //}
         this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tempLayer;
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < locator.numObjects(); i++)
         {
             locator.locateObject(i).GetComponent<SpriteRenderer>().enabled = true;
             locator.locateObject(i).transform.position = pos[i];

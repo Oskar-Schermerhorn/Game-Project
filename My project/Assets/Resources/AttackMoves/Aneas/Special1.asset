@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
-  m_Name: Attack
+  m_Name: Special1
   m_EditorClassIdentifier: 
   Cost: 0
   Damage: 0
-  MoveProperties: 0000000003000000
-  MoveTargets: 010000000600000003000000
+  MoveProperties: 0100000003000000
+  MoveTargets: 010000000300000006000000
   EnemyMoveAI: 
   MoveEffects: []
   Action:
     type: 1
-    buttons: 01000000
+    buttons: 0100000001000000
     time: 0
     minimum: 0
     additional: 0

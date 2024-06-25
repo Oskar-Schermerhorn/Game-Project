@@ -1,65 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+public enum statusTarget { INFLICT, SELF}
+public enum effectCondition { SUCCESSFUL, ALWAYS, RANDOM}
+[Serializable]
 public class effect
 {
-    public statusEffect inflictStatus;
-    public statusEffect selfStatus;
-    public hazard hazard;
-    public fieldEffects inflictField;
-    public fieldEffects selfField;
-    public LibraryStatus status;
-    public effect(statusEffect InflictStatus, statusEffect SelfStatus)
+    public statusEffect MoveStatus;
+    public statusTarget Target;
+    public effectCondition Condition;
+    public int amount;
+    public int additional;
+    public int duration;
+    public effect(statusEffect Effect, statusTarget target, effectCondition condition)
     {
-        inflictStatus = InflictStatus;
-        selfStatus = SelfStatus;
+        MoveStatus = Effect;
+        Target = target;
+        Condition = condition;
     }
-    public effect(statusEffect InflictStatus, statusEffect SelfStatus, hazard Hazard)
+    public effect(statusEffect Effect, statusTarget target, effectCondition condition, int Amount, int Additional, int Duration)
     {
-        inflictStatus = InflictStatus;
-        selfStatus = SelfStatus;
-        hazard = Hazard;
+        MoveStatus = Effect;
+        Target = target;
+        Condition = condition;
+        amount = Amount;
+        additional = Additional;
+        duration = Duration;
     }
-    public effect(statusEffect InflictStatus, statusEffect SelfStatus, fieldEffects InflictField, fieldEffects SelfField)
-    {
-        inflictStatus = InflictStatus;
-        selfStatus = SelfStatus;
-        inflictField = InflictField;
-        selfField = SelfField;
-    }
-    public effect(statusEffect InflictStatus, statusEffect SelfStatus, hazard Hazard, fieldEffects InflictField, fieldEffects SelfField)
-    {
-        inflictStatus = InflictStatus;
-        selfStatus = SelfStatus;
-        hazard = Hazard;
-        inflictField = InflictField;
-        selfField = SelfField;
-    }
-    public effect(string effectname1, string effectname2)
-    {
-        //get reference to single status library
-        status = GameObject.Find("BattleHandler").GetComponent<LibraryStatus>();
-        inflictStatus =  status.statusDictionary[effectname1];
-        selfStatus = status.statusDictionary[effectname2];
-    }
-    public effect(string effectname1, string effectname2, string hazardName)
-    {
-        status = GameObject.Find("BattleHandler").GetComponent<LibraryStatus>();
-        inflictStatus = status.statusDictionary[effectname1];
-        selfStatus = status.statusDictionary[effectname2];
-    }
-    public effect(string effectname1, string effectname2, string Field1, string Field2)
-    {
-        status = GameObject.Find("BattleHandler").GetComponent<LibraryStatus>();
-        inflictStatus = status.statusDictionary[effectname1];
-        selfStatus = status.statusDictionary[effectname2];
-    }
-    public effect(string effectname1, string effectname2, string hazardName, string Field1, string Field2)
-    {
-        status = GameObject.Find("BattleHandler").GetComponent<LibraryStatus>();
-        inflictStatus = status.statusDictionary[effectname1];
-        selfStatus = status.statusDictionary[effectname2];
-    }
-    
 }

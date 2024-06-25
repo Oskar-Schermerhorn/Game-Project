@@ -42,9 +42,10 @@ public class EndBattleHandlerScript : MonoBehaviour
     public bool checkLostBattle()
     {
         bool L = true;
-        for (int i = 0; i < 4; i++)
+        List<GameObject> players = locator.getAll(true);
+        for (int i = 0; i < players.Count; i++)
         {
-            if (locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health >0)
+            if (players[i].GetComponent<BattleUnitHealth>() != null && players[i].GetComponent<BattleUnitHealth>().health > 0)
             {
                 L = false;
             }
@@ -55,9 +56,10 @@ public class EndBattleHandlerScript : MonoBehaviour
     public bool checkWonBattle()
     {
         bool W = true;
-        for (int i = 4; i < 8; i++)
+        List<GameObject> enemies = locator.getAll(false);
+        for (int i = 0; i < enemies.Count; i++)
         {
-            if (locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
+            if (enemies[i].GetComponent<BattleUnitHealth>() != null && enemies[i].GetComponent<BattleUnitHealth>().health > 0)
             {
                 W = false;
             }

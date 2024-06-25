@@ -13,6 +13,7 @@ public class menuMoveHolder : MonoBehaviour
     ObjectLocator locator;
     turnManagement turn;
     DataRecorderItems dataItem;
+    move ItemMove;
     public static event Action<move> moveData;
     private void Awake()
     {
@@ -60,16 +61,21 @@ public class menuMoveHolder : MonoBehaviour
     public void setItem(int index)
     {
         currentItem = dataItem.getItem(dataItem.items[index]);
-        int[] damage;
-        if(currentItem.hpRestore != 0)
+        int damage = 0;
+        currentMove = ItemMove;
+        if (currentItem.hpRestore != 0)
         {
-            damage = new int[] { currentItem.hpRestore * -1 };
+            damage = currentItem.hpRestore * -1;
         }
         else
-            damage = new int[] { };
-        currentMove = new move(new string[] { "UseItem" }, currentItem.bpRestore * -1, damage, moveTargets.SELF, new effect(currentItem.effect.effectName, "none"), new int[] {0}, targetType.SINGLE, new actionCommand());
-        if (damage.Length > 0 && damage[0] >0 && locator.locateObject(4).GetComponent<BossUnitData>() != null)
-            damage[0] = 5;
+        {
+            currentMove.MoveProperties.Add(moveProperties.NULL);
+        }
+
+        
+        currentMove.cost = currentItem.bpRestore * -1;
+        currentMove.Damage = damage;
+        currentMove.MoveEffects.Add(new effect(currentItem.effect, statusTarget.INFLICT, effectCondition.ALWAYS));
         moveName = currentMove.Name;
         moveIndex = index;
         moveData(currentMove);

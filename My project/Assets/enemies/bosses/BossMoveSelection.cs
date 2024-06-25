@@ -48,7 +48,7 @@ public class BossMoveSelection : EnemyUnitMoveSelect
             print("validating moves");
             for (int i = 0; i < moveset.Count; i++)
             {
-                checkValid(moveset[i], position);
+                //checkValid(moveset[i], position);
             }
             moveset.Clear();
             moveset.AddRange(bossMoveData.RegularMoves);

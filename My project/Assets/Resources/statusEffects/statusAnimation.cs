@@ -10,6 +10,8 @@ public class statusAnimation : MonoBehaviour
     public static event Action<move, GameObject, bool, bool, int, int> Inflict;
     EndBattleHandlerScript endBattle;
     turnManagement turn;
+    move statusDamage;
+
     private void Awake()
     {
         endBattle = GameObject.Find("BattleHandler").GetComponent<EndBattleHandlerScript>();
@@ -48,7 +50,9 @@ public class statusAnimation : MonoBehaviour
         {
             print("normal status");
             target.GetComponent<BattleUnitHealth>().takeDamage(damage, true, false);
-            Inflict(new move(new string[] { }, 0, new int[] { damage }, moveTargets.BOTH, new effect("none", "none"), new int[] { }, targetType.UNMOVABLE, new actionCommand()), target, true, false, 0, 0);
+            statusDamage.Damage = damage;
+            Inflict(statusDamage, target, true, false, 0, 0);
+            //Inflict(new move(new string[] { }, 0, new int[] { damage }, moveTargets.BOTH, new effect("none", "none"), new int[] { }, targetType.UNMOVABLE, new actionCommand()), target, true, false, 0, 0);
         }
         
     }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum statusType { DAMAGE, HEAL, STUN, DAMAGEMOD, DEFENSEMOD, OTHER}
 public enum statusTime { STARTTURN, INSTANT, MOVESELECTED, ONHIT}
+[Serializable]
 [CreateAssetMenu]
 public class statusEffect : ScriptableObject
 {

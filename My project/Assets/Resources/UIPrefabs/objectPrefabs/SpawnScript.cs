@@ -57,6 +57,7 @@ public class SpawnScript : MonoBehaviour
             {
                 GameObject enemy = Instantiate(dataCombat.getEnemies()[i].enemyPrefab, enemySpawn, Quaternion.identity, GameObject.Find("Enemies").transform);
                 enemy.GetComponent<BattleUnitID>().UnitSide = side.ENEMY;
+                enemy.name = enemy.name.Remove(enemy.name.Length - "(Clone)".Length);
                 enemyList.Add(enemy);
             }
             unitList.AddRange(enemyList);

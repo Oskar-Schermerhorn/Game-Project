@@ -16,20 +16,9 @@ public class move
     public List<effect> MoveEffects;
     public actionCommand action;
 
-
-    public move()
-    {
-
-    }
-    public move(string[] AnimationNames, int Cost, int[] DamageValues, moveTargets MoveTargetType, effect MoveEffect, int[] TargetPos, targetType TargetType, actionCommand Action)
-    {
-
-    }
-
     public move(moveProperty prop)
     {
         Name = prop.name;
-        animation = prop.animation;
         cost = prop.Cost;
         Damage = prop.Damage;
         MoveProperties = prop.MoveProperties;
@@ -46,5 +35,9 @@ public class move
     public bool HasProperty(targetProperties prop)
     {
         return (MoveTargets.Contains(prop));
+    }
+    public bool HasProperty(enemyAIProperties prop)
+    {
+        return (EnemyMoveAI.Contains(prop));
     }
 }

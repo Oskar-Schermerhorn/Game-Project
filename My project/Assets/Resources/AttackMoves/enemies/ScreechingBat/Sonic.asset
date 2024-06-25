@@ -10,17 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
-  m_Name: Attack2
+  m_Name: Sonic
   m_EditorClassIdentifier: 
-  animation: {fileID: 7400000, guid: 390c5548a4b62b04290db9ee82774140, type: 2}
-  Cost: 2
+  Cost: 0
   Damage: 0
-  MoveProperties: 0100000003000000
-  MoveTargets: 010000000300000006000000
-  EnemyMoveAI: 
+  MoveProperties: 0000000008000000
+  MoveTargets: 0000000004000000
+  EnemyMoveAI: 03000000
+  MoveEffects:
+  - MoveStatus: {fileID: 11400000, guid: 8fa4030564791e04dab07de325426916, type: 2}
+    Target: 0
+    Condition: 1
+    amount: 0
+    additional: 0
+    duration: 3
   Action:
-    type: 1
-    buttons: 0100000001000000
+    type: 8
+    buttons: 
     time: 0
     minimum: 0
     additional: 0

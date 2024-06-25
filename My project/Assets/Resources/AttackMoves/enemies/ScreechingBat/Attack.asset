@@ -15,12 +15,12 @@ MonoBehaviour:
   Cost: 0
   Damage: 0
   MoveProperties: 0000000003000000
-  MoveTargets: 010000000600000003000000
-  EnemyMoveAI: 
+  MoveTargets: 000000000600000003000000
+  EnemyMoveAI: 02000000
   MoveEffects: []
   Action:
-    type: 1
-    buttons: 01000000
+    type: 8
+    buttons: 
     time: 0
     minimum: 0
     additional: 0

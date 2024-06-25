@@ -106,12 +106,21 @@ MonoBehaviour:
   spawn: {fileID: 0}
   moveset: []
   currentMove:
-    animationNames: []
+    Name: 
+    animation: {fileID: 0}
     cost: 0
-    damageValues: 
-    moveTargetType: 0
-    targetPos: 
-    targetType: 0
+    Damage: 0
+    MoveProperties: 
+    MoveTargets: 
+    EnemyMoveAI: 
+    MoveEffects: []
+    action:
+      type: 0
+      buttons: 
+      time: 0
+      minimum: 0
+      additional: 0
+      maximum: 0
   damageModifier: 0
   health: 13
   maxhealth: 13
@@ -176,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5
+  UnitSide: 0
 --- !u!1 &2425981226529827632
 GameObject:
   m_ObjectHideFlags: 0

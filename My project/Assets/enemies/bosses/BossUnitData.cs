@@ -9,7 +9,7 @@ public class BossUnitData : BattleUnitData
     public List<move> LimitedMoveset { get; private set; } = new List<move>();
     override public void data()
     {
-        move[] forestBoss = new move[] {
+        /*move[] forestBoss = new move[] {
             new move(new string[] { "Attack" }, -1, new int[] {5}, moveTargets.ENEMY, new effect("none","none"), new int[] {0}, targetType.UNMOVABLE, new actionCommand(actionCommandType.DEFENSE)),
             };
         move[] forestBossDesperation = new move[] {
@@ -49,6 +49,6 @@ public class BossUnitData : BattleUnitData
         for (int i = 0; i < LimitedMoveset.Count; i++)
         {
             //moveNames.Add(LimitedMoveset[i].animationNames[0]);
-        }
+        }*/
     }
 }

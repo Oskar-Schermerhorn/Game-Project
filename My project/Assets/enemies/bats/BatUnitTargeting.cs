@@ -11,24 +11,61 @@ public class BatUnitTargeting : EnemyUnitMoveSelect
             return base.RandomTargets(selectedMove, position);
         }
         List<int> validTargets = new List<int>();
-       /* if ((selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH) && selectedMove.targetType == targetType.SINGLE)
+        if (selectedMove.HasProperty(targetProperties.SINGLETARGET))
         {
-            validTargets.AddRange(base.getRange(position));
-        }
-        else if (selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH)
-        {
-            validTargets.AddRange(selectedMove.targetPos);
-        }
-        if (selectedMove.moveTargetType == moveTargets.ALLY || selectedMove.moveTargetType == moveTargets.BOTH)
-        {
-            for (int i = 4; i < 8; i++)
+            if (selectedMove.HasProperty(targetProperties.FRONT))
             {
-                if (i != position && locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
+                if (selectedMove.HasProperty(targetProperties.PLAYERS))
                 {
-                    validTargets.Add(i);
+                    List<GameObject> players = locator.getAll(true);
+                    validTargets.Add(locator.locateObject(players[0]));
+
+                }
+                if (selectedMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    List<GameObject> enemies = locator.getAll(false);
+                    if (!selectedMove.HasProperty(targetProperties.SELF))
+                    {
+                        enemies.Remove(this.gameObject);
+                    }
+                    if (enemies.Count > 0)
+                    {
+                        validTargets.Add(locator.locateObject(enemies[0]));
+                    }
                 }
             }
-        }*/
+            if (selectedMove.HasProperty(targetProperties.FREETARGET))
+            {
+                if (selectedMove.HasProperty(targetProperties.PLAYERS))
+                {
+                    List<GameObject> players = locator.getAll(true);
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        validTargets.Add(locator.locateObject(players[i]));
+                    }
+                    print("here");
+                }
+                if (selectedMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    List<GameObject> enemies = locator.getAll(false);
+                    if (!selectedMove.HasProperty(targetProperties.SELF))
+                    {
+                        enemies.Remove(this.gameObject);
+                    }
+                    for (int i = 0; i < enemies.Count; i++)
+                    {
+                        validTargets.Add(locator.locateObject(enemies[i]));
+                    }
+
+                }
+            }
+            if (selectedMove.HasProperty(targetProperties.SELF))
+            {
+                validTargets.Add(locator.locateObject(this.gameObject));
+            }
+        }
+
+
         System.Random random = new System.Random();
         int pickedTarget = -1;
         int lowestHP = 999;

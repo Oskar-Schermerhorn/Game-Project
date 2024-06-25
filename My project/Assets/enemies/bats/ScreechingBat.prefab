@@ -147,13 +147,14 @@ GameObject:
   - component: {fileID: 6471418664888154783}
   - component: {fileID: 6372155790940965331}
   - component: {fileID: 8246782637099950474}
-  - component: {fileID: 6872629098314151079}
   - component: {fileID: 3130223802404789328}
   - component: {fileID: 8018187754520498233}
   - component: {fileID: 8000756748824013455}
+  - component: {fileID: 1750389156331508328}
   - component: {fileID: 5680153927744301841}
   - component: {fileID: 1397912271738601143}
   - component: {fileID: 3853858621794103457}
+  - component: {fileID: 3465829284117276615}
   m_Layer: 0
   m_Name: ScreechingBat
   m_TagString: Untagged
@@ -273,7 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
-  defense: 0
 --- !u!114 &767788851176387410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
   successful: 0
   parry: 0
@@ -328,19 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a629fbe5607af32469c611d6daeae755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
---- !u!114 &6872629098314151079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8216290339032091134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f092ebf60b0a645af13f8d5769f02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  moveset: []
+  subfolder: 
 --- !u!114 &3130223802404789328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +371,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 15
   maxhealth: 15
+--- !u!114 &1750389156331508328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216290339032091134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0e0726b04ca741bb6509a84df3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
+  Defense: 1
 --- !u!114 &5680153927744301841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +424,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   UnitSide: 1
+--- !u!114 &3465829284117276615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216290339032091134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b624b92f72e5ec408e918e530465782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &107522982852879409
 PrefabInstance:
   m_ObjectHideFlags: 0

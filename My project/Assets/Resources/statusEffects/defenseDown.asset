@@ -17,11 +17,10 @@ MonoBehaviour:
   icon: {fileID: 8777135948898310440, guid: 387b94b459d61ff4ca2ca625c8532d0e, type: 3}
   amount: -1
   additional: -1
-  duration: 2
+  duration: 0
   type: 4
   time: 3
   animation: {fileID: 0}
-  iconGO: {fileID: 0}
   topRow: 0
   sprites:
   - {fileID: 1669637474085553781, guid: aec9d717260b605429eacad1cebeda5c, type: 3}

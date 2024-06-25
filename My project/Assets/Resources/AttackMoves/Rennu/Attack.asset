@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
   m_Name: Attack
   m_EditorClassIdentifier: 
+  animation: {fileID: 7400000, guid: 8defee811507a7b4e853573dd9575e90, type: 2}
   Cost: 0
   Damage: 0
-  MoveProperties: 0000000003000000
-  MoveTargets: 010000000600000003000000
+  MoveProperties: 0200000003000000
+  MoveTargets: 010000000300000006000000
   EnemyMoveAI: 
-  MoveEffects: []
   Action:
-    type: 1
-    buttons: 01000000
-    time: 0
-    minimum: 0
-    additional: 0
-    maximum: 0
+    type: 6
+    buttons: 080000000a000000
+    time: 2
+    minimum: 15
+    additional: 10
+    maximum: 1

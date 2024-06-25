@@ -26,7 +26,7 @@ public class EnemyUnitMoveSelect : MonoBehaviour
             validMoves.Clear();
             for (int i = 0; i < moveset.Count; i++)
             {
-                checkValid(moveset[i], position);
+                checkValid(moveset[i]);
             }
             if(validMoves.Count> 0)
             {
@@ -42,46 +42,113 @@ public class EnemyUnitMoveSelect : MonoBehaviour
     virtual protected List<int> RandomTargets(move selectedMove, int position)
     {
         List<int> validTargets = new List<int>();
-
-        /*if(selectedMove.targetType == targetType.UNMOVABLE)
+        if (selectedMove.HasProperty(targetProperties.SINGLETARGET))
         {
-            validTargets.AddRange(selectedMove.targetPos);
-            return validTargets;
-        }
-
-        if ((selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH) && selectedMove.targetType == targetType.SINGLE)
-        {
-            validTargets.AddRange(getRange(position));
-        }
-        else if(selectedMove.moveTargetType == moveTargets.ENEMY || selectedMove.moveTargetType == moveTargets.BOTH)
-        {
-            validTargets.AddRange(selectedMove.targetPos);
-        }
-        if (selectedMove.moveTargetType == moveTargets.ALLY || selectedMove.moveTargetType == moveTargets.BOTH)
-        {
-            for (int i = 4; i < 8; i++)
+            if (selectedMove.HasProperty(targetProperties.FRONT))
             {
-                if (i != position && locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health >0)
+                if (selectedMove.HasProperty(targetProperties.PLAYERS))
                 {
-                    validTargets.Add(i);
+                    List<GameObject> players = locator.getAll(true);
+                    validTargets.Add(locator.locateObject(players[0]));
+
+                }
+                if (selectedMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    List<GameObject> enemies = locator.getAll(false);
+                    if (!selectedMove.HasProperty(targetProperties.SELF))
+                    {
+                        enemies.Remove(this.gameObject);
+                    }
+                    if (enemies.Count > 0)
+                    {
+                        validTargets.Add(locator.locateObject(enemies[0]));
+                    }
                 }
             }
+            if (selectedMove.HasProperty(targetProperties.FREETARGET))
+            {
+                if (selectedMove.HasProperty(targetProperties.PLAYERS))
+                {
+                    List<GameObject> players = locator.getAll(true);
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        if (players[i].GetComponent<BattleUnitHealth>().health > 0)
+                        {
+                            validTargets.Add(locator.locateObject(players[i]));
+                        }
+                        
+                    }
+
+                }
+                if (selectedMove.HasProperty(targetProperties.ENEMIES))
+                {
+                    List<GameObject> enemies = locator.getAll(false);
+                    if (!selectedMove.HasProperty(targetProperties.SELF))
+                    {
+                        enemies.Remove(this.gameObject);
+                    }
+                    for (int i = 0; i < enemies.Count; i++)
+                    {
+                        validTargets.Add(locator.locateObject(enemies[i]));
+                    }
+
+                }
+            }
+            if (selectedMove.HasProperty(targetProperties.SELF))
+            {
+                validTargets.Add(locator.locateObject(this.gameObject));
+            }
+
+            System.Random random = new System.Random();
+            int pickedTarget = -1;
+            List<int> SelectedTargets = new List<int>();
+            for (int i = 0; i < checkNumTargets(selectedMove); i++)
+            {
+                pickedTarget = random.Next(0, validTargets.Count);
+                SelectedTargets.Add(validTargets[pickedTarget]);
+            }
+            print("enemy target");
+            for (int i = 0; i < SelectedTargets.Count; i++)
+            {
+                print("picked target: " + SelectedTargets[i]);
+            }
+
+            return SelectedTargets;
         }
-        System.Random random = new System.Random();
-        int pickedTarget = -1;*/
-        List<int> SelectedTargets = new List<int>();
-        /*for(int i =0; i<checkNumTargets(selectedMove); i++)
+        if (selectedMove.HasProperty(targetProperties.MULTITARGET))
         {
-            pickedTarget = random.Next(0, validTargets.Count);
-            SelectedTargets.Add(validTargets[pickedTarget]);
+            if (selectedMove.HasProperty(targetProperties.PLAYERS))
+            {
+                List<GameObject> players = locator.getAll(true);
+                for (int i = 0; i < players.Count; i++)
+                {
+                    validTargets.Add(locator.locateObject(players[i]));
+                }
+
+            }
+            if (selectedMove.HasProperty(targetProperties.ENEMIES))
+            {
+                List<GameObject> enemies = locator.getAll(false);
+                if (!selectedMove.HasProperty(targetProperties.SELF))
+                {
+                    enemies.Remove(this.gameObject);
+                }
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    validTargets.Add(locator.locateObject(enemies[i]));
+                }
+
+            }
+            if (selectedMove.HasProperty(targetProperties.SELF))
+            {
+                validTargets.Add(locator.locateObject(this.gameObject));
+            }
         }
-        print("enemy target");
-        for( int i = 0; i< SelectedTargets.Count; i++)
-        {
-            print("picked target: " + SelectedTargets[0]);
-        }*/
+
+        print(selectedMove.Name);
+        print(validTargets.Count);
+        return validTargets;
         
-        return SelectedTargets;
     }
     protected int RandomMove()
     {
@@ -102,88 +169,118 @@ public class EnemyUnitMoveSelect : MonoBehaviour
         }
         return -1;
     }
-    protected void checkValid(move checkingMove, int position)
+    protected void checkValid(move checkingMove)
     {
-        /*if(checkingMove.moveTargetType == moveTargets.ENEMY)
+        if (checkingMove.HasProperty(enemyAIProperties.PREFERUNEFFECTED))
         {
-            if (checkEnemy(checkingMove, position))
-                validMoves.Add(checkingMove);
+            preferUneffected(checkingMove);
         }
-        //will not attack self
-        else if(checkingMove.moveTargetType == moveTargets.ALLY)
-        {
-            if (checkAlly(position))
-                validMoves.Add(checkingMove);
-        }
-        else if(checkingMove.moveTargetType == moveTargets.BOTH)
-        {
-            if (checkEnemy(checkingMove, position) || checkAlly(position))
-                validMoves.Add(checkingMove);
-        }
-        else if(checkingMove.moveTargetType == moveTargets.SELF)
-        {
+        if (checkingMove.HasProperty(targetProperties.PLAYERS) && checkingMove.EnemyMoveAI.Count==0){
             validMoves.Add(checkingMove);
-        }*/
-    }
-    private bool checkAlly(int position)
-    {
-        for (int i = 4; i < 8; i++)
+        }
+        if (checkingMove.HasProperty(targetProperties.ENEMIES) && !checkingMove.HasProperty(targetProperties.SELF))
         {
-            if (i != position && locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health >0)
+            List<GameObject> enemies = locator.getAll(false);
+            for(int i =0; i<enemies.Count; i++)
             {
-                return true;
+                if(enemies[i] != this.gameObject)
+                {
+                    validMoves.Add(checkingMove);
+                    break;
+                }
             }
         }
-        return false;
     }
-    private bool checkEnemy(move checkingMove, int position)
+
+    private void preferUneffected(move checkingMove)
     {
-        return getRange(position).Count > 0;
-    }
-    protected List<int> getRange(int position)
-    {
-        List<int> range = new List<int>();
-        range.Add(0);
-        switch (position)
+        if (checkingMove.HasProperty(targetProperties.PLAYERS))
         {
-            case 4:
-                if (locator.locateObject(1).GetComponent<BattleUnitHealth>() != null && locator.locateObject(1).GetComponent<BattleUnitHealth>().health >0)
-                    range.Add(1);
-                if (locator.locateObject(2).GetComponent<BattleUnitHealth>() != null && locator.locateObject(2).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(2);
-                break;
-            case 5:
-                if (locator.locateObject(1).GetComponent<BattleUnitHealth>() != null && locator.locateObject(1).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(1);
-                break;
-            case 6:
-                if (locator.locateObject(2).GetComponent<BattleUnitHealth>() != null && locator.locateObject(2).GetComponent<BattleUnitHealth>().health > 0)
-                    range.Add(2);
-                break;
-
-
+            List<GameObject> players = locator.getAll(true);
+            statusEffect searchStatus = checkingMove.MoveEffects[0].MoveStatus;
+            for (int i = 0; i < checkingMove.MoveEffects.Count; i++)
+            {
+                if (checkingMove.MoveEffects[i].Target == statusTarget.INFLICT)
+                {
+                    searchStatus = checkingMove.MoveEffects[i].MoveStatus;
+                    break;
+                }
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].GetComponent<BattleUnitHealth>().health > 0 && !players[i].GetComponent<BattleUnitStatus>().HasStatus(searchStatus))
+                {
+                    print(players[i].name + " does not have the status yet");
+                    validMoves.Add(checkingMove);
+                    break;
+                }
+            }
         }
-        return range;
+        //will not attack self
+        if (checkingMove.HasProperty(targetProperties.ENEMIES))
+        {
+            List<GameObject> enemies = locator.getAll(false);
+            enemies.Remove(this.gameObject);
+            statusEffect searchStatus = checkingMove.MoveEffects[0].MoveStatus;
+            for (int i = 0; i < checkingMove.MoveEffects.Count; i++)
+            {
+                if (checkingMove.MoveEffects[i].Target == statusTarget.INFLICT)
+                {
+                    searchStatus = checkingMove.MoveEffects[i].MoveStatus;
+                    break;
+                }
+            }
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (!enemies[i].GetComponent<BattleUnitStatus>().HasStatus(searchStatus))
+                {
+                    validMoves.Add(checkingMove);
+                    break;
+                }
+            }
+        }
+        bool selfstatus = false;
+        statusEffect searchSelfStatus = checkingMove.MoveEffects[0].MoveStatus;
+        for (int i = 0; i < checkingMove.MoveEffects.Count; i++)
+        {
+            if (checkingMove.MoveEffects[i].Target == statusTarget.SELF)
+            {
+                searchSelfStatus = checkingMove.MoveEffects[i].MoveStatus;
+                selfstatus = true;
+                break;
+            }
+        }
+        if (checkingMove.HasProperty(targetProperties.SELF) && selfstatus)
+        {
+            if (!this.gameObject.GetComponent<BattleUnitStatus>().HasStatus(searchSelfStatus))
+                validMoves.Add(checkingMove);
+        }
     }
+
     protected int checkNumTargets(move selectedMove)
     {
-       /* if (selectedMove.targetType == targetType.SINGLE)
+        if (selectedMove.HasProperty(targetProperties.SINGLETARGET))
         {
             return 1;
         }
-        else if (selectedMove.targetType == targetType.PAIRS)
+        if (selectedMove.HasProperty(targetProperties.MULTITARGET))
         {
-            return 2;
+            int count = 0;
+            if (selectedMove.HasProperty(targetProperties.PLAYERS))
+            {
+                count += locator.getAll(true).Count;
+            }
+            if (selectedMove.HasProperty(targetProperties.ENEMIES))
+            {
+                count += locator.getAll(false).Count-1;
+            }
+            if (selectedMove.HasProperty(targetProperties.SELF))
+            {
+                count++;
+            }
+            return count;
         }
-        else if (selectedMove.targetType == targetType.THREES)
-        {
-            return 3;
-        }
-        else if (selectedMove.targetType == targetType.FOURS)
-        {
-            return 4;
-        }*/
-        return 8;
+        return 1;
     }
     protected void useTargetSelected(int pickedMove, List<int> targets)
     {

@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 7893044945389744761}
   - component: {fileID: 8816589241709483794}
   - component: {fileID: 8049190354081900178}
+  - component: {fileID: 4063339154290462276}
   - component: {fileID: 6271571626364423444}
   - component: {fileID: 754879079044497505}
   - component: {fileID: 5515481383210312830}
@@ -153,7 +154,7 @@ GameObject:
   - component: {fileID: 3663346575504971516}
   - component: {fileID: -7410970946999894430}
   m_Layer: 0
-  m_Name: Phoenix
+  m_Name: Rennu
   m_TagString: playerTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
+  defense: 0
 --- !u!114 &7893044945389744761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
   successful: 0
   parry: 0
@@ -304,7 +307,8 @@ MonoBehaviour:
   - {fileID: 6561045562875701867, guid: 105ceb42a7eb0a649ad7d3fdd1afdfa1, type: 3}
   - {fileID: -2227333729196999466, guid: 105ceb42a7eb0a649ad7d3fdd1afdfa1, type: 3}
   secondaryIcons: []
-  primaryActive: 1
+  thirdIcons: []
+  form: 0
 --- !u!114 &8049190354081900178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +325,20 @@ MonoBehaviour:
   maxhealth: 10
   offensiveRevive: 0
   egg: {fileID: 11400000, guid: cf61daf8c67714f499185a5366774ab4, type: 2}
+--- !u!114 &4063339154290462276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967874968626346953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0e0726b04ca741bb6509a84df3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 1
+  Defense: 0
 --- !u!114 &6271571626364423444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5e8f5788426af43ad5d14cd1f91bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
+  moveset: []
 --- !u!114 &5515481383210312830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56453756ba0458a4d8467e4296a540df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: neutral
 --- !u!114 &3663346575504971516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,3 +428,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
+  UnitSide: 0

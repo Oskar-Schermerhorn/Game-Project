@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5610411429362144251}
   - component: {fileID: 5610411429362144249}
   - component: {fileID: 2431245750714439439}
+  - component: {fileID: -6489706331901873053}
   - component: {fileID: 898142702979445832}
   - component: {fileID: 1712664402031315330}
   - component: {fileID: 3337581754068894196}
@@ -161,6 +162,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 15
   maxhealth: 15
+--- !u!114 &-6489706331901873053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610411429362144245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0e0726b04ca741bb6509a84df3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 2
+  Defense: 0
 --- !u!114 &898142702979445832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
+  defense: 0
 --- !u!114 &1712664402031315330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
   successful: 0
   parry: 0
@@ -203,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5e8f5788426af43ad5d14cd1f91bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
+  moveset: []
 --- !u!114 &1649629774706105262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56453756ba0458a4d8467e4296a540df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: neutral
 --- !u!114 &-3874189380242351955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  UnitSide: 0
 --- !u!1 &6644325539801017938
 GameObject:
   m_ObjectHideFlags: 0

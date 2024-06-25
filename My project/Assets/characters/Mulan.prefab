@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: -8270883346827614129}
   - component: {fileID: 6955507615476652281}
   - component: {fileID: -8665321305212865184}
+  - component: {fileID: 1928135684447574552}
   - component: {fileID: -3272657042229943261}
   - component: {fileID: -7320479395507667431}
   - component: {fileID: 6592896974339805726}
@@ -308,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5e8f5788426af43ad5d14cd1f91bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
+  moveset: []
 --- !u!114 &-8270883346827614129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +360,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 12
   maxhealth: 12
+--- !u!114 &1928135684447574552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801266052374407103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0e0726b04ca741bb6509a84df3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 2
+  Defense: 1
 --- !u!114 &-3272657042229943261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
   successful: 0
   parry: 0
@@ -437,3 +453,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
+  UnitSide: 0

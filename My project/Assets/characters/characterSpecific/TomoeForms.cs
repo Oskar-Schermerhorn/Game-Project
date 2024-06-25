@@ -7,13 +7,13 @@ public class TomoeForms : BattleUnitForm
     override public void upForm()
     {
         print("new script");
-        this.gameObject.GetComponent<BattleUnitStatus>().defense--;
+        this.gameObject.GetComponent<BattleUnitStat>().Defense--;
         base.upForm();
         
     }
     override public void downForm()
     {
-        this.gameObject.GetComponent<BattleUnitStatus>().defense++;
+        this.gameObject.GetComponent<BattleUnitStat>().Defense++;
         base.downForm();
         
     }

@@ -14,6 +14,8 @@ public class actionCommand
     public int minimum;
     public int additional;
     public int maximum;
+
+
     public actionCommand()
     {
         type = actionCommandType.NONE;

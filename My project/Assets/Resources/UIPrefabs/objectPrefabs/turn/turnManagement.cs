@@ -72,12 +72,12 @@ public class turnManagement : MonoBehaviour
     {
         turnNum++;
         
-        if (turnNum > 8)
+        if (turnNum > locator.numObjects())
         {
             turnNum = 0;
         }
         updateTurnState();
-        if (turnNum == 8)
+        if (turnNum == locator.numObjects())
         {
             checkStatus();
             executeStatusAnimations();
@@ -106,7 +106,7 @@ public class turnManagement : MonoBehaviour
 
     private bool checkValidTurn()
     {
-        if(turnNum < 8)
+        if(turnNum < locator.numObjects())
         {
             if (locator.locateObject(turnNum).GetComponent<BattleUnitHealth>() == null)
                 return false;
@@ -139,18 +139,25 @@ public class turnManagement : MonoBehaviour
 
     private void updateTurnState()
     {
-        switch (turnNum)
+        if(turnNum < locator.numObjects())
         {
-            case 0:
-                turnState = battleState.PLAYERTURN;
-                break;
-            case 4:
-                turnState = battleState.ENEMYTURN;
-                print("sending enemy turn signal");
-                break;
-            case 8:
-                turnState = battleState.HAZARDS;
-                break;
+            if (locator.locateObject(turnNum).GetComponent<BattleUnitID>() != null)
+            {
+                side turnSide = locator.locateObject(turnNum).GetComponent<BattleUnitID>().UnitSide;
+                if(turnSide == side.PLAYER)
+                {
+                    turnState = battleState.PLAYERTURN;
+                }
+                else if(turnSide == side.ENEMY)
+                {
+                    turnState = battleState.ENEMYTURN;
+                    print("sending enemy turn signal");
+                }
+            }
+        }
+        else
+        {
+            turnState = battleState.HAZARDS;
         }
     }
 
@@ -207,7 +214,7 @@ public class turnManagement : MonoBehaviour
     }
     private void checkStatus()
     {
-        for(int i =0; i< 8; i++)
+        for(int i =0; i< locator.numObjects(); i++)
         {
             if(locator.locateObject(i).GetComponent<BattleUnitStatus>() != null && locator.locateObject(i).GetComponent<BattleUnitStatus>().myStatus.Count > 0)
             {
@@ -222,7 +229,7 @@ public class turnManagement : MonoBehaviour
     }
     IEnumerator StatusAnimation()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < locator.numObjects(); i++)
         {
             if (locator.locateObject(i).GetComponent<BattleUnitStatus>() != null && locator.locateObject(i).GetComponent<BattleUnitStatus>().myStatus.Count > 0 
                 && locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health >0
@@ -240,7 +247,7 @@ public class turnManagement : MonoBehaviour
             }
         }
         print("done");
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < locator.numObjects(); i++)
         {
             if (locator.locateObject(i).GetComponent<BattleUnitFinish>() != null)
             {

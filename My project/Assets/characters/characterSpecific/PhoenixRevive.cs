@@ -9,6 +9,8 @@ public class PhoenixRevive : BattleUnitHealth
     turnManagement turn;
     [SerializeField] bool offensiveRevive = false;
     [SerializeField] statusEffect egg;
+    move RevivePlayer;
+    move ReviveEnemy;
     public static event Action<move> reviveMove;
     int targeting = 4;
 
@@ -42,30 +44,12 @@ public class PhoenixRevive : BattleUnitHealth
     }
     public move revive()
     {
-        int[] targets;
+        move Revive = RevivePlayer;
         if (offensiveRevive)
         {
-            targets = new int[] { 7,6,5,4 };
+            Revive = ReviveEnemy;
         }
-        else
-        {
-            int me = locator.locateObject(this.gameObject);
-            targets = new int[] { 0,1,2,3 };
-            List<int> newTargets = new List<int>();
-            for(int i =0; i< 4; i++)
-            {
-                if(targets[i] != me)
-                {
-                    newTargets.Add(targets[i]);
-                }
-            }
-            targets = new int[3];
-            for (int i = 0; i<3; i++)
-            {
-                targets[i] = newTargets[i];
-            }
-        }
-        move Revive = new move(new string[] { "Revive" }, 0, new int[] { 2 }, moveTargets.BOTH, new effect("flare", "none"), targets, targetType.UNMOVABLE, new actionCommand());
+
         reviveMove(Revive);
 
         offensiveRevive = false;

@@ -13,7 +13,7 @@ public class BattleUnitStatus : MonoBehaviour
     public static event Action ChangeIcon;
     public static event Action StatusDamage;
     int Duration = 0;
-    public int defense = 0;
+    //public int defense = 0;
 
     private void Awake()
     {
@@ -131,6 +131,18 @@ public class BattleUnitStatus : MonoBehaviour
                 }
             }
         }
+    }
+    public bool HasStatus(statusEffect s)
+    {
+        for (int i = 0; i < myStatus.Count; i++)
+        {
+            if (myStatus[i] == s)
+            {
+                return true;
+            }
+        }
+        print("status not found");
+        return false;
     }
 
     public void checkStartStatus()
@@ -256,7 +268,7 @@ public class BattleUnitStatus : MonoBehaviour
     }
     public int calcDefenseMod()
     {
-        int defenseModifier = defense;
+        int defenseModifier = this.gameObject.GetComponent<BattleUnitStat>().Defense;
         for (int i = 0; i < myStatus.Count; i++)
         {
             if (myStatus[i].type == statusType.DEFENSEMOD)
