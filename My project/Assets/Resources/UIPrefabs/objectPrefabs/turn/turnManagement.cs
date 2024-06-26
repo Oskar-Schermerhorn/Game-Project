@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System;
 
-public enum battleState { START, PLAYERTURN, ENEMYTURN, HAZARDS, WON, LOST }
+public enum battleState { START, CARDS, PLAYERTURN, ENEMYTURN, HAZARDS, WON, LOST }
 
 public class turnManagement : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class turnManagement : MonoBehaviour
     ObjectLocator locator;
     public static event Action NewTurn;
     public static event Action SpinTurn;
+    public static event Action CardTurn;
     public static event Action<int> PlayerTurn;
     public static event Action<int> EnemyTurn;
     public static event Action Status;
@@ -30,7 +31,7 @@ public class turnManagement : MonoBehaviour
         MoveCoroutine.spinComplete += spinTurn;
         spawn.startUp();
         NewTurn();
-        turnState = battleState.PLAYERTURN;
+        turnState = battleState.CARDS;
         BattleUnitFinish.EndTurn += EndTurn;
         BattleUnitFinish.TurnAgain += TurnAgain;
         
@@ -127,6 +128,10 @@ public class turnManagement : MonoBehaviour
     }
     private void executeTurn()
     {
+        if(turnState == battleState.CARDS && CardTurn != null)
+        {
+            CardTurn();
+        }
         if(turnState == battleState.PLAYERTURN && PlayerTurn != null)
         {
             PlayerTurn(turnNum);
