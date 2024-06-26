@@ -16,7 +16,7 @@ MonoBehaviour:
   Damage: 0
   MoveProperties: 0000000003000000
   MoveTargets: 000000000600000003000000
-  EnemyMoveAI: 02000000
+  EnemyMoveAI: 
   MoveEffects: []
   Action:
     type: 8

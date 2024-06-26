@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CreateDescription : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class CreateDescription : MonoBehaviour
     void createNewDescription(move currentMove)
     {
         descriptionInstance = Instantiate<GameObject>(Description, GameObject.Find("Canvas").transform);
-        descriptionInstance.GetComponentInChildren<Text>().text = getText(currentMove);
+        descriptionInstance.GetComponentInChildren<TextMeshPro>().text = getText(currentMove);
     }
     void destroyDescription()
     {

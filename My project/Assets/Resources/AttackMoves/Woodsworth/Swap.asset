@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
   m_Name: Swap
   m_EditorClassIdentifier: 
-  animation: {fileID: 7400000, guid: 7f5b76c259198ea40987c386d2e6ae40, type: 2}
   Cost: 0
   Damage: 0
   MoveProperties: 08000000
   MoveTargets: 000000000300000006000000
   EnemyMoveAI: 
+  MoveEffects: []
   Action:
     type: 0
     buttons: 
