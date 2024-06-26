@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public enum fieldTime{SPIN, STARTTURN, NONE};
-[CreateAssetMenu]
+//[CreateAssetMenu]
 public class fieldEffects : ScriptableObject
 {
     public string effectName;

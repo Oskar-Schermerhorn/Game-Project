@@ -1605,6 +1605,7 @@ GameObject:
   - component: {fileID: 1061543323}
   - component: {fileID: 1061543322}
   - component: {fileID: 1061543321}
+  - component: {fileID: 1061543337}
   - component: {fileID: 1061543320}
   - component: {fileID: 1061543319}
   - component: {fileID: 1061543327}
@@ -1712,7 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnState: 0
-  turnNum: 0
+  turnNum: -1
   spawn: {fileID: 0}
   statusEffectsPlaying: 0
 --- !u!114 &1061543324
@@ -1880,6 +1881,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMods: {fileID: 0}
+--- !u!114 &1061543337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061543318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5778c00ada56ad643a049a6718b354e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: []
+  normalCard:
+    name: normal
+    sprite: {fileID: 0}
+    damageModifier: 0
+    property: 0
+    VFX: 0
+  plus1Card:
+    name: +1
+    sprite: {fileID: 0}
+    damageModifier: 1
+    property: 1
+    VFX: 0
 --- !u!1 &1096115477
 GameObject:
   m_ObjectHideFlags: 0

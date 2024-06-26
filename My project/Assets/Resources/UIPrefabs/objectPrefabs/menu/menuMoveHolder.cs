@@ -29,7 +29,7 @@ public class menuMoveHolder : MonoBehaviour
     }
     public void setPlayer()
     {
-        if(turn.turnNum < 8)
+        if(turn.turnNum < locator.numObjects() && turn.turnNum >=0)
         {
             GameObject player = locator.locateObject(turn.turnNum);
             if (player.GetComponent<BattleUnitData>() != null)

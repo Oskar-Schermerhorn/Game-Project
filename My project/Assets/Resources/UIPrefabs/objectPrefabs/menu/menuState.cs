@@ -20,7 +20,7 @@ public class menuState : MonoBehaviour
         input = this.gameObject.GetComponent<menuHandleInput>();
         execute = this.gameObject.GetComponent<menuExecute>();
         
-        SpawnScript.battleSetup += display;
+        CardDealer.FinishDealing += display;
         targetInput.Cancel += retreat;
         optionsInput.Cancel += retreat;
         optionsController.confirmedMove += moveChosen;
@@ -101,7 +101,7 @@ public class menuState : MonoBehaviour
     }
     private void OnDisable()
     {
-        SpawnScript.battleSetup -= display;
+        CardDealer.FinishDealing -= display;
         targetInput.Cancel -= retreat;
         optionsInput.Cancel -= retreat;
         optionsController.confirmedMove -= moveChosen;

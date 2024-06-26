@@ -10,7 +10,7 @@ public enum battleState { START, CARDS, PLAYERTURN, ENEMYTURN, HAZARDS, WON, LOS
 public class turnManagement : MonoBehaviour
 {
     public battleState turnState;
-    public int turnNum = 0;
+    public int turnNum = -1;
     [SerializeField] SpawnScript spawn;
     ObjectLocator locator;
     public static event Action NewTurn;
@@ -34,7 +34,7 @@ public class turnManagement : MonoBehaviour
         turnState = battleState.CARDS;
         BattleUnitFinish.EndTurn += EndTurn;
         BattleUnitFinish.TurnAgain += TurnAgain;
-        
+        CardDealer.FinishDealing += changeTurn;
         
     }
 
@@ -75,7 +75,7 @@ public class turnManagement : MonoBehaviour
         
         if (turnNum > locator.numObjects())
         {
-            turnNum = 0;
+            turnNum = -1;
         }
         updateTurnState();
         if (turnNum == locator.numObjects())
@@ -107,6 +107,8 @@ public class turnManagement : MonoBehaviour
 
     private bool checkValidTurn()
     {
+        if (turnNum == -1)
+            return true;
         if(turnNum < locator.numObjects())
         {
             if (locator.locateObject(turnNum).GetComponent<BattleUnitHealth>() == null)
@@ -144,7 +146,11 @@ public class turnManagement : MonoBehaviour
 
     private void updateTurnState()
     {
-        if(turnNum < locator.numObjects())
+        if(turnNum < 0)
+        {
+            turnState = battleState.CARDS;
+        }
+        else if(turnNum < locator.numObjects())
         {
             if (locator.locateObject(turnNum).GetComponent<BattleUnitID>() != null)
             {
@@ -268,6 +274,6 @@ public class turnManagement : MonoBehaviour
         BattleUnitFinish.TurnAgain -= TurnAgain;
         SpawnScript.battleSetup -= executeTurn;
         MoveCoroutine.spinComplete -= spinTurn;
-        
+        CardDealer.FinishDealing -= changeTurn;
 }
 }
