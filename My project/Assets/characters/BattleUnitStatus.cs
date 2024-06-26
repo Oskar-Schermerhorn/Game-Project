@@ -95,7 +95,7 @@ public class BattleUnitStatus : MonoBehaviour
                     else if (status.name.Equals("spin"))
                     {
                         print("spin");
-                        spin.spin(this.gameObject);
+                        spin.spin();
                     }
                     else if (status.name.Equals("reverseSpin"))
                     {

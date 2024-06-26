@@ -15,39 +15,45 @@ public class SpinHandler : MonoBehaviour
         movement = gameObject.GetComponent<MoveCoroutine>();
         turn = gameObject.GetComponent<turnManagement>();
     }
-    public void spin(GameObject target)
+    public void spin()
     {
+        List<GameObject> players = locator.getAll(true);
 
-        GameObject temp0 = spawn.unitList[0];
-        GameObject temp1 = spawn.unitList[1];
-        GameObject temp2 = spawn.unitList[2];
+        int playerIndex = players.Count - 1;
 
-        spawn.unitList[0] = temp2;
-        spawn.unitList[1] = temp0;
-        spawn.unitList[2] = temp1;
+        //take the element at the end of the list
+        GameObject temp = players[playerIndex];
+        players.RemoveAt(playerIndex);
+
+        //put it at the front of the list
+        players.Insert(0, temp);
+
+        //update unitlist order
+        spawn.unitList.RemoveRange(0, players.Count);
+        spawn.unitList.InsertRange(0, players);
+
         createList(true);
-        //              1          0
-        //2->1             0  ->     2
-        //1->0          2          1
-        //0->2
         spawn.updateLayer();
 
     }
     public void reverseSpin(GameObject target)
     {
-        GameObject temp0 = spawn.unitList[0];
-        GameObject temp1 = spawn.unitList[1];
-        GameObject temp2 = spawn.unitList[2];
+        List<GameObject> players = locator.getAll(true);
 
-        spawn.unitList[0] = temp1;
-        spawn.unitList[1] = temp2;
-        spawn.unitList[2] = temp0;
+        int playerIndex = 0;
+
+        //take the element at the end of the list
+        GameObject temp = players[playerIndex];
+        players.RemoveAt(playerIndex);
+
+        //put it at the front of the list
+        players.Insert(players.Count, temp);
+
+        //update unitlist order
+        spawn.unitList.RemoveRange(0, players.Count);
+        spawn.unitList.InsertRange(0, players);
 
         createList(false);
-        //              1              2
-        //2->0             0  ->          1
-        //1->2          2              0
-        //0->1
         spawn.updateLayer();
 
     }
@@ -57,15 +63,12 @@ public class SpinHandler : MonoBehaviour
 
         List<GameObject> objects = new List<GameObject>();
         List<Vector2> positions = new List<Vector2>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < locator.getAll(true).Count; i++)
         {
             GameObject player = locator.locateObject(i);
-            
-            if (player.GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
-            {
-                objects.Add(player);
-                positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position" + i).transform.position);
-            }
+
+            objects.Add(player);
+            positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position" + i).transform.position);
         }
         movement.Move(objects, positions, left);
     }

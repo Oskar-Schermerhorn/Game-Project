@@ -56,7 +56,7 @@ public class MoveCoroutine : MonoBehaviour
         {
             print("spin again");
             if(left)
-                spin.spin(objects[0]);
+                spin.spin();
             else
                 spin.reverseSpin(objects[0]);
         }

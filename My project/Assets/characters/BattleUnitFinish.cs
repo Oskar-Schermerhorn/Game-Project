@@ -30,10 +30,8 @@ public class BattleUnitFinish : MonoBehaviour
             //spinDone = false;
             if (locator.locateObject(0).GetComponent<BattleUnitHealth>() == null || locator.locateObject(0).GetComponent<BattleUnitHealth>().health <= 0)
             {
-                spin.spin(locator.locateObject(0));
+                spin.spin();
             }
-            /*if (locator.locateObject(4).GetComponent<BattleUnitHealth>() == null || locator.locateObject(4).GetComponent<BattleUnitHealth>().health <= 0)
-                spin.spin(locator.locateObject(4));*/
             yield return new WaitUntil(() => spinDone);
             spinDone = false;
         }

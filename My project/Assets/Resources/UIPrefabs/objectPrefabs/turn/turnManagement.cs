@@ -181,9 +181,7 @@ public class turnManagement : MonoBehaviour
         {
             SpinTurn();
             print("spin turn");
-            if (turnNum < 4)
-            {
-                if (GameObject.Find("Menu").GetComponent<menuExecute>().manual)
+            if (GameObject.Find("Menu").GetComponent<menuExecute>().manual)
                 {
                     if (locator.locateObject(turnNum).GetComponent<BattleUnitHealth>() == null || locator.locateObject(turnNum).GetComponent<BattleUnitHealth>().health <= 0)
                     {
@@ -192,7 +190,7 @@ public class turnManagement : MonoBehaviour
                             if (locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
                             {
                                 if (GameObject.Find("Menu").GetComponent<menuExecute>().left)
-                                    gameObject.GetComponent<SpinHandler>().spin(locator.locateObject(i));
+                                    gameObject.GetComponent<SpinHandler>().spin();
                                 else
                                     gameObject.GetComponent<SpinHandler>().reverseSpin(locator.locateObject(i));
                                 break;
@@ -207,8 +205,6 @@ public class turnManagement : MonoBehaviour
                     }
                     
                 }
-                
-            }
         }
         
     }

@@ -164,7 +164,7 @@ public class menuExecute : MonoBehaviour
         {
             battery.useBP(spinCost);
             numSpins++;
-            spin.spin(locator.locateObject(turn.turnNum));
+            spin.spin();
             input.disableControls();
             left = true;
             manual = true;
