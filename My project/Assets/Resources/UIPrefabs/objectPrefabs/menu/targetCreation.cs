@@ -68,6 +68,10 @@ public class targetCreation : MonoBehaviour
                 }
                 
             }
+            else if (currentMove.HasProperty(targetProperties.SELF))
+            {
+                possibleIndex.Add(turn.turnNum);
+            }
             createSingleTarget(0, possibleIndex[0], possibleIndex);
         }
         else if (currentMove.HasProperty(targetProperties.MULTITARGET))

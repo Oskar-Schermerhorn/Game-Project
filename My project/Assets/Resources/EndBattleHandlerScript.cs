@@ -121,6 +121,8 @@ public class EndBattleHandlerScript : MonoBehaviour
     private void awardEXP()
     {
         int total = 0;
+        // re work this to add exp dynamically in battle
+
         for (int i = 4; i < 8; i++)
         {
             if (locator.locateObject(i).GetComponent<EnemyUnitExp>() != null)

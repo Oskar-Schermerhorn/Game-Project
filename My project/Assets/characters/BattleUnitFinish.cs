@@ -11,6 +11,7 @@ public class BattleUnitFinish : MonoBehaviour
     EndBattleHandlerScript endBattle;
     public bool spinDone = false;
     public bool spinInProgress = false;
+
     private void Awake()
     {
         spin = GameObject.Find("BattleHandler").GetComponent<SpinHandler>();
@@ -28,7 +29,7 @@ public class BattleUnitFinish : MonoBehaviour
         if (spin.checkSpin() && !spinInProgress && !endBattle.checkWonBattle() && !endBattle.checkLostBattle())
         {
             //spinDone = false;
-            if (locator.locateObject(0).GetComponent<BattleUnitHealth>() == null || locator.locateObject(0).GetComponent<BattleUnitHealth>().health <= 0)
+            if (locator.locateObject(0).GetComponent<BattleUnitHealth>().health <= 0)
             {
                 spin.spin();
             }
@@ -41,7 +42,11 @@ public class BattleUnitFinish : MonoBehaviour
             spinDone = false;
         }
 
-        
+
+        endOfAction(end);
+    }
+    public void endOfAction(bool end)
+    {
         if (end)
             EndTurn();
         else
@@ -58,14 +63,8 @@ public class BattleUnitFinish : MonoBehaviour
     }
     virtual protected void endOfAttack(bool end)
     {
-        StartCoroutine(waitSpin(end));
-        if(this.gameObject.GetComponent<BattleUnitHealth>().health > 0)
-        {
-            //reset animation
-            this.gameObject.GetComponent<BattleUnitAnimate>().changeAnimation("neutral");
-            //reset position
-            this.gameObject.GetComponent<BattleUnitAttackOffset>().returnTo();
-        }
+        //StartCoroutine(waitSpin(false));
+        this.gameObject.GetComponent<BattleUnitAttackOffset>().returnTo(end);
 
         endBattle.checkBattleOver();
     }

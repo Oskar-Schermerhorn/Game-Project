@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class BattleUnitAttackOffset : MonoBehaviour
 {
-    Vector2[] pos = new Vector2[8];
+    Vector2 mypos = new Vector2();
     int tempLayer;
     ObjectLocator locator;
+    MoveCoroutine movement;
+    SpawnScript spawn;
+
+    int playercount = 0;
+    int enemycount = 0;
+    List<GameObject> objects;
+    List<Vector2> positions;
+    List<int> savedTargets;
+
     private void Awake()
     {
         locator = GameObject.Find("BattleHandler").GetComponent<ObjectLocator>();
+        movement = GameObject.Find("BattleHandler").GetComponent<MoveCoroutine>();
+        spawn = GameObject.Find("BattleHandler").GetComponent<SpawnScript>();
     }
     private void Start()
     {
@@ -33,20 +44,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
     public void handleOffset(move selectedMove, List<int> targets)
     {
         GameObject target = locator.locateObject(targets[0]);
-        //float offset = -1.36f;
-        //if (selectedMove.moveTargetType == moveTargets.SELF)
-        //    offset = 0f;
-        //if (selectedMove.moveTargetType == moveTargets.ALLY)
-        //    offset *= -1;
-        //pos = transform.position;
-        //if (locator.locateObject(this.gameObject) >= 4)
-        //{
-        //    offset *= -1;
-        //}
-        //if (offset != 0)
-        //{
-            //transform.position = new Vector2(target.transform.position.x + offset, target.transform.position.y);
-        //}
+
 
         //turn off everything
         //set to first frame animations in higher res
@@ -66,88 +64,154 @@ public class BattleUnitAttackOffset : MonoBehaviour
 
     IEnumerator ChangeToAttackMode(move selectedMove, List<int> targets)
     {
-        print("test");
-        //this.gameObject.GetComponent<Animator>().Play(selectedMove.animationNames[0]);
         this.gameObject.GetComponent<Animator>().speed = 0;
-        for(int i = 0; i< locator.numObjects(); i++)
+        for (int i = 0; i < locator.numObjects(); i++)
         {
-            pos[i] = locator.locateObject(i).transform.position;
-            
+
             locator.locateObject(i).GetComponent<SpriteRenderer>().enabled = false;
-            if(locator.locateObject(i).GetComponent<Animator>() != null)
+            if (locator.locateObject(i).GetComponent<Animator>() != null)
             {
                 locator.locateObject(i).GetComponent<Animator>().enabled = false;
             }
         }
-        if(!selectedMove.HasProperty(targetProperties.SELF))
-        {
-            transform.position = new Vector2(0, -0.58f);
-            int set = 0;
-            if (locator.locateObject(this.gameObject) < 4)
-            {
-                set = 4;
-            }
-            for (int i = 0; i < targets.Count; i++)
-            {
-                //place the enemies correctly
 
-                locator.locateObject(targets[i]).transform.position = pos[set + i];
-                /*if(selectedMove.targetType == targetType.PAIRS)
-                {
-                    if(i == 1 && targets[1] != targets[0] + 1)
-                    {
-                        int difference = targets[1] -targets[0]-1;
-                        locator.locateObject(targets[i]).transform.position = pos[set + i + difference];
-                    }
-                }*/
-                //locator.locateObject(targets[i]).GetComponent<SpriteRenderer>().enabled = f;
-            }
-        }
-        
-        
+
+        savedTargets = targets;
+        createAttackMovementLists(targets, ref playercount, ref enemycount, out objects, out positions);
+
         yield return null;
-        //print(this.name);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<Animator>().enabled = true;
-        if (!selectedMove.HasProperty(targetProperties.SELF))
+        for (int i = 0; i < targets.Count; i++)
         {
-            for (int i = 0; i < targets.Count; i++)
+            locator.locateObject(targets[i]).GetComponent<SpriteRenderer>().enabled = true;
+
+            if (targets[i] != locator.locateObject(this.gameObject)
+                && locator.locateObject(targets[i]).GetComponent<BattleUnitAnimate>() != null)
             {
-                //print(locator.locateObject(targets[i]).name);
-                locator.locateObject(targets[i]).GetComponent<SpriteRenderer>().enabled = true;
-                
-                if (targets[i] != locator.locateObject(this.gameObject)
-                    && locator.locateObject(targets[i]).GetComponent<BattleUnitAnimate>() != null)
-                {
-                    locator.locateObject(targets[i]).GetComponent<Animator>().enabled = true;
-                    locator.locateObject(targets[i]).GetComponent<BattleUnitAnimate>().changeAnimation("neutral64");
-                }
-                
+                locator.locateObject(targets[i]).GetComponent<Animator>().enabled = true;
             }
+
         }
-        //this.gameObject.GetComponent<Animator>().Play(selectedMove.animationNames[0]);
-        
+
+        // stall until movement is finished
+        movement.Move(objects, positions, 3);
+        yield return movement.coroutine;
+
+        for (int i = 0; i < objects.Count; i++)
+        {
+            if (objects[i].GetComponent<BattleUnitAnimate>() != null && objects[i] != this.gameObject)
+            {
+                objects[i].GetComponent<BattleUnitAnimate>().changeAnimation("neutral64");
+            }
+
+        }
+        yield return null;
+
         this.gameObject.GetComponent<Animator>().speed = 1;
+        this.transform.position = new Vector2(0, -0.58f);
+        this.gameObject.GetComponent<BattleUnitAnimate>().changeAnimation(selectedMove.Name);
     }
 
-    public void returnTo()
+    private void createAttackMovementLists(List<int> targets, ref int playercount, ref int enemycount, out List<GameObject> objects, out List<Vector2> positions)
     {
-        //if(transform.position != Vector3.down)
-        //{
-        //    transform.position = pos;
+        objects = new List<GameObject>();
+        positions = new List<Vector2>();
+        playercount = 0;
+        enemycount = 0;
 
-        //}
-        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tempLayer;
+        objects.Add(this.gameObject);
+        if (this.gameObject.GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+        {
+            positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position0").transform.position);
+            playercount++;
+        }
+        else if (this.gameObject.GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
+        {
+            positions.Add(GameObject.Find("BattleHandler/Positions/EnemyPositions/position").transform.position);
+            enemycount++;
+        }
+
+
+        for (int i = 0; i < targets.Count; i++)
+        {
+            if (targets[i] != locator.locateObject(this.gameObject))
+            {
+                if (locator.locateObject(targets[i]).GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+                {
+                    objects.Add(locator.locateObject(targets[i]));
+                    positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position0").transform.position - (spawn.enemyOffset * playercount));
+                    playercount++;
+                }
+                else if (locator.locateObject(targets[i]).GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
+                {
+                    objects.Add(locator.locateObject(targets[i]));
+                    positions.Add(GameObject.Find("BattleHandler/Positions/EnemyPositions/position").transform.position + (spawn.enemyOffset * enemycount));
+                    enemycount++;
+                }
+            }
+        }
+    }
+
+    private void createReturnMovementLists(List<int> targets, ref int playercount, ref int enemycount, out List<GameObject> objects, out List<Vector2> positions)
+    {
+        objects = new List<GameObject>();
+        positions = new List<Vector2>();
+
+        objects.Add(this.gameObject);
+        int index = locator.locateObject(this.gameObject);
+        if (this.gameObject.GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+        {
+            positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position" + index).transform.position);
+        }
+        else if (this.gameObject.GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
+        {
+            index -= locator.getAll(true).Count;
+            positions.Add(GameObject.Find("BattleHandler/Positions/EnemyPositions/position").transform.position + (spawn.enemyOffset * index));
+        }
+
+
+        for (int i = 0; i < targets.Count; i++)
+        {
+            if (targets[i] != locator.locateObject(this.gameObject))
+            {
+                if (locator.locateObject(targets[i]).GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+                {
+                    objects.Add(locator.locateObject(targets[i]));
+                    positions.Add(GameObject.Find("BattleHandler/Positions/PlayerPositions/position" + targets[i]).transform.position);
+                }
+                else if (locator.locateObject(targets[i]).GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
+                {
+                    objects.Add(locator.locateObject(targets[i]));
+                    positions.Add(GameObject.Find("BattleHandler/Positions/EnemyPositions/position").transform.position + (spawn.enemyOffset * (targets[i] - locator.getAll(true).Count)));
+                }
+            }
+        }
+    }
+
+    public void returnTo(bool end)
+    {
+        StartCoroutine(ReturnCoroutine(end));
+    }
+
+    IEnumerator ReturnCoroutine(bool end)
+    {
         for (int i = 0; i < locator.numObjects(); i++)
         {
+
             locator.locateObject(i).GetComponent<SpriteRenderer>().enabled = true;
-            locator.locateObject(i).transform.position = pos[i];
-            if(locator.locateObject(i).GetComponent<Animator>() != null)
+
+            if (locator.locateObject(i).GetComponent<BattleUnitAnimate>() != null)
             {
                 locator.locateObject(i).GetComponent<Animator>().enabled = true;
                 locator.locateObject(i).GetComponent<BattleUnitAnimate>().changeAnimation("neutral");
             }
-            
         }
+
+        createReturnMovementLists(savedTargets, ref playercount, ref enemycount, out objects, out positions);
+        movement.Move(objects, positions, 3);
+        yield return movement.coroutine;
+        this.gameObject.GetComponent<BattleUnitFinish>().endOfAction(end);
     }
+
 }

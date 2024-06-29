@@ -7,7 +7,7 @@ public class BattleUnitUse : MonoBehaviour
     public void Use(move currentMove, List<int> target)
     {
         this.gameObject.GetComponent<BattleUnitAttackOffset>().handleOffset(currentMove, target);
-        this.gameObject.GetComponent<BattleUnitAnimate>().changeAnimation(currentMove.Name);
+        //this.gameObject.GetComponent<BattleUnitAnimate>().changeAnimation(currentMove.Name);
     }
     private int determineWhichAnimation(move currentMove, List<int> target)
     {
