@@ -169,7 +169,7 @@ public class BattleUnitAttackOffset : MonoBehaviour
             index -= locator.getAll(true).Count;
             positions.Add(GameObject.Find("BattleHandler/Positions/EnemyPositions/position").transform.position + (spawn.enemyOffset * index));
         }
-
+        changeLayer(-1);
 
         for (int i = 0; i < targets.Count; i++)
         {

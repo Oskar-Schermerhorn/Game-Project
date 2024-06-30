@@ -47,7 +47,7 @@ public class BattleUnitHealth : MonoBehaviour
     virtual protected void Die()
     {
         print("dead");
-        gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.black;
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
     }
 }

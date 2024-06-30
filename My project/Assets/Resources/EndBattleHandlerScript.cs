@@ -15,6 +15,7 @@ public class EndBattleHandlerScript : MonoBehaviour
     private DataRecorderEXP dataEXP;
     private DataRecorderProgress dataProgress;
     private ObjectLocator locator;
+    private SpawnScript spawn;
     public static event Action EndBattle;
     public static event Action<int> RecordBP;
     public bool leveling = false;
@@ -26,6 +27,7 @@ public class EndBattleHandlerScript : MonoBehaviour
         dataEXP = GameObject.Find("DataRecorder").GetComponent<DataRecorderEXP>();
         dataProgress = GameObject.Find("DataRecorder").GetComponent<DataRecorderProgress>();
         locator = this.gameObject.GetComponent<ObjectLocator>();
+        spawn = this.gameObject.GetComponent<SpawnScript>();
     }
     public void checkBattleOver()
     {
@@ -63,6 +65,12 @@ public class EndBattleHandlerScript : MonoBehaviour
             {
                 W = false;
             }
+            else if(enemies[i].GetComponent<BattleUnitHealth>().health <= 0)
+            {
+                enemies[i].GetComponent<SpriteRenderer>().enabled = false;
+                spawn.unitList.Remove(enemies[i]);
+                //Destroy(enemies[i]);
+            }
         }
         return W;
     }
@@ -95,7 +103,7 @@ public class EndBattleHandlerScript : MonoBehaviour
     }
     void updateHealth()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < locator.getAll(true).Count; i++)
         {
             if (locator.locateObject(i).GetComponent<BattleUnitID>() != null)
             {
@@ -123,14 +131,14 @@ public class EndBattleHandlerScript : MonoBehaviour
         int total = 0;
         // re work this to add exp dynamically in battle
 
-        for (int i = 4; i < 8; i++)
+        /*for (int i = 4; i < 8; i++)
         {
             if (locator.locateObject(i).GetComponent<EnemyUnitExp>() != null)
             {
                 print("gained " + locator.locateObject(i).GetComponent<EnemyUnitExp>().exp + " exp");
                 total += locator.locateObject(i).GetComponent<EnemyUnitExp>().exp;
             }
-        }
+        }*/
         if (total > 100)
             total = 100;
         leveling = dataEXP.getEXP(total);

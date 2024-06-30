@@ -65,27 +65,41 @@ public class SpawnScript : MonoBehaviour
     }
     public void updateLayer()
     {
-        /*
-         fix this with different unit numbers
-
-         for(int i = 0; i<8; i++)
+        List<GameObject> Players = new List<GameObject>();
+        for(int i =0; i<unitList.Count; i++)
         {
-            if(i == 0 || i == 3 || i == 4 || i == 7)
+            if(unitList[i].GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
             {
-                if(unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health >0)
+                Players.Add(unitList[i]);
+            }
+        }
+        for (int i = 0; i < unitList.Count; i++)
+        {
+            if (unitList[i].GetComponent<BattleUnitID>().UnitSide == side.PLAYER)
+            {
+                if (i == 0)
+                {
+                    if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
+                        unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 2;
+                }
+                else if (i == 1)
+                {
+                    if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
+                        unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
+                }
+                else if (i == 2)
+                {
+                    if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
+                        unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 4;
+                }
+            }
+            else
+            {
+                if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
                     unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 2;
             }
-            else if(i == 1 || i == 5)
-            {
-                if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
-                    unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
-            }
-            else if (i == 2 || i == 6)
-            {
-                if (unitList[i].GetComponent<SpriteRenderer>() != null && unitList[i].GetComponent<BattleUnitHealth>() != null && unitList[i].GetComponent<BattleUnitHealth>().health > 0)
-                    unitList[i].GetComponent<SpriteRenderer>().sortingOrder = 4;
-            }
-        }*/
+
+        }
     }
     public void startUp()
     {

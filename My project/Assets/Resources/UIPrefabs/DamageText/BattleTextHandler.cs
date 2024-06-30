@@ -59,7 +59,7 @@ public class BattleTextHandler : MonoBehaviour
                 damage /= 2;
             }
 
-            if (checkType(target))
+            if (target.GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
             {
                 type = damageTextE;
                 color = calcColor(damage, successful, false);
@@ -89,14 +89,7 @@ public class BattleTextHandler : MonoBehaviour
         text.GetComponent<TextMeshPro>().text = Mathf.Abs(damage).ToString();
         text.GetComponent<TextMeshPro>().color = color;
     }
-    private bool checkType(GameObject target)
-    {
-        if(locator.locateObject(target) <4)
-        {
-            return false;
-        }
-        return true;
-    }
+
     private Color calcColor(int damage, bool successful, bool parried)
     {
         if (damage < 0)
