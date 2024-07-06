@@ -16,3 +16,11 @@ MonoBehaviour:
   damageModifier: 0
   property: 0
   VFX: 0
+  addEffect:
+    MoveStatus: {fileID: 0}
+    Target: 0
+    Condition: 0
+    amount: 0
+    additional: 0
+    duration: 0
+  color: 4

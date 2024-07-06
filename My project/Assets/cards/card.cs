@@ -5,6 +5,7 @@ using System;
 
 public enum cardProperty { NORMAL, ADD, SUB, MULTIPLY, DIVIDE, STATUS }
 public enum cardVFX { NONE, AFTERIMAGE }
+public enum cardColor { WHITE, RED, BLUE, PURPLE, GRAY}
 [Serializable]
 public class card
 {
@@ -13,6 +14,8 @@ public class card
     public int damageModifier;
     public cardProperty property;
     public cardVFX VFX;
+    public effect addEffect;
+    public cardColor color;
     
     public card(cardValues values)
     {
@@ -21,5 +24,7 @@ public class card
         damageModifier = values.damageModifier;
         property = values.property;
         VFX = values.VFX;
+        addEffect = values.addEffect;
+        color = values.color;
     }
 }

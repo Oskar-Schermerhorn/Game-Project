@@ -7,10 +7,12 @@ public class BattleUnitInflict : MonoBehaviour
     ObjectLocator locator;
     menuMoveHolder menuMove;
     BattleUnitStatus status;
+    CardDealer dealer;
 
     hazardHandler hazards;
     fieldHandlerScript fields;
     move currentMove;
+    card currentCard;
     [SerializeField] int counter = 0;
     [SerializeField] int baseAttack = 0;
     [SerializeField] int damageModifier = 0;
@@ -25,6 +27,7 @@ public class BattleUnitInflict : MonoBehaviour
     private void Awake()
     {
         locator = GameObject.Find("BattleHandler").GetComponent<ObjectLocator>();
+        dealer = GameObject.Find("BattleHandler").GetComponent<CardDealer>();
         menuMove = GameObject.Find("Menu").GetComponent<menuMoveHolder>();
         status = this.gameObject.GetComponent<BattleUnitStatus>();
         targetController.confirmedTarget += Prepare;
@@ -36,9 +39,16 @@ public class BattleUnitInflict : MonoBehaviour
     }
     private void Prepare(List<int> selectedTargets)
     {
+        print("prepare " + this.gameObject);
         parry = false;
         currentMove = menuMove.currentMove;
-        if(currentMove.action.type == actionCommandType.DEFENSE || currentMove.action.type == actionCommandType.NONE)
+        currentCard = dealer.getCard(locator.locateObject(this.gameObject));
+        print("card selected");
+        if (currentCard.property == cardProperty.STATUS)
+        {
+            currentMove.MoveEffects.Add(currentCard.addEffect);
+        }
+        if (currentMove.action.type == actionCommandType.DEFENSE || currentMove.action.type == actionCommandType.NONE)
         {
             setSuccessful(true);
         }
@@ -100,12 +110,32 @@ public class BattleUnitInflict : MonoBehaviour
     {
         if (!currentMove.HasProperty(moveProperties.NULL))
         {
-            
+            int damage = 0;
             if (currentMove.Damage >= 0)
             {
                 if (target.GetComponent<BattleUnitStatus>() != null)
                     damageModifier -= target.GetComponent<BattleUnitStatus>().calcDefenseMod();
-                int damage = currentMove.Damage + damageModifier;
+                damage = currentMove.Damage + damageModifier;
+                
+
+                if(currentCard.property != cardProperty.STATUS)
+                {
+                    switch (currentCard.property)
+                    {
+                        case cardProperty.ADD:
+                            damage += currentCard.damageModifier;
+                            break;
+                        case cardProperty.SUB:
+                            damage -= currentCard.damageModifier;
+                            break;
+                        case cardProperty.MULTIPLY:
+                            damage *= currentCard.damageModifier;
+                            break;
+                        case cardProperty.DIVIDE:
+                            damage /= currentCard.damageModifier;
+                            break;
+                    }
+                }
                 if (!successful)
                 {
                     damage /= 2;
@@ -114,6 +144,7 @@ public class BattleUnitInflict : MonoBehaviour
                 {
                     damage = 0;
                 }
+
                 //inflict damage
                 target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry);
 
@@ -131,7 +162,7 @@ public class BattleUnitInflict : MonoBehaviour
                 print("result: " + heal);
                 target.GetComponent<BattleUnitHealth>().Heal(heal);
             }
-            Inflict(currentMove, target, successful, parry, damageModifier, HitNumber);
+            Inflict(currentMove, target, successful, parry, damage, HitNumber);
         }
 
         

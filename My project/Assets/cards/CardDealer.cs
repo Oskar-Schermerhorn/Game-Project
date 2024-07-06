@@ -6,21 +6,26 @@ using System;
 public class CardDealer : MonoBehaviour
 {
     ObjectLocator locator;
+    GameObject cardHolder;
 
 
     List<card> fullDeck;
     [SerializeField] List<card> deck;
+    [SerializeField] List<card> dealtCards;
+
+    [SerializeField] GameObject cardPrefab;
 
     //temp to test
     [SerializeField] card normalCard;
     [SerializeField] card plus1Card;
+    [SerializeField] card times2Card;
 
     public static event Action FinishDealing;
 
     private void Awake()
     {
         locator = GameObject.Find("BattleHandler").GetComponent<ObjectLocator>();
-
+        cardHolder = GameObject.Find("Canvas/CardHolder");
         fullDeck = new List<card>();
         deck = new List<card>();
         for (int i = 0; i < 10; i++)
@@ -28,6 +33,7 @@ public class CardDealer : MonoBehaviour
             fullDeck.Add(normalCard);
             fullDeck.Add(plus1Card);
         }
+        fullDeck.Add(times2Card);
         deck.AddRange(fullDeck);
         turnManagement.CardTurn += dealCards;
     }
@@ -36,15 +42,28 @@ public class CardDealer : MonoBehaviour
     void dealCards()
     {
         print("dealing cards");
+        dealtCards.Clear();
+        cardHolder.GetComponent<CardHolder>().removeAllCards();
+
         for(int i = 0; i<locator.numObjects(); i++)
         {
             if(locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
             {
-                print(pullCard().name);
+                card nextCard = pullCard();
+                dealtCards.Add(nextCard);
+                GameObject cardVisual = Instantiate<GameObject>(cardPrefab, cardHolder.transform);
+                cardVisual.GetComponent<CardDisplay>().setCard(nextCard);
             }
             
         }
         FinishDealing();
+    }
+
+    public card getCard(int index)
+    {
+        //inconsistency with what units are left in the unit list after death
+        //for(int i = 0; i<locator.locateObject())
+        return dealtCards[index];
     }
 
     card pullCard()

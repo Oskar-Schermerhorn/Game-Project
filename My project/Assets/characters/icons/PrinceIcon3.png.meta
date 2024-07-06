@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 97aba74a939dec5439e614b0ad1de4c9
+guid: b8ddba53363d59c4ca708715f5658dca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1795180378520654395
-    second: PrinceIconUpdate 1_0
+      213: -895872975820129345
+    second: PrinceIcon3_0
   - first:
-      213: 2506338099876398218
-    second: PrinceIconUpdate 1_1
+      213: 3723738358998912760
+    second: PrinceIcon3_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PrinceIconUpdate 1_0
+      name: PrinceIcon3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3299710b03c9e810800000000000000
-      internalID: 1795180378520654395
+      spriteID: fbb7e5866483193f0800000000000000
+      internalID: -895872975820129345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PrinceIconUpdate 1_1
+      name: PrinceIcon3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a840922093d48c220800000000000000
-      internalID: 2506338099876398218
+      spriteID: 8fe40acee406da330800000000000000
+      internalID: 3723738358998912760
       vertices: []
       indices: 
       edges: []

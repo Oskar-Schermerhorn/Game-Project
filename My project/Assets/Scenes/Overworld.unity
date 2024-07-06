@@ -43966,6 +43966,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083482056}
     m_Modifications:
+    - target: {fileID: 5266538937089672727, guid: 600317448f9d48542938c914f8a9a470, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7010684185263415520, guid: ab0042c3d50d04040ae41c8957febeb2, type: 3}
+    - target: {fileID: 5266538938660075421, guid: 600317448f9d48542938c914f8a9a470, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8975753392247131566, guid: 5035c18193111984284a85720499f194, type: 3}
     - target: {fileID: 7762414938809046745, guid: 600317448f9d48542938c914f8a9a470, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -44258,6 +44266,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7762414940593996044, guid: 600317448f9d48542938c914f8a9a470, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c82cf1fd8a9e4d84789f3d7c655e39f2, type: 3}
     - target: {fileID: 7762414940821984665, guid: 600317448f9d48542938c914f8a9a470, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

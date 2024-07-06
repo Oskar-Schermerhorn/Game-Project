@@ -31,6 +31,17 @@ public class EndBattleHandlerScript : MonoBehaviour
     }
     public void checkBattleOver()
     {
+        for(int i =0; i<locator.numObjects(); i++)
+        {
+            if (locator.locateObject(i).GetComponent<BattleUnitHealth>().health <= 0)
+            {
+                GameObject dead = locator.locateObject(i);
+                dead.GetComponent<SpriteRenderer>().enabled = false;
+                spawn.unitList.Remove(dead);
+                dead.SetActive(false);
+            }
+        }
+        
         if (checkLostBattle())
         {
             print("lost");
@@ -65,12 +76,7 @@ public class EndBattleHandlerScript : MonoBehaviour
             {
                 W = false;
             }
-            else if(enemies[i].GetComponent<BattleUnitHealth>().health <= 0)
-            {
-                enemies[i].GetComponent<SpriteRenderer>().enabled = false;
-                spawn.unitList.Remove(enemies[i]);
-                //Destroy(enemies[i]);
-            }
+            
         }
         return W;
     }

@@ -9,4 +9,6 @@ public class cardValues : ScriptableObject
     public int damageModifier;
     public cardProperty property;
     public cardVFX VFX;
+    public effect addEffect;
+    public cardColor color;
 }

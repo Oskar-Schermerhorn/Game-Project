@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
-  defense: 0
 --- !u!114 &1712664402031315330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icons:
-  - {fileID: 1795180378520654395, guid: 97aba74a939dec5439e614b0ad1de4c9, type: 3}
-  - {fileID: 2506338099876398218, guid: 97aba74a939dec5439e614b0ad1de4c9, type: 3}
+  - {fileID: -895872975820129345, guid: b8ddba53363d59c4ca708715f5658dca, type: 3}
+  - {fileID: 3723738358998912760, guid: b8ddba53363d59c4ca708715f5658dca, type: 3}
   secondaryIcons: []
   thirdIcons: []
   form: 0

@@ -35,45 +35,37 @@ public class BattleTextHandler : MonoBehaviour
         handleDamageText(currentMove, target, successful, parried, damageMod, hitNum);
         handleCommandText(currentMove, target, successful, parried, hitNum);
     }
-    private void handleDamageText(move currentMove, GameObject target, bool successful, bool parried, int damageMod, int hitNum)
+    private void handleDamageText(move currentMove, GameObject target, bool successful, bool parried, int damageDealt, int hitNum)
     {
-        int damage = currentMove.Damage;
-        if (damage >= 0)
-            damage += damageMod;
-        else
-            damage -= damageMod;
-
         GameObject type = damageTextP;
         Color color;
         string canvasLocation = "Canvas2";
         if (parried)
         {
-            damage = 0;
-            color = gray;
+            color = calcColor(damageDealt, successful, parried);
             canvasLocation = canvasLocation + "/PlayerPositions/Position" + locator.locateObject(target);
         }
         else
         {
-            if (!successful)
-            {
-                damage /= 2;
-            }
-
             if (target.GetComponent<BattleUnitID>().UnitSide == side.ENEMY)
             {
                 type = damageTextE;
-                color = calcColor(damage, successful, false);
+                color = calcColor(damageDealt, successful, parried);
                 canvasLocation = canvasLocation + "/EnemyPositions/Position" + locator.locateObject(target);
             }
             else
             {
-                color = calcColor(damage, successful, parried);
+                color = calcColor(damageDealt, successful, parried);
                 canvasLocation = canvasLocation + "/PlayerPositions/Position" + locator.locateObject(target);
             }
         }
         print("target name: "+ target.name);
         print("target location: " + target.transform.position);
-        showDamageText(type, target, damage, color);
+        if (!currentMove.HasProperty(moveProperties.NULL))
+        {
+            showDamageText(type, target, damageDealt, color);
+        }
+        
     }
     protected void showDamageText(GameObject type, GameObject target, int damage, Color color)
     {
