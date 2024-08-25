@@ -116,9 +116,15 @@ public class BattleUnitInflict : MonoBehaviour
                 if (target.GetComponent<BattleUnitStatus>() != null)
                     damageModifier -= target.GetComponent<BattleUnitStatus>().calcDefenseMod();
                 damage = currentMove.Damage + damageModifier;
-                
 
-                if(currentCard.property != cardProperty.STATUS)
+                if (currentMove.Bash != bashProperties.NORMAL && target.GetComponent<BashHandler>() != null)
+                {
+                    print("input damage " + damage);
+                    damage = target.GetComponent<BashHandler>().BashModifier(damage, currentMove.Bash == bashProperties.BASH);
+                    print("output damage " + damage);
+                }
+
+                if (currentCard.property != cardProperty.STATUS)
                 {
                     switch (currentCard.property)
                     {
@@ -136,6 +142,9 @@ public class BattleUnitInflict : MonoBehaviour
                             break;
                     }
                 }
+
+                
+
                 if (!successful)
                 {
                     damage /= 2;
@@ -144,6 +153,8 @@ public class BattleUnitInflict : MonoBehaviour
                 {
                     damage = 0;
                 }
+
+                
 
                 //inflict damage
                 target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry);

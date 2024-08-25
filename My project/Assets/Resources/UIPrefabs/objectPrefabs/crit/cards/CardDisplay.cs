@@ -69,7 +69,7 @@ public class CardDisplay : MonoBehaviour
             case cardProperty.SUB:
                 return "-";
             case cardProperty.MULTIPLY:
-                return "X";
+                return "x";
             case cardProperty.DIVIDE:
                 return "/";
             case cardProperty.STATUS:

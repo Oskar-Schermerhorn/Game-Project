@@ -8,6 +8,7 @@ using System;
 public enum moveProperties { SINGLEHIT, MULTIHITPLUS, MULTIHITMINUS, USEBASEATTACK, HEAL, PIERCEDEF, FIXEDDAMAGE, STATECHANGE, NULL }
 public enum targetProperties { PLAYERS, ENEMIES, SELF, SINGLETARGET, MULTITARGET, FRONT, FREETARGET}
 public enum enemyAIProperties { PREFERFRONT, RANDOM, PREFERLOW, PREFERUNEFFECTED}
+public enum bashProperties { NORMAL, BASH, SMASH}
 [CreateAssetMenu(menuName = "Players/AttackMoves")]
 public class moveProperty: ScriptableObject
 {
@@ -18,5 +19,6 @@ public class moveProperty: ScriptableObject
     public List<enemyAIProperties> EnemyMoveAI;
     public List<effect> MoveEffects;
     public actionCommand Action;
+    public bashProperties Bash;
 
 }

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
   m_Name: Special1
   m_EditorClassIdentifier: 
-  animation: {fileID: 7400000, guid: 5100a861be76b7042bde4db91c3fbb7e, type: 2}
   Cost: 1
   Damage: 0
   MoveProperties: 0000000005000000
   MoveTargets: 010000000300000005000000
   EnemyMoveAI: 
+  MoveEffects: []
   Action:
     type: 6
     buttons: 060000000c000000
@@ -25,3 +25,4 @@ MonoBehaviour:
     minimum: 10
     additional: 5
     maximum: 2
+  Bash: 2

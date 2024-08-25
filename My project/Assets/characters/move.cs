@@ -15,6 +15,7 @@ public class move
     public List<enemyAIProperties> EnemyMoveAI;
     public List<effect> MoveEffects;
     public actionCommand action;
+    public bashProperties Bash;
 
     public move(moveProperty prop)
     {
@@ -26,6 +27,7 @@ public class move
         EnemyMoveAI = prop.EnemyMoveAI;
         MoveEffects = prop.MoveEffects;
         action = prop.Action;
+        Bash = prop.Bash;
     }
     
     public bool HasProperty(moveProperties prop)

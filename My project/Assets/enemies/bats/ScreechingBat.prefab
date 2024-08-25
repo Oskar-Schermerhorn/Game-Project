@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 1397912271738601143}
   - component: {fileID: 3853858621794103457}
   - component: {fileID: 3465829284117276615}
+  - component: {fileID: -6571766579384593126}
   m_Layer: 0
   m_Name: ScreechingBat
   m_TagString: Untagged
@@ -436,6 +437,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b624b92f72e5ec408e918e530465782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6571766579384593126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216290339032091134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0f35b1f4b3dcd46b05442fa06970ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bashes: 0
+  maxbashes: 5
 --- !u!1001 &107522982852879409
 PrefabInstance:
   m_ObjectHideFlags: 0
