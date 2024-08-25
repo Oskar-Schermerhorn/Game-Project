@@ -125,8 +125,15 @@ public class BattleUnitInflict : MonoBehaviour
             {
 
                 damage = currentMove.Damage + damageModifier;
+                if (currentMove.HasProperty(moveProperties.MULTIHITPLUS))
+                {
+                    damage += HitNumber;
+                }
+                else if (currentMove.HasProperty(moveProperties.MULTIHITMINUS))
+                {
+                    damage -= HitNumber;
+                }
 
-                
 
                 if (currentCard.property != cardProperty.STATUS)
                 {
@@ -161,7 +168,16 @@ public class BattleUnitInflict : MonoBehaviour
                 
 
                 //inflict damage
-                target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, currentMove.Bash);
+                if(locator.getAll(true).Count > 1)
+                {
+                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, currentMove.Bash);
+                }
+                else
+                {
+                    //avoid softlock
+                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, bashProperties.NORMAL);
+                }
+                
 
             }
             else
