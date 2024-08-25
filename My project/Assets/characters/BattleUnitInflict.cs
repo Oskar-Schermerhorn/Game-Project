@@ -16,13 +16,14 @@ public class BattleUnitInflict : MonoBehaviour
     [SerializeField] int counter = 0;
     [SerializeField] int baseAttack = 0;
     [SerializeField] int damageModifier = 0;
+    [SerializeField] int bashModifier = 0;
     [SerializeField] bool successful = false;
     [SerializeField] bool parry = false;
     [SerializeField] List<int> targets;
     public static event Action actionCommandsDone;
     public static event Action<int> nextActionCommand;
-    public static event Action<move, GameObject, bool, bool, int, int> Inflict;
-    public static event Action<move, GameObject, bool, bool, int, int> InflictSecondary;
+    public static event Action<move, GameObject, bool, bool, int> Inflict;
+    public static event Action<move, GameObject, bool, bool, int> InflictSecondary;
     public static event Action<int, int> SwapPositions;
     private void Awake()
     {
@@ -60,6 +61,8 @@ public class BattleUnitInflict : MonoBehaviour
         {
             damageModifier += baseAttack;
         }
+
+        
     }
     private void setSuccessful(bool result)
     {
@@ -101,6 +104,13 @@ public class BattleUnitInflict : MonoBehaviour
                 }
             }
 
+
+            if ((targetIndex == 0 && counter == 0) || currentMove.action.type == actionCommandType.TIMED)
+            {
+                Inflict(currentMove, locator.locateObject(targets[targetIndex]), successful, parry, counter);
+                if(currentMove.action.type == actionCommandType.TIMED)
+                    setSuccessful(false);
+            }
             counter++;
         }
         
@@ -113,16 +123,10 @@ public class BattleUnitInflict : MonoBehaviour
             int damage = 0;
             if (currentMove.Damage >= 0)
             {
-                if (target.GetComponent<BattleUnitStatus>() != null)
-                    damageModifier -= target.GetComponent<BattleUnitStatus>().calcDefenseMod();
+
                 damage = currentMove.Damage + damageModifier;
 
-                if (currentMove.Bash != bashProperties.NORMAL && target.GetComponent<BashHandler>() != null)
-                {
-                    print("input damage " + damage);
-                    damage = target.GetComponent<BashHandler>().BashModifier(damage, currentMove.Bash == bashProperties.BASH);
-                    print("output damage " + damage);
-                }
+                
 
                 if (currentCard.property != cardProperty.STATUS)
                 {
@@ -157,7 +161,7 @@ public class BattleUnitInflict : MonoBehaviour
                 
 
                 //inflict damage
-                target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry);
+                target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, currentMove.Bash);
 
             }
             else
@@ -173,7 +177,7 @@ public class BattleUnitInflict : MonoBehaviour
                 print("result: " + heal);
                 target.GetComponent<BattleUnitHealth>().Heal(heal);
             }
-            Inflict(currentMove, target, successful, parry, damage, HitNumber);
+            
         }
 
         
@@ -185,7 +189,7 @@ public class BattleUnitInflict : MonoBehaviour
         else if(currentMove.action.type == actionCommandType.TIMED)
         {
             nextActionCommand(HitNumber);
-            setSuccessful(false);
+            
         }
     }
     protected void inflictStatus(effect MoveEffect, GameObject target)

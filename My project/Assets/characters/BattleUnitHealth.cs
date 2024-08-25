@@ -9,15 +9,31 @@ public class BattleUnitHealth : MonoBehaviour
     public int health;
     public int maxhealth;
     public static event Action Hit;
+    public static event Action<GameObject, bool, bool, int> ShowDamage;
     public static event Action<GameObject> PlayHitAnim;
 
-    public void takeDamage(int damage, bool successful, bool parried)
+    public void takeDamage(int damage, bool successful, bool parried, bashProperties bash)
     {
+        
+
+        if (damage > 0)
+        {
+            if (this.gameObject.GetComponent<BattleUnitStatus>() != null)
+                damage -= this.gameObject.GetComponent<BattleUnitStatus>().calcDefenseMod();
+        }
+
+        if (bash != bashProperties.NORMAL)
+        {
+            damage = this.gameObject.GetComponent<BashHandler>().BashModifier(damage, bash == bashProperties.BASH);
+        }
+
+
         if (damage < 0)
             damage = 0;
         health -= damage;
         print(health + "/" + maxhealth);
         Hit();
+        ShowDamage(this.gameObject, successful, parried, damage);
         if (health <= 0)
         {
             Die();
@@ -38,6 +54,7 @@ public class BattleUnitHealth : MonoBehaviour
             health = maxhealth;
         }
         Hit();
+        ShowDamage(this.gameObject, true, false, -healAmmount);
     }
     protected void CallHit()
     {

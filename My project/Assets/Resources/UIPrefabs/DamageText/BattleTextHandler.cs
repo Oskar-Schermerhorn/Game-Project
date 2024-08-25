@@ -25,18 +25,14 @@ public class BattleTextHandler : MonoBehaviour
         commandText = Resources.Load<GameObject>("UIPrefabs/DamageText/CommandText");
         commandTextDegrees.AddRange(Resources.Load<commandTextDegrees>("UIPrefabs/objectPrefabs/ActionCommands/commandText").names);
         commandTextColors.AddRange(Resources.Load<commandTextDegrees>("UIPrefabs/objectPrefabs/ActionCommands/commandText").colors);
-        BattleUnitInflict.Inflict += handleTexts;
-        BattleUnitInflict.InflictSecondary += handleDamageText;
-        statusAnimation.Inflict += handleTexts;
+        BattleUnitInflict.Inflict += handleCommandText;
+        BattleUnitHealth.ShowDamage += handleDamageText;
         ActionCommandHandler.Additional += addScore;
     }
-    private void handleTexts(move currentMove, GameObject target, bool successful, bool parried, int damageMod, int hitNum)
+
+    private void handleDamageText(GameObject target, bool successful, bool parried, int damageDealt)
     {
-        handleDamageText(currentMove, target, successful, parried, damageMod, hitNum);
-        handleCommandText(currentMove, target, successful, parried, hitNum);
-    }
-    private void handleDamageText(move currentMove, GameObject target, bool successful, bool parried, int damageDealt, int hitNum)
-    {
+        print("handle damage text");
         GameObject type = damageTextP;
         Color color;
         string canvasLocation = "Canvas2";
@@ -61,11 +57,7 @@ public class BattleTextHandler : MonoBehaviour
         }
         print("target name: "+ target.name);
         print("target location: " + target.transform.position);
-        if (!currentMove.HasProperty(moveProperties.NULL))
-        {
-            showDamageText(type, target, damageDealt, color);
-        }
-        
+        showDamageText(type, target, damageDealt, color);
     }
     protected void showDamageText(GameObject type, GameObject target, int damage, Color color)
     {
@@ -99,37 +91,35 @@ public class BattleTextHandler : MonoBehaviour
     {
         if(currentMove.action.type != actionCommandType.NONE)
         {
-            if((currentMove.action.type != actionCommandType.DEFENSE && locator.locateObject(target) >= 4) ||
-                currentMove.action.type == actionCommandType.DEFENSE && locator.locateObject(target) < 4)
+
+            if (parried)
             {
-                if (parried)
+                successLevel += 3;
+            }
+            else if (currentMove.action.type == actionCommandType.MASH)
+            {
+                if (successful)
+                    successLevel++;
+            }
+            else if(currentMove.action.type == actionCommandType.TIMED)
+            {
+                if (successful)
                 {
-                    successLevel += 3;
+                    print("\ttimed successfully");
+                    successLevel++;
                 }
-                else if (currentMove.action.type == actionCommandType.MASH)
+                else
                 {
-                    if (successful)
-                        successLevel++;
+                    successLevel = -1;
                 }
-                else if(currentMove.action.type == actionCommandType.TIMED)
-                {
-                    if (successful)
-                    {
-                        successLevel++;
-                    }
-                    else
-                    {
-                        successLevel = -1;
-                    }
-                }
-                else if (calcSuccessGood(target) == successful)
-                {
-                    successLevel += calcAddScore(currentMove);
-                }
-                if (successLevel >= 0)
-                {
-                    showCommandText(successLevel, target, (currentMove.action.type == actionCommandType.TIMED && hitNum < currentMove.action.buttons.Length-1));
-                }
+            }
+            else if (calcSuccessGood(target) == successful)
+            {
+                successLevel += calcAddScore(currentMove);
+            }
+            if (successLevel >= 0)
+            {
+                showCommandText(successLevel, target, (currentMove.action.type == actionCommandType.TIMED && hitNum < currentMove.action.buttons.Length-1));
             }
         }
     }
@@ -150,7 +140,7 @@ public class BattleTextHandler : MonoBehaviour
     }
     private bool calcSuccessGood(GameObject target)
     {
-        if (locator.locateObject(target) < 4)
+        if (locator.locateObject(target) < locator.locateObject(locator.getFront(false)))
         {
             return false;
         }
@@ -174,9 +164,8 @@ public class BattleTextHandler : MonoBehaviour
     }
     private void OnDisable()
     {
-        BattleUnitInflict.Inflict -= handleTexts;
-        BattleUnitInflict.InflictSecondary -= handleDamageText;
-        statusAnimation.Inflict -= handleTexts;
+        BattleUnitInflict.Inflict -= handleCommandText;
+        BattleUnitHealth.ShowDamage -= handleDamageText;
         ActionCommandHandler.Additional -= addScore;
     }
 }

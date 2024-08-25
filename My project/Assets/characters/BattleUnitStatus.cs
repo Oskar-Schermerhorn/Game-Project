@@ -74,7 +74,7 @@ public class BattleUnitStatus : MonoBehaviour
             switch (status.type)
             {
                 case statusType.DAMAGE:
-                    this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(status.amount, false, false);
+                    this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(status.amount, false, false, bashProperties.NORMAL);
                     break;
                 case statusType.HEAL:
                     print("healing");
@@ -166,7 +166,7 @@ public class BattleUnitStatus : MonoBehaviour
                     if (GetComponentsInChildren<statusIcon>()[i].status == LibraryStatus.statusDictionary["poison"])
                         poisonTurns = GetComponentsInChildren<statusIcon>()[i].poisonTurns;
                 }
-                this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(myStatus[which].amount + poisonTurns, false, false);
+                this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(myStatus[which].amount + poisonTurns, false, false, bashProperties.NORMAL);
                 myStatus[which].animate(this.transform, 1);
                 break;
             case ("shock"):
@@ -248,7 +248,7 @@ public class BattleUnitStatus : MonoBehaviour
     }
     protected void flareDamage()
     {
-        this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(LibraryStatus.statusDictionary["flare"].amount, false, false);
+        this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(LibraryStatus.statusDictionary["flare"].amount, false, false, bashProperties.NORMAL);
     }
     public int calcDamageMod()
     {
