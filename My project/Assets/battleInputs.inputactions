@@ -956,6 +956,52 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Mouse",
+            "id": "8d0dedda-bd4d-48d7-8c64-f3ab5df45b80",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "6f90e9f4-613c-4114-a05f-0080016187b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "e94a2c35-d448-4401-8b77-826829dc0349",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cb8640fe-269f-4e4c-8c09-2e68fbfb1df4",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97cc9484-a16e-4d69-94e1-13a09061554a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

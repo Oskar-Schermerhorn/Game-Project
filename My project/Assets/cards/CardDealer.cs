@@ -28,6 +28,7 @@ public class CardDealer : MonoBehaviour
         cardHolder = GameObject.Find("Canvas/CardHolder");
         fullDeck = new List<card>();
         deck = new List<card>();
+        //placeholder deck
         for (int i = 0; i < 10; i++)
         {
             fullDeck.Add(normalCard);
@@ -37,7 +38,6 @@ public class CardDealer : MonoBehaviour
         deck.AddRange(fullDeck);
         turnManagement.CardTurn += dealCards;
     }
-
 
     void dealCards()
     {
@@ -78,6 +78,11 @@ public class CardDealer : MonoBehaviour
         deck.RemoveAt(index);
         return pickedCard;
     }
+
+    public List<card> getDeck()
+    {
+        return deck;
+    } 
 
     private void OnDisable()
     {

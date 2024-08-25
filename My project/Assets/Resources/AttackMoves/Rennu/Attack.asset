@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cost: 0
   Damage: 0
-  MoveProperties: 0200000003000000
+  MoveProperties: 03000000
   MoveTargets: 010000000300000006000000
   EnemyMoveAI: 
   MoveEffects: []

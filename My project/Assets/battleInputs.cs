@@ -969,6 +969,52 @@ public class @BattleInputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Mouse"",
+            ""id"": ""8d0dedda-bd4d-48d7-8c64-f3ab5df45b80"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f90e9f4-613c-4114-a05f-0080016187b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""e94a2c35-d448-4401-8b77-826829dc0349"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cb8640fe-269f-4e4c-8c09-2e68fbfb1df4"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97cc9484-a16e-4d69-94e1-13a09061554a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1064,6 +1110,10 @@ public class @BattleInputs : IInputActionCollection, IDisposable
         m_Overworld_Pause = m_Overworld.FindAction("Pause", throwIfNotFound: true);
         m_Overworld_NavigateMenu = m_Overworld.FindAction("NavigateMenu", throwIfNotFound: true);
         m_Overworld_NavigateMenuPages = m_Overworld.FindAction("NavigateMenuPages", throwIfNotFound: true);
+        // Mouse
+        m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
+        m_Mouse_Click = m_Mouse.FindAction("Click", throwIfNotFound: true);
+        m_Mouse_Point = m_Mouse.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1385,6 +1435,47 @@ public class @BattleInputs : IInputActionCollection, IDisposable
         }
     }
     public OverworldActions @Overworld => new OverworldActions(this);
+
+    // Mouse
+    private readonly InputActionMap m_Mouse;
+    private IMouseActions m_MouseActionsCallbackInterface;
+    private readonly InputAction m_Mouse_Click;
+    private readonly InputAction m_Mouse_Point;
+    public struct MouseActions
+    {
+        private @BattleInputs m_Wrapper;
+        public MouseActions(@BattleInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_Mouse_Click;
+        public InputAction @Point => m_Wrapper.m_Mouse_Point;
+        public InputActionMap Get() { return m_Wrapper.m_Mouse; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MouseActions set) { return set.Get(); }
+        public void SetCallbacks(IMouseActions instance)
+        {
+            if (m_Wrapper.m_MouseActionsCallbackInterface != null)
+            {
+                @Click.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnClick;
+                @Point.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnPoint;
+            }
+            m_Wrapper.m_MouseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+            }
+        }
+    }
+    public MouseActions @Mouse => new MouseActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1463,5 +1554,10 @@ public class @BattleInputs : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnNavigateMenu(InputAction.CallbackContext context);
         void OnNavigateMenuPages(InputAction.CallbackContext context);
+    }
+    public interface IMouseActions
+    {
+        void OnClick(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
 }
