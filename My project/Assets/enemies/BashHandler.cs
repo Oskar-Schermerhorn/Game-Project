@@ -27,17 +27,17 @@ public class BashHandler : MonoBehaviour
             returnvalue = 0;
         }
         bashes++;
-        
+        if (bashes > maxbashes)
+        {
+            bashes = maxbashes;
+        }
+
         print("BASH");
         print("num bashes " + bashes);
         return returnvalue;
     }
     private int Smash(int damage)
     {
-        if (bashes > maxbashes)
-        {
-            bashes = maxbashes;
-        }
         int returnvalue = damage * bashes;
         print("num bashes " + bashes);
         bashes = 0;
