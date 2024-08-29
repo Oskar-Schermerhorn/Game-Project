@@ -43,9 +43,16 @@ public class statusEffect : ScriptableObject
 
     public void makeIcon(Transform t)
     {
-        GameObject iconGO = Instantiate<GameObject>(icon, t);
+        GameObject iconGO = Instantiate<GameObject>(icon, t.Find("Canvas"));
         iconGO.GetComponent<statusIcon>().setStatus(this, duration);
         iconGO.name = "StatusIcon(" + effectName + ")";
+
+        if (t.Find("Canvas/HPBar") != null)
+        {
+            iconGO.transform.position = new Vector2(iconGO.transform.position.x, iconGO.transform.position.y - 0.4f);
+        }
+            
+
         if (topRow)
             iconGO.transform.position = new Vector2(iconGO.transform.position.x - 30 / 64f, iconGO.transform.position.y);
         else

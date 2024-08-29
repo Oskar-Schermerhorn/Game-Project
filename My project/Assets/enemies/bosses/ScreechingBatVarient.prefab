@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
-  defense: 0
 --- !u!114 &8198433641368940464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
+  bashModifier: 0
   successful: 0
   parry: 0
   targets: 
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42ac0c5e4db4cc4fab2e23e72409595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
+  moveset: []
 --- !u!114 &5769636583816331442
 MonoBehaviour:
   m_ObjectHideFlags: 0

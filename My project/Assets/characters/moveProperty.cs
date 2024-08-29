@@ -21,4 +21,16 @@ public class moveProperty: ScriptableObject
     public actionCommand Action;
     public bashProperties Bash;
 
+    public moveProperty()
+    {
+        Cost = 0;
+        Damage = 0;
+        MoveProperties = new List<moveProperties>();
+        MoveTargets = new List<targetProperties>();
+        EnemyMoveAI = new List<enemyAIProperties>();
+        MoveEffects = new List<effect>();
+        Action = new actionCommand();
+        Bash = bashProperties.NORMAL;
+
+    }
 }

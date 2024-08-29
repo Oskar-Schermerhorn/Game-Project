@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
-  defense: 0
 --- !u!114 &7566785097540434441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +253,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  baseAttack: 0
   damageModifier: 0
+  bashModifier: 0
   successful: 0
   parry: 0
   targets: 
@@ -295,7 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a629fbe5607af32469c611d6daeae755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNames: []
+  moveset: []
+  subfolder: 
 --- !u!114 &4027957896342839434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 3170342040774649408, guid: 357eb657d8b44b143aaaf95327d009ba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181741223094548972, guid: 357eb657d8b44b143aaaf95327d009ba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00008620322
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 357eb657d8b44b143aaaf95327d009ba, type: 3}

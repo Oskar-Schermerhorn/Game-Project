@@ -99,48 +99,6 @@ MonoBehaviour:
   status: {fileID: 0}
   statusDuration: 0
   poisonTurns: 0
-  flare:
-  - {fileID: -7622668908879017577, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 3644889915531590223, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 5054789607218309759, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -4933545033828850545, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 5072702357227456480, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  poison:
-  - {fileID: 5613601816526979634, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -3446755060053069148, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 1399688770096175998, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 739201797783320572, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -1413345541293091074, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  shock:
-  - {fileID: 3485837625486712405, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 7373096335053285153, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -1335917745607887323, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 1365678705561132132, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -4387659878104712728, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  atkUp:
-  - {fileID: 8587217434883744679, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 2834712424737926115, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 7767774845282717565, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -9128920106038955136, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 6542601269664450926, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  atkDown:
-  - {fileID: -3439675236608676142, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -135097869378687663, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 6543243278020583176, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -8562297641531478846, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 1877196161065174198, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  defUp:
-  - {fileID: 4321658603591402134, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 3023487673410528933, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 9132539660993026483, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -8458566446064207254, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -4277867459704297481, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  defDown:
-  - {fileID: 1669637474085553781, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -4188964978307842033, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 8357301333782845478, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: 4706798214495350873, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
-  - {fileID: -1001372050815717844, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
   questionMark:
   - {fileID: -1885760109210050601, guid: aec9d717260b605429eacad1cebeda5c, type: 3}
   - {fileID: -2242467664246832316, guid: aec9d717260b605429eacad1cebeda5c, type: 3}

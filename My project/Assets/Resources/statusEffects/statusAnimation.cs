@@ -7,7 +7,7 @@ public class statusAnimation : MonoBehaviour
 {
     public GameObject target;
     public statusEffect status;
-    public static event Action<move, GameObject, bool, bool, int, int> Inflict;
+    public static event Action<move, GameObject, bool, bool, int> Inflict;
     EndBattleHandlerScript endBattle;
     turnManagement turn;
     move statusDamage;
@@ -17,19 +17,20 @@ public class statusAnimation : MonoBehaviour
         endBattle = GameObject.Find("BattleHandler").GetComponent<EndBattleHandlerScript>();
         turn = GameObject.Find("BattleHandler").GetComponent<turnManagement>();
         turn.statusEffectsPlaying++;
+        statusDamage = new move(new moveProperty());
     }
     void InflictStatusDamage()
     {
         print(status.effectName);
         int damage = status.amount;
-        if(target.transform.Find("StatusIcon(" + status.effectName + ")")!= null && target.transform.Find("StatusIcon("+status.effectName+")").GetComponent<statusIcon>().statusDuration >= 5)
+        if(target.transform.Find("Canvas/StatusIcon(" + status.effectName + ")")!= null && target.transform.Find("Canvas/StatusIcon("+status.effectName+")").GetComponent<statusIcon>().statusDuration >= 5)
         {
             damage += status.additional;
         }
-        if (target.transform.Find("StatusIcon(poison)") != null && status.effectName == "poison")
+        if (target.transform.Find("Canvas/StatusIcon(poison)") != null && status.effectName == "poison")
         {
             print("adding poison turns");
-            damage += target.transform.Find("StatusIcon(poison)").GetComponent<statusIcon>().poisonTurns;
+            damage += target.transform.Find("Canvas/StatusIcon(poison)").GetComponent<statusIcon>().poisonTurns;
         }
         if( status.effectName == "revive")
         {
@@ -49,9 +50,9 @@ public class statusAnimation : MonoBehaviour
         else
         {
             print("normal status");
+            print("damage dealt: " + damage);
             target.GetComponent<BattleUnitHealth>().takeDamage(damage, true, false, bashProperties.NORMAL);
             statusDamage.Damage = damage;
-            Inflict(statusDamage, target, true, false, 0, 0);
             //Inflict(new move(new string[] { }, 0, new int[] { damage }, moveTargets.BOTH, new effect("none", "none"), new int[] { }, targetType.UNMOVABLE, new actionCommand()), target, true, false, 0, 0);
         }
         
