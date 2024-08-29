@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d312da8d3e4de604784e11db585872ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeckDescriptionPrefab: {fileID: 7969869050077820044, guid: 381588865efb5294db06813f80881f20, type: 3}
+  BlankCardPrefab: {fileID: 4120644754247272533, guid: b47c973d6037fcf49bb36e9a57023bab, type: 3}
 --- !u!222 &1742366097715040704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
