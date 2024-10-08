@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8091382007431739166, guid: d11b158b12025ea4fa5c9484f92b7832, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78b72f81bccd14d42a09f61659e1a8c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   counter: 0
   baseAttack: 0
   damageModifier: 0
+  bashModifier: 0
   successful: 0
   parry: 0
   targets: 
@@ -427,7 +428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStatus: []
-  defense: 1
 --- !u!114 &-6290958618261587460
 MonoBehaviour:
   m_ObjectHideFlags: 0
