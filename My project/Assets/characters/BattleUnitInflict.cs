@@ -170,12 +170,12 @@ public class BattleUnitInflict : MonoBehaviour
                 //inflict damage
                 if(locator.getAll(true).Count > 1)
                 {
-                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, currentMove.Bash);
+                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, currentMove.Bash, currentMove.HasProperty(moveProperties.PIERCEDEF));
                 }
                 else
                 {
                     //avoid softlock
-                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, bashProperties.NORMAL);
+                    target.GetComponent<BattleUnitHealth>().takeDamage(damage, successful, parry, bashProperties.NORMAL, currentMove.HasProperty(moveProperties.PIERCEDEF));
                 }
                 
 
@@ -248,7 +248,28 @@ public class BattleUnitInflict : MonoBehaviour
     }
     void InflictItem()
     {
-        //inflictType(currentMove, locator.locateObject(targets[0]), 0, 0, 0, true);
+        if (!currentMove.HasProperty(moveProperties.NULL))
+        {
+            if(currentMove.Damage>0)
+                locator.locateObject(targets[0]).GetComponent<BattleUnitHealth>().takeDamage(currentMove.Damage, true, false, bashProperties.NORMAL, currentMove.HasProperty(moveProperties.PIERCEDEF));
+            else
+                locator.locateObject(targets[0]).GetComponent<BattleUnitHealth>().GetComponent<BattleUnitHealth>().Heal(-currentMove.Damage);
+        }
+        for (int i = 0; i < currentMove.MoveEffects.Count; i++)
+        {
+            if (currentMove.MoveEffects[i].Target == statusTarget.INFLICT)
+            {
+                inflictStatus(currentMove.MoveEffects[i], locator.locateObject(targets[0]));
+            }
+            else if (currentMove.MoveEffects[i].Target == statusTarget.SELF)
+            {
+                inflictStatus(currentMove.MoveEffects[i], this.gameObject);
+            }
+            else if (currentMove.MoveEffects[i].Condition == effectCondition.RANDOM)
+            {
+
+            }
+        }
     }
 
     private void OnDisable()

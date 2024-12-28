@@ -44,13 +44,35 @@ public class targetController : MonoBehaviour
     }
     private void Confirm()
     {
-        List<int> selected = new List<int>();
-        for(int i = 0; i < activeTargets.Count; i++)
+        if(activeTargets[0].GetComponent<CardTarget>() == null)
         {
-            selected.Add(activeTargets[i].GetComponent<Target>().position);
+            List<int> selected = new List<int>();
+            for (int i = 0; i < activeTargets.Count; i++)
+            {
+                selected.Add(activeTargets[i].GetComponent<Target>().position);
+            }
+            confirmedTarget(selected);
+            Cancel();
         }
-        confirmedTarget(selected);
-        Cancel();
+        else
+        {
+            CardTarget targetRef = activeTargets[0].GetComponent<CardTarget>();
+            targetRef.selections.Add(targetRef.possiblePositions[targetRef.positionIndex]);
+            if (targetRef.selections.Count < targetRef.numSelections)
+            {
+                targetRef.possiblePositions.RemoveAt(targetRef.positionIndex);
+                targetRef.resetPosition();
+            }
+            else
+            {
+                targetRef.submit();
+
+                List<int> selected = new List<int>();
+                selected.Add(targetRef.user);
+                confirmedTarget(selected);
+                Cancel();
+            }
+        }
         
     }
     private void Cancel()

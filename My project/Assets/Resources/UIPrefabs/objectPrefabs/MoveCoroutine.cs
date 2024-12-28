@@ -55,11 +55,11 @@ public class MoveCoroutine : MonoBehaviour
         {
             objects[i].transform.position = destinations[i];
         }
-        print("set");
+        //print("set");
         
         if (spin.checkSpin())
         {
-            print("spin again");
+            //print("spin again");
             if(left)
                 spin.spin();
             else
@@ -68,10 +68,10 @@ public class MoveCoroutine : MonoBehaviour
         else
         {
             spinComplete(true);
-            print(true);
+            //print(true);
             yield return null;
             spinComplete(false);
-            print("complete");
+            //print("complete");
         }
     }
 }

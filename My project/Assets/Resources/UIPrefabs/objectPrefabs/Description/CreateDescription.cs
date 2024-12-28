@@ -11,13 +11,17 @@ public class CreateDescription : MonoBehaviour
     private void Awake()
     {
         menuMoveHolder.moveData += createNewDescription;
-        targetInput.Confirm += destroyDescription;
+        targetController.confirmedTarget += destroyDescription;
         targetInput.Cancel += destroyDescription;
     }
     void createNewDescription(move currentMove)
     {
         descriptionInstance = Instantiate<GameObject>(Description, GameObject.Find("Canvas").transform);
         descriptionInstance.GetComponentInChildren<TextMeshPro>().text = getText(currentMove);
+    }
+    void destroyDescription(List<int>_)
+    {
+        destroyDescription();
     }
     void destroyDescription()
     {
@@ -49,7 +53,7 @@ public class CreateDescription : MonoBehaviour
     private void OnDisable()
     {
         menuMoveHolder.moveData -= createNewDescription;
-        targetInput.Confirm -= destroyDescription;
+        targetController.confirmedTarget -= destroyDescription;
         targetInput.Cancel -= destroyDescription;
     }
 }

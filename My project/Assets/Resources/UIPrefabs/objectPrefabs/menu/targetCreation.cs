@@ -7,6 +7,7 @@ public class targetCreation : MonoBehaviour
 {
     [SerializeField] GameObject movableTargetPrefab;
     [SerializeField] GameObject unmovableTargetPrefab;
+    [SerializeField] GameObject cardTargetPrefab;
     [SerializeField] ObjectLocator locator;
     [SerializeField] turnManagement turn;
     [SerializeField] DataRecorderItems dataItem;
@@ -25,7 +26,12 @@ public class targetCreation : MonoBehaviour
         move currentMove = currentPlayer.GetComponent<BattleUnitData>().getMoveset()[moveIndex];
         
         List<int> possibleIndex = new List<int>();
-        if (currentMove.HasProperty(targetProperties.SINGLETARGET))
+
+        if (currentMove.HasProperty(targetProperties.CARDS))
+        {
+            createUITarget("CardHolder", currentMove.Selections, currentMove.CardAction);
+        }
+        else if (currentMove.HasProperty(targetProperties.SINGLETARGET))
         {
             if (currentMove.HasProperty(targetProperties.FRONT))
             {
@@ -102,6 +108,7 @@ public class targetCreation : MonoBehaviour
             }
             createMultiTarget(possibleIndex);
         }
+        
         /*
         if(currentMove.moveTargetType == moveTargets.SELF)
         {
@@ -260,27 +267,28 @@ public class targetCreation : MonoBehaviour
         List<int> targetPositions = new List<int>();
         if (currentItem.useOnPlayer)
         {
-            for(int i=0; i<4; i++)
+            for (int i=0; i<locator.getAll(true).Count; i++)
             {
-                if(locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
+                if(locator.getAll(true)[i].GetComponent<BattleUnitHealth>() != null && locator.getAll(true)[i].GetComponent<BattleUnitHealth>().health > 0)
                 {
-                    targetPositions.Add(i);
+                    targetPositions.Add(locator.locateObject(locator.getAll(true)[i]));
                 }
             }
         }
         if (currentItem.useOnEnemy)
         {
-            for (int i = 4; i < 8; i++)
+            for (int i = 0; i < locator.getAll(false).Count; i++)
             {
-                if (locator.locateObject(i).GetComponent<BattleUnitHealth>() != null && locator.locateObject(i).GetComponent<BattleUnitHealth>().health > 0)
+                if (locator.getAll(false)[i].GetComponent<BattleUnitHealth>() != null && locator.getAll(false)[i].GetComponent<BattleUnitHealth>().health > 0)
                 {
-                    targetPositions.Add(i);
+                    targetPositions.Add(locator.locateObject(locator.getAll(false)[i]));
                 }
             }
         }
+        createSingleTarget(currentItem.index, targetPositions[0], targetPositions);
         //createTargets(0, targetPositions[0], targetPositions);
-        GameObject target = GameObject.Find("Targets/Target0");
-        target.transform.position = locator.locateObject(targetPositions[0]).transform.position;
+        //GameObject target = GameObject.Find("Targets/Target0");
+        //target.transform.position = locator.locateObject(targetPositions[0]).transform.position;
         Targeting();
     }
     
@@ -309,6 +317,21 @@ public class targetCreation : MonoBehaviour
             targetRef.transform.position = locator.locateObject(possible[i]).transform.position;
         }
         
+    }
+
+    void createUITarget(string UIName, int numselections, List<CardAction> actions)
+    {
+        print("creating unique target");
+        GameObject targetRef;
+        GameObject ui = GameObject.Find(UIName);
+        print(ui);
+        targetRef = Instantiate<GameObject>(cardTargetPrefab, GameObject.Find("Targets").transform);
+        targetRef.name = "Target0";
+        targetRef.GetComponent<CardTarget>().numSelections = numselections;
+        targetRef.GetComponent<CardTarget>().user = turn.turnNum;
+
+        targetRef.GetComponent<CardTarget>().cardActions = new List<CardAction>();
+        targetRef.GetComponent<CardTarget>().cardActions.AddRange(actions);
     }
 
     private void OnDisable()

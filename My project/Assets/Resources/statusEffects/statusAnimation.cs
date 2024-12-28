@@ -51,7 +51,7 @@ public class statusAnimation : MonoBehaviour
         {
             print("normal status");
             print("damage dealt: " + damage);
-            target.GetComponent<BattleUnitHealth>().takeDamage(damage, true, false, bashProperties.NORMAL);
+            target.GetComponent<BattleUnitHealth>().takeDamage(damage, true, false, bashProperties.NORMAL, true);
             statusDamage.Damage = damage;
             //Inflict(new move(new string[] { }, 0, new int[] { damage }, moveTargets.BOTH, new effect("none", "none"), new int[] { }, targetType.UNMOVABLE, new actionCommand()), target, true, false, 0, 0);
         }

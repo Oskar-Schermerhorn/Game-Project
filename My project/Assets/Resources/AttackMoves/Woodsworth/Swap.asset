@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cost: 0
   Damage: 0
+  Selections: 2
   MoveProperties: 08000000
-  MoveTargets: 000000000300000006000000
+  MoveTargets: 0700000003000000
   EnemyMoveAI: 
+  CardAction: 00000000
   MoveEffects: []
   Action:
     type: 0
@@ -25,3 +27,4 @@ MonoBehaviour:
     minimum: 0
     additional: 0
     maximum: 0
+  Bash: 0

@@ -12,11 +12,11 @@ public class BattleUnitHealth : MonoBehaviour
     public static event Action<GameObject, bool, bool, int> ShowDamage;
     public static event Action<GameObject> PlayHitAnim;
 
-    public void takeDamage(int damage, bool successful, bool parried, bashProperties bash)
+    public void takeDamage(int damage, bool successful, bool parried, bashProperties bash, bool pierceDef)
     {
         
 
-        if (damage > 0)
+        if (damage > 0 && !pierceDef)
         {
             if (this.gameObject.GetComponent<BattleUnitStatus>() != null)
                 damage -= this.gameObject.GetComponent<BattleUnitStatus>().calcDefenseMod();

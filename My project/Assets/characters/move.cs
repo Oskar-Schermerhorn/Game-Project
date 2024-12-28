@@ -10,9 +10,11 @@ public class move
     public AnimationClip animation;
     public int cost;
     public int Damage;
+    public int Selections;
     public List<moveProperties> MoveProperties;
     public List<targetProperties> MoveTargets;
     public List<enemyAIProperties> EnemyMoveAI;
+    public List<CardAction> CardAction;
     public List<effect> MoveEffects;
     public actionCommand action;
     public bashProperties Bash;
@@ -22,9 +24,11 @@ public class move
         Name = prop.name;
         cost = prop.Cost;
         Damage = prop.Damage;
+        Selections = prop.Selections;
         MoveProperties = prop.MoveProperties;
         MoveTargets = prop.MoveTargets;
         EnemyMoveAI = prop.EnemyMoveAI;
+        CardAction = prop.CardAction;
         MoveEffects = prop.MoveEffects;
         action = prop.Action;
         Bash = prop.Bash;

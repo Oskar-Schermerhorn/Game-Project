@@ -27,7 +27,7 @@ public class ActionCommandPropmt : MonoBehaviour
     private void Awake()
     {
         menuMoveHolder.moveData += PrepareMove;
-        targetInput.Confirm += createPrompts;
+        targetController.confirmedTarget += createPrompts;
         targetInput.Cancel += deletePrompts;
         BattleUnitActionCommands.RemovePromptsEarly += deletePrompts;
         BattleUnitInflict.nextActionCommand += showNextPrompt;
@@ -54,7 +54,7 @@ public class ActionCommandPropmt : MonoBehaviour
                 activePrompts[i].transform.position = ButtonPromptLocation - offset ;
         }
     }
-    private void createPrompts()
+    private void createPrompts(List<int>_)
     {
         if(currentMove.action.type != actionCommandType.NONE)
         {
@@ -195,7 +195,7 @@ public class ActionCommandPropmt : MonoBehaviour
     private void OnDisable()
     {
         menuMoveHolder.moveData -= PrepareMove;
-        targetInput.Confirm -= createPrompts;
+        targetController.confirmedTarget -= createPrompts;
         targetInput.Cancel -= deletePrompts;
         BattleUnitActionCommands.RemovePromptsEarly -= deletePrompts;
         BattleUnitInflict.nextActionCommand -= showNextPrompt;

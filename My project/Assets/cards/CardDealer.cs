@@ -84,6 +84,43 @@ public class CardDealer : MonoBehaviour
         return deck;
     } 
 
+    public void editDeck(CardAction action, List<int>cards)
+    {
+        //cards 2 1
+        switch (action)
+        {
+            case CardAction.SWAP:
+                print("good so far :D");
+                List<card> replacedCards = new List<card>();
+                for (int i=0; i< cards.Count; i++)
+                {
+                    replacedCards.Add(dealtCards[cards[i]]);
+                }
+
+                card first = replacedCards[0];
+                replacedCards.RemoveAt(0);
+                replacedCards.Add(first);
+
+                print(replacedCards.Count == cards.Count);
+
+                for (int i = 0; i < cards.Count; i++)
+                {
+                    dealtCards.RemoveAt(cards[i]);
+                    dealtCards.Insert(cards[i], replacedCards[i]);
+                }
+
+                for (int i = 0; i < cards.Count; i++)
+                {
+                    GameObject cardVisual = cardHolder.transform.GetChild(cards[i]).gameObject;
+                    cardVisual.GetComponent<CardDisplay>().setCard(dealtCards[cards[i]]);
+                    cardVisual.GetComponent<Animator>().Play("flipCard", 0, 0);
+                }
+                break;
+            case CardAction.SHUFFLE:
+                break;
+        }
+    }
+
     private void OnDisable()
     {
         turnManagement.CardTurn -= dealCards;

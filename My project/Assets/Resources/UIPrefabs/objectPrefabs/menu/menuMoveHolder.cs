@@ -13,7 +13,6 @@ public class menuMoveHolder : MonoBehaviour
     ObjectLocator locator;
     turnManagement turn;
     DataRecorderItems dataItem;
-    move ItemMove;
     public static event Action<move> moveData;
     private void Awake()
     {
@@ -26,6 +25,7 @@ public class menuMoveHolder : MonoBehaviour
         turn = GameObject.Find("BattleHandler").GetComponent<turnManagement>();
         locator = GameObject.Find("BattleHandler").GetComponent<ObjectLocator>();
         dataItem = GameObject.Find("DataRecorder").GetComponent<DataRecorderItems>();
+        
     }
     public void setPlayer()
     {
@@ -62,20 +62,35 @@ public class menuMoveHolder : MonoBehaviour
     {
         currentItem = dataItem.getItem(dataItem.items[index]);
         int damage = 0;
-        currentMove = ItemMove;
+        currentMove = new move(new moveProperty());
+        
+        currentMove.Name = "UseItem";
         if (currentItem.hpRestore != 0)
         {
             damage = currentItem.hpRestore * -1;
+            currentMove.MoveProperties.Add(moveProperties.SINGLEHIT);
+            if (damage > 0)
+            {
+                currentMove.MoveProperties.Add(moveProperties.FIXEDDAMAGE);
+                currentMove.MoveProperties.Add(moveProperties.PIERCEDEF);
+            }
+            else
+            {
+                currentMove.MoveProperties.Add(moveProperties.HEAL);
+            }
+            
         }
         else
         {
             currentMove.MoveProperties.Add(moveProperties.NULL);
         }
+        currentMove.MoveTargets.Add(targetProperties.SINGLETARGET);
 
         
         currentMove.cost = currentItem.bpRestore * -1;
         currentMove.Damage = damage;
-        currentMove.MoveEffects.Add(new effect(currentItem.effect, statusTarget.INFLICT, effectCondition.ALWAYS));
+        if(currentItem.effect.effectName != "none")
+            currentMove.MoveEffects.Add(new effect(currentItem.effect, statusTarget.INFLICT, effectCondition.ALWAYS));
         moveName = currentMove.Name;
         moveIndex = index;
         moveData(currentMove);

@@ -13,7 +13,7 @@ public class ABBar : MonoBehaviour
         if(this.transform.parent.parent.gameObject.GetComponent<BashHandler>() != null)
             enemy = this.transform.parent.parent.gameObject.GetComponent<BashHandler>();
         turnManagement.PlayerTurn += show;
-        targetInput.Confirm += hide;
+        targetController.confirmedTarget += hide;
         segments = new List<GameObject>();
         setSize();
     }
@@ -51,12 +51,17 @@ public class ABBar : MonoBehaviour
 
         if (updateValue())
         {
-            print("showing hp bar");
+            //print("showing hp bar");
             for (int i = 0; i < GetComponentsInChildren<Image>().Length; i++)
             {
                 GetComponentsInChildren<Image>()[i].enabled = true;
             }
         }
+    }
+
+    public void hide(List<int> _)
+    {
+        hide();
     }
     public void hide()
     {
@@ -68,6 +73,6 @@ public class ABBar : MonoBehaviour
     private void OnDisable()
     {
         turnManagement.PlayerTurn -= show;
-        targetInput.Confirm -= hide;
+        targetController.confirmedTarget -= hide;
     }
 }

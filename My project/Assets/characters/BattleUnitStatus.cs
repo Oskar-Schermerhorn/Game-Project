@@ -74,7 +74,7 @@ public class BattleUnitStatus : MonoBehaviour
             switch (status.type)
             {
                 case statusType.DAMAGE:
-                    this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(status.amount, false, false, bashProperties.NORMAL);
+                    this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(status.amount, false, false, bashProperties.NORMAL, true);
                     break;
                 case statusType.HEAL:
                     print("healing");
@@ -166,7 +166,7 @@ public class BattleUnitStatus : MonoBehaviour
                     if (GetComponentsInChildren<statusIcon>()[i].status == LibraryStatus.statusDictionary["poison"])
                         poisonTurns = GetComponentsInChildren<statusIcon>()[i].poisonTurns;
                 }
-                this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(myStatus[which].amount + poisonTurns, false, false, bashProperties.NORMAL);
+                this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(myStatus[which].amount + poisonTurns, false, false, bashProperties.NORMAL, true);
                 myStatus[which].animate(this.transform, 1);
                 break;
             case ("shock"):
@@ -248,7 +248,7 @@ public class BattleUnitStatus : MonoBehaviour
     }
     protected void flareDamage()
     {
-        this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(LibraryStatus.statusDictionary["flare"].amount, false, false, bashProperties.NORMAL);
+        this.gameObject.GetComponent<BattleUnitHealth>().takeDamage(LibraryStatus.statusDictionary["flare"].amount, false, false, bashProperties.NORMAL, true);
     }
     public int calcDamageMod()
     {
@@ -258,7 +258,8 @@ public class BattleUnitStatus : MonoBehaviour
             if(myStatus[i].type == statusType.DAMAGEMOD)
             {
                 damageModifier += myStatus[i].amount;
-                if (transform.Find("StatusIcon(" + myStatus[i].effectName+")").GetComponent<statusIcon>().statusDuration >= 5)
+                if (myStatus[i].duration >= 5)
+                    //transform.Find("StatusIcon(" + myStatus[i].effectName+")").GetComponent<statusIcon>().statusDuration >= 5)
                 {
                     damageModifier += myStatus[i].additional;
                 }
@@ -274,7 +275,8 @@ public class BattleUnitStatus : MonoBehaviour
             if (myStatus[i].type == statusType.DEFENSEMOD)
             {
                 defenseModifier += myStatus[i].amount;
-                if (transform.Find("StatusIcon(" + myStatus[i].effectName + ")").GetComponent<statusIcon>().statusDuration >= 5)
+                if (myStatus[i].duration >= 5)
+                    //transform.Find("StatusIcon(" + myStatus[i].effectName + ")").GetComponent<statusIcon>().statusDuration >= 5)
                 {
                     defenseModifier += myStatus[i].additional;
                 }

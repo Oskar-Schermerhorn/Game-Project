@@ -3196,6 +3196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movableTargetPrefab: {fileID: 4581636145075856340, guid: 529b131e6408101478ee4aa04bf26108, type: 3}
   unmovableTargetPrefab: {fileID: 7458432749667418386, guid: 2557cf82809a4534f86a59dae0d5c895, type: 3}
+  cardTargetPrefab: {fileID: 5393118874105455631, guid: 7fba3d1ff3a8f1942b4477c61b7b54d8, type: 3}
   locator: {fileID: 0}
   turn: {fileID: 0}
   dataItem: {fileID: 0}
@@ -3877,7 +3878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7577246343651706394, guid: 81239548b951eba49a8be8f3ad330444, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.600006
+      value: -12.599976
       objectReference: {fileID: 0}
     - target: {fileID: 7577246343651706394, guid: 81239548b951eba49a8be8f3ad330444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

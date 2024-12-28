@@ -16,7 +16,7 @@ public class healthBar : MonoBehaviour
         //position = int.Parse(this.transform.parent.name.Substring("Position".Length));
         //targetCreation.Targeting += show;
         turnManagement.PlayerTurn += show;
-        targetInput.Confirm += hide;
+        targetController.confirmedTarget += hide;
         //targetInput.Cancel += hide;
     }
     private bool updateValue()
@@ -38,12 +38,16 @@ public class healthBar : MonoBehaviour
        
         if (updateValue())
         {
-            print("showing hp bar");
+            //print("showing hp bar");
             for (int i = 0; i < GetComponentsInChildren<Image>().Length; i++)
             {
                 GetComponentsInChildren<Image>()[i].enabled = true;
             }
         }
+    }
+    public void hide(List<int> _)
+    {
+        hide();
     }
     public void hide()
     {
@@ -56,7 +60,7 @@ public class healthBar : MonoBehaviour
     {
         //targetCreation.Targeting -= show;
         turnManagement.PlayerTurn -= show;
-        targetInput.Confirm -= hide;
+        targetController.confirmedTarget -= hide;
         //targetInput.Cancel -= hide;
     }
 }
