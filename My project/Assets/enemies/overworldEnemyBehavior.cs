@@ -6,7 +6,7 @@ public class overworldEnemyBehavior : MonoBehaviour
 {
     public enum behavior { STAND, ATTACK, PATROL, JUMP, LUNGE, RETURN };
     [SerializeField] private behavior enemyBehavior;
-    [SerializeField] public behavior currentBehavior { get; private set; }
+    [field: SerializeField] public behavior currentBehavior { get; private set; }
     private GameObject player;
     [SerializeField] private float attentionDistance;
     [SerializeField] private float detectRange;
@@ -14,7 +14,7 @@ public class overworldEnemyBehavior : MonoBehaviour
     [SerializeField] private bool activeBehavior;
     [SerializeField] private bool detected;
     overworldEnemyAnimate anim;
-    [SerializeField] public Vector3 originalPos { get; private set; }
+    [field: SerializeField] public Vector3 originalPos { get; private set; }
     Rigidbody2D rb;
     public ContactFilter2D movementFilter;
     public List<RaycastHit2D> castCollisions { get; private set; } = new List<RaycastHit2D>();
@@ -70,9 +70,9 @@ public class overworldEnemyBehavior : MonoBehaviour
                         && Vector2.Distance(this.transform.position, originalPos) < attentionDistance)
                     {
                         detected = true;
-                        rb.velocity = speed * (new Vector2(player.transform.position.x, player.transform.position.y) 
+                        rb.linearVelocity = speed * (new Vector2(player.transform.position.x, player.transform.position.y) 
                             -new Vector2(this.transform.position.x, this.transform.position.y)).normalized;
-                        anim.changeAnimation(rb.velocity.normalized);
+                        anim.changeAnimation(rb.linearVelocity.normalized);
                         rb.position = new Vector2(Mathf.RoundToInt(rb.position.x * 64) / 64f, Mathf.RoundToInt(rb.position.y * 64) / 64f);
                     }
                     else if(detected)
@@ -112,12 +112,12 @@ public class overworldEnemyBehavior : MonoBehaviour
             yield return null;
             while(Vector2.Distance(rb.position, line.GetPosition(i+1) + originalPos) > 0.1f)
             {
-                rb.velocity = (line.GetPosition(i + 1) - line.GetPosition(i)).normalized * PathSpeed;
-                anim.changeAnimation(rb.velocity.normalized);
+                rb.linearVelocity = (line.GetPosition(i + 1) - line.GetPosition(i)).normalized * PathSpeed;
+                anim.changeAnimation(rb.linearVelocity.normalized);
                 yield return null;
             }
         }
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         anim.changeAnimation(Vector2.zero);
         if (currentBehavior == behavior.JUMP)
         {
@@ -141,7 +141,7 @@ public class overworldEnemyBehavior : MonoBehaviour
     }
     IEnumerator stopPersuit()
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         anim.changeAnimation(Vector2.zero);
         yield return new WaitForSeconds(0.5f);
         //print("returning");
@@ -150,8 +150,8 @@ public class overworldEnemyBehavior : MonoBehaviour
         {
             if (allowMovement((originalPos - this.transform.position).normalized))
             {
-                rb.velocity = speed * (originalPos - this.transform.position).normalized;
-                anim.changeAnimation(rb.velocity.normalized);
+                rb.linearVelocity = speed * (originalPos - this.transform.position).normalized;
+                anim.changeAnimation(rb.linearVelocity.normalized);
                 rb.position = new Vector2(Mathf.RoundToInt(rb.position.x * 64) / 64f, Mathf.RoundToInt(rb.position.y * 64) / 64f);
             }
             else
@@ -160,7 +160,7 @@ public class overworldEnemyBehavior : MonoBehaviour
             }
             yield return null;
         }
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         anim.changeAnimation(Vector2.zero);
         currentBehavior = enemyBehavior;
         detected = false;

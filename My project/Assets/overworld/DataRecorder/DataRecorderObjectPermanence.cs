@@ -6,7 +6,7 @@ public class DataRecorderObjectPermanence : MonoBehaviour
 {
     [SerializeField] Vector2 savedPosition;
     [SerializeField] GameObject currentRoom;
-    [SerializeField] public string currentRoomName { get; private set; }
+    [field: SerializeField] public string currentRoomName { get; private set; }
     public List<enemyLocationInformation> enemyPositions { get; private set; } = new List<enemyLocationInformation>();
     public class enemyLocationInformation
     {

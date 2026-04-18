@@ -51,7 +51,7 @@ TextureImporter:
       213: 2411539849419896171
     second: TreeSpecial1_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -68,10 +68,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -110,8 +112,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -121,9 +125,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -133,6 +138,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -149,6 +168,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -170,6 +190,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -191,6 +212,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -212,6 +234,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -233,6 +256,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -254,6 +278,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -275,6 +300,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -296,6 +322,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -317,6 +344,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -338,6 +366,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -359,6 +388,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -380,6 +410,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -401,6 +432,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -422,6 +454,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -443,6 +476,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -464,6 +498,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.1822917, y: 0.1066667}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -475,6 +510,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -484,9 +520,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TreeSpecial1_0: 6048929673920772999
+      TreeSpecial1_1: 7664020492290111039
+      TreeSpecial1_10: -6516334886953415560
+      TreeSpecial1_11: 353100756825528804
+      TreeSpecial1_12: 4565198463302660796
+      TreeSpecial1_13: 1809993213898260737
+      TreeSpecial1_14: -8675439391064606528
+      TreeSpecial1_15: 2411539849419896171
+      TreeSpecial1_2: 2731745408335190822
+      TreeSpecial1_3: -299755157676935325
+      TreeSpecial1_4: 2439547205900229856
+      TreeSpecial1_5: 1516236674169788671
+      TreeSpecial1_6: 6622299690659507213
+      TreeSpecial1_7: 8501362367074892874
+      TreeSpecial1_8: -464641755435671996
+      TreeSpecial1_9: -6626156293635909859
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

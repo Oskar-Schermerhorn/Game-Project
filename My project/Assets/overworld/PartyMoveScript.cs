@@ -33,10 +33,10 @@ public class PartyMoveScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (follow.velocity != Vector2.zero)
-            movements.Enqueue(new movementData(follow.velocity, follow.gameObject.transform.position));
+        if (follow.linearVelocity != Vector2.zero)
+            movements.Enqueue(new movementData(follow.linearVelocity, follow.gameObject.transform.position));
         else
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         if (movements.Count >= 10)
             move();
         updateAnimation();
@@ -50,10 +50,10 @@ public class PartyMoveScript : MonoBehaviour
     }
     void move()
     {
-        if(follow.velocity != Vector2.zero)
+        if(follow.linearVelocity != Vector2.zero)
         {
             movementData nextMove = movements.Dequeue();
-            rb.velocity = nextMove.vel;
+            rb.linearVelocity = nextMove.vel;
             rb.position = nextMove.pos;
             rb.position = new Vector2(Mathf.RoundToInt(rb.position.x * 64) / 64f, Mathf.RoundToInt(rb.position.y * 64) / 64f);
         }
@@ -75,22 +75,22 @@ public class PartyMoveScript : MonoBehaviour
         const string up = "Up";
         const string down = "Down";
         string state = "";
-        if (rb.velocity.x > 0.5)
+        if (rb.linearVelocity.x > 0.5)
         {
             state = right;
             
         }
-        else if (rb.velocity.x < -0.5)
+        else if (rb.linearVelocity.x < -0.5)
         {
             state = left;
             GetComponent<SpriteRenderer>().sortingOrder = follow.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
         }
-        else if (rb.velocity.y > 0.5)
+        else if (rb.linearVelocity.y > 0.5)
         {
             state = up;
             GetComponent<SpriteRenderer>().sortingOrder = follow.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
-        else if (rb.velocity.y < -0.5)
+        else if (rb.linearVelocity.y < -0.5)
         {
             state = down;
             GetComponent<SpriteRenderer>().sortingOrder = follow.gameObject.GetComponent<SpriteRenderer>().sortingOrder -1;

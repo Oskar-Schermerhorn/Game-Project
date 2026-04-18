@@ -21,7 +21,7 @@ public class menuExecute : MonoBehaviour
     public static event Action Options;
     [SerializeField] Color red;
     [SerializeField]bool isItem = false;
-    [SerializeField] public int numSpins { get; private set; } = 0;
+    [field: SerializeField] public int numSpins { get; private set; } = 0;
     public bool left = true;
     public bool manual = false;
     public int spinCost = 1;

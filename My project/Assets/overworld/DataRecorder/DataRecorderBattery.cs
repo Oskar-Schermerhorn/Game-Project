@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataRecorderBattery : MonoBehaviour
 {
-    [SerializeField] public int bp { get; private set; } = 3;
+    [field: SerializeField] public int bp { get; private set; } = 3;
     [SerializeField] private int maxBp = 3;
     DataRecorderMods dataMods;
     [SerializeField] int modifier;

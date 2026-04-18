@@ -55,7 +55,15 @@ public class BattleUnitInflict : MonoBehaviour
         }
         targets = selectedTargets;
         counter = 0;
-        baseAttack = this.gameObject.GetComponent<BattleUnitStat>().Attack;
+        if(this.gameObject.GetComponent<BattleUnitStat>() != null)
+        {
+            baseAttack = this.gameObject.GetComponent<BattleUnitStat>().Attack;
+        }
+        else
+        {
+            print("base attack not found " + this.gameObject.name);
+            baseAttack = 1;
+        }
         damageModifier = status.calcDamageMod();
         if (currentMove.HasProperty(moveProperties.USEBASEATTACK))
         {

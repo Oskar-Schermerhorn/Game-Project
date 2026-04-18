@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beceeb1995fff6d4f8f5e55fe4804f7a, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: Assembly-CSharp::moveProperty
+  Cost: 0
+  Damage: 0
+  Selections: 1
+  MoveProperties: 0000000003000000
+  MoveTargets: 000000000300000006000000
+  EnemyMoveAI: 
+  CardAction: 
+  MoveEffects: []
+  Action:
+    type: 8
+    buttons: 
+    time: 0
+    minimum: 0
+    additional: 0
+    maximum: 0
+  Bash: 0

@@ -42,7 +42,7 @@ TextureImporter:
       213: -6954996344310071902
     second: ForestBossEat_12
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -59,10 +59,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,8 +103,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -112,9 +116,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -124,6 +129,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -140,6 +159,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -161,6 +181,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -182,6 +203,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -203,6 +225,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -224,6 +247,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -245,6 +269,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -266,6 +291,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -287,6 +313,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -308,6 +335,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -329,6 +357,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -350,6 +379,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -371,6 +401,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -392,6 +423,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.659375, y: 0.2944444}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -403,6 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -412,9 +445,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ForestBossEat_0: 1039492329638314753
+      ForestBossEat_1: -842852741738142302
+      ForestBossEat_10: 737546119658956725
+      ForestBossEat_11: 4893565579507094400
+      ForestBossEat_12: -6954996344310071902
+      ForestBossEat_2: 8174254465664640744
+      ForestBossEat_3: -111962224484970831
+      ForestBossEat_4: -1482072877196945685
+      ForestBossEat_5: 6532224304036916980
+      ForestBossEat_6: 7139628337641859301
+      ForestBossEat_7: -5616494694887030256
+      ForestBossEat_8: -961554344206571969
+      ForestBossEat_9: -8659908567395497974
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

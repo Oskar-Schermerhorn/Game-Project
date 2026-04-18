@@ -82,16 +82,16 @@ public class MoveScript : MonoBehaviour
         int count = rb.Cast(direction, movementFilter, castCollisions, speed * Time.deltaTime + collisionOffset);
         if(count > 0)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             return false;
         }
         return true;
     }
     public void move(Vector2 MoveDirection)
     {
-        rb.velocity = MoveDirection * speed;
+        rb.linearVelocity = MoveDirection * speed;
         rb.position = new Vector2(Mathf.RoundToInt(rb.position.x * 64) / 64f, Mathf.RoundToInt(rb.position.y * 64) / 64f);
-        Moving(MoveDirection, rb.velocity);
+        Moving(MoveDirection, rb.linearVelocity);
 
     }
     public void EnableControl()

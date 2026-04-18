@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    [SerializeField]public string currentState { get; private set; }
+    [field: SerializeField] public string currentState { get; private set; }
     Animator anim;
     private void Awake()
     {

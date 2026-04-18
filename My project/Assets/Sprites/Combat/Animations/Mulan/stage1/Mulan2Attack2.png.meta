@@ -39,7 +39,7 @@ TextureImporter:
       213: -8676840815181451863
     second: Mulan2Attack2_11
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -56,10 +56,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -98,8 +100,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -109,9 +113,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -121,6 +126,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -137,6 +156,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -158,6 +178,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -179,6 +200,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -200,6 +222,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -221,6 +244,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -242,6 +266,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -263,6 +288,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -284,6 +310,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -305,6 +332,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -326,6 +354,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -347,6 +376,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -368,6 +398,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.3613861, y: 0.1770833}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -379,6 +410,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -388,9 +420,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mulan2Attack2_0: 5193656605902783232
+      Mulan2Attack2_1: -7816561541934806769
+      Mulan2Attack2_10: -4311719204381513085
+      Mulan2Attack2_11: -8676840815181451863
+      Mulan2Attack2_2: -3410005896811456616
+      Mulan2Attack2_3: 1567248447272419376
+      Mulan2Attack2_4: 314553765343675864
+      Mulan2Attack2_5: -5928714928984568115
+      Mulan2Attack2_6: 2691884450023126633
+      Mulan2Attack2_7: 3730044503725755244
+      Mulan2Attack2_8: 8465483264114679611
+      Mulan2Attack2_9: 3767195822388459295
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
