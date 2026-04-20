@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "battleInputs",
     "maps": [
         {
@@ -11,15 +12,17 @@
                     "id": "e51c19d0-22ca-4ea5-bc36-5894cd0a7cce",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Select",
                     "type": "Button",
                     "id": "7ba3c17c-89c0-4331-ab8c-fc8e04902f91",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Back",
@@ -27,7 +30,8 @@
                     "id": "a0a5a239-a936-4a5a-a4d8-8eda01ac2a1a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Swap",
@@ -35,7 +39,8 @@
                     "id": "901d4e41-1f05-4dff-a86d-acdad6c891cc",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "UndoSwap",
@@ -43,7 +48,8 @@
                     "id": "4af28011-f23d-42dd-a724-633d774c45a0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "A",
@@ -51,7 +57,8 @@
                     "id": "480ed432-ac9e-43eb-875e-54f0a715c29f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "B",
@@ -59,7 +66,8 @@
                     "id": "8ec36a43-df1e-456a-82c2-c52eaf4bb7b5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Direction",
@@ -67,7 +75,8 @@
                     "id": "6a725c17-81c9-4068-86f4-4523c3162920",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -301,9 +310,10 @@
                     "name": "L",
                     "type": "Button",
                     "id": "1745a2bd-f83e-4179-a2db-bb9c9d3e4319",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "R",
@@ -311,7 +321,8 @@
                     "id": "b6faf954-5885-4ba8-96a0-78d33de0ea17",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "A",
@@ -319,7 +330,8 @@
                     "id": "e3e62543-cc42-4b11-9d0f-4fbeebab8944",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "B",
@@ -327,7 +339,8 @@
                     "id": "7b2dcc28-f0c0-45cd-9bdd-fb0125256cb3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Direction",
@@ -335,7 +348,8 @@
                     "id": "56e4951f-6bd7-401e-abcc-65321755f43d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -492,9 +506,10 @@
                     "name": "Navigate",
                     "type": "Button",
                     "id": "3bb2a23f-1648-4b69-a4d8-40e91a4cc742",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Select",
@@ -502,7 +517,8 @@
                     "id": "d4242aa9-2fee-4b98-8910-68e601882b2a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Back",
@@ -510,7 +526,8 @@
                     "id": "fd3981f1-11c5-405c-89e4-ca667ec5ab08",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -687,51 +704,57 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "ef72dcb1-9338-4fa1-9cd2-12ba3deb6908",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Interact",
                     "type": "Button",
                     "id": "9104dcd3-d854-4831-804f-5c0b619c8a34",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Cancel",
                     "type": "Button",
                     "id": "a496e8c9-ca0d-411a-ba39-7e8a25e4f208",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pause",
                     "type": "Button",
                     "id": "ca37ec65-b709-4329-b3bc-082186b92ec6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "NavigateMenu",
                     "type": "Button",
                     "id": "8fc3d1f4-fb63-4dae-b24c-ffd244bcfd73",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "NavigateMenuPages",
                     "type": "Button",
                     "id": "81dcaf81-4122-42fe-8240-c1965a44dd6e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -965,9 +988,10 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "6f90e9f4-613c-4114-a05f-0080016187b1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
@@ -975,7 +999,8 @@
                     "id": "e94a2c35-d448-4401-8b77-826829dc0349",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
