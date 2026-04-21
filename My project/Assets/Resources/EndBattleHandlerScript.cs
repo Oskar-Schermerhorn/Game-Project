@@ -90,6 +90,7 @@ public class EndBattleHandlerScript : MonoBehaviour
     private void endBattle()
     {
         //EndBattle();
+        this.gameObject.GetComponent<turnManagement>().enabled = false;
         print("+" + dataCombat.getEnemies().Count + " coins");
         dataProgress.AquireCoins(dataCombat.getEnemies().Count);
         dataCombat.endCombat();

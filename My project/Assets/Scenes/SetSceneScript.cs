@@ -11,7 +11,7 @@ public class SetSceneScript : MonoBehaviour
         PlayerCollision.RespawnEnemies += Respawn;
         data = GameObject.Find("DataRecorder").GetComponent<DataRecorderCombat>();
         DataRecorderObjectPermanence dataObjects = GameObject.Find("DataRecorder").GetComponent<DataRecorderObjectPermanence>();
-        if (dataObjects.currentRoomName != null && this.gameObject.transform.IsChildOf(GameObject.Find(dataObjects.currentRoomName).transform))
+        if (dataObjects != null && dataObjects.currentRoomName != null && dataObjects.currentRoomName != "" && this.gameObject.transform.IsChildOf(GameObject.Find(dataObjects.currentRoomName).transform))
         {
             StartCoroutine(PlayerPosition(dataObjects));
         }

@@ -53,5 +53,12 @@ public class ActionCommandsScript : MonoBehaviour
     {
         allowAction = true;
     }
-    
+
+    private void OnDisable()
+    {
+        battleControls.Disable();
+        actionCommands.Disable();
+
+    }
+
 }

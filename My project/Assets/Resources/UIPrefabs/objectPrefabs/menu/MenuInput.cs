@@ -57,5 +57,12 @@ public class MenuInput : MonoBehaviour
     private void OnDisable()
     {
         turnManagement.PlayerTurn -= enable;
+        battleControls.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        turnManagement.PlayerTurn -= enable;
+        battleControls.Disable();
     }
 }

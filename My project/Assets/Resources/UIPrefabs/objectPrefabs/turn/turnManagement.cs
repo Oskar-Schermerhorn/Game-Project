@@ -190,8 +190,12 @@ public class turnManagement : MonoBehaviour
     {
         if(done)
         {
-            SpinTurn();
-            print("spin turn");
+            if(SpinTurn != null)
+            {
+                SpinTurn();
+                print("spin turn");
+            }
+            
             if (GameObject.Find("Menu").GetComponent<menuExecute>().manual)
                 {
                     if (locator.locateObject(turnNum).GetComponent<BattleUnitHealth>() == null || locator.locateObject(turnNum).GetComponent<BattleUnitHealth>().health <= 0)
